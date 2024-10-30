@@ -4,10 +4,10 @@ module.exports = {
   environment: process.env.DATABASE_ENV || "development",
   development: {
     username: process.env.DATABASE_USERNAME || "root",
-    password: process.env.DATABASE_PASSWORD || "root",
-    database: process.env.DATABASE_NAME || "core",
+    password: process.env.DATABASE_PASSWORD || "manhvu123",
+    database: process.env.DATABASE_NAME || "tts_blog_management",
     host: process.env.DATABASE_HOST || "localhost",
-    port: process.env.DATABASE_PORT || 3306,
+    port: process.env.DATABASE_PORT || 3308,
     dialect: "mysql",
     dialectOptions: {
       bigNumberStrings: true,

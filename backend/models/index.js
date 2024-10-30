@@ -17,7 +17,13 @@ if (config.use_env_variable) {
     config.database,
     config.username,
     config.password,
-    config
+    {
+      host: config.host,
+      port: config.port,
+      dialect: config.dialect,
+      dialectOptions: config.dialectOptions,
+      logging: false,  // Tắt logging cho Sequelize nếu không cần thiết
+    }
   );
 }
 
@@ -38,6 +44,7 @@ fs.readdirSync(__dirname)
     db[model.name] = model;
   });
 
+// Liên kết các models với nhau nếu có định nghĩa
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
