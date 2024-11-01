@@ -25,12 +25,19 @@ const categoryController = {
       return responseUtils.notFound(res, { message: error.message });
     }
   },
+  // Phương thức xóa category
   delete: async (req, res) => {
     try {
-      await categoryService.deleteCategory(req.params.id);
+      const deletedCategory = await categoryService.deleteCategory(req.params.id);
+      if (!deletedCategory) {
+        // Nếu không tìm thấy danh mục, trả về 404
+        return responseUtils.notFound(res);
+      }
+      // Nếu xóa thành công, trả về 204 No Content
       return responseUtils.noContent(res);
     } catch (error) {
-      return responseUtils.notFound(res, { message: error.message });
+      // Xử lý lỗi
+      return responseUtils.error(res, error.message);
     }
   },
 };

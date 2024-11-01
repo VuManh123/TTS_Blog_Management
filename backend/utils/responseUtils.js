@@ -47,5 +47,9 @@ module.exports = {
       status: 422,
       data: errors
     });
+  },
+
+  noContent: (res) => {
+    return res.status(204).send(); // Trả về mã trạng thái 204 No Content
   }
 };
