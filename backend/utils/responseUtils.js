@@ -8,8 +8,8 @@ module.exports = {
     });
   },
 
-  created: (res, data) => { // Thêm hàm created
-    return res.status(201).send({ // Trả về status 201 cho yêu cầu tạo thành công
+  created: (res, data) => { 
+    return res.status(201).send({ 
       success: true,
       data,
       status: 201,

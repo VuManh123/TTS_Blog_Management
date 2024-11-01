@@ -14,8 +14,11 @@ const router = express.Router({ mergeParams: true });
 // );
 
 const categoryController = require("modules/category/controllers/categoryController");
-const categoryValidation = require("modules/category/validations/categoryValidation"); // Nếu bạn có validations
+const categoryValidation = require("modules/category/validations/categoryValidation"); 
 const languageController = require("modules/language/controllers/languageController");
+const blogValidation = require("modules/blog/validations/blogValidation");
+
+const blogController = require("modules/blog/controllers/blogController");
 
 router.get("/categories", categoryController.getAll);
 router.get("/categories/:id", categoryController.getById);
@@ -28,6 +31,14 @@ router.get("/languages", languageController.getAll);
 router.get("/languages/:id", languageController.getById);
 router.put("/languages/:id", validate([]), languageController.update);
 router.delete("/languages/:id", languageController.delete);
+
+router.post("/blogs", validate(blogValidation.create), blogController.create);
+router.get("/blogs", blogController.getAll);
+router.get("/blogs/:id", blogController.getById);
+router.put("/blogs/:id", validate(blogValidation.update), blogController.update);
+router.delete("/blogs/:id", blogController.delete);
+
+
 
 module.exports = router;
 
