@@ -13,6 +13,18 @@ const router = express.Router({ mergeParams: true });
 // }
 // );
 
+const categoryController = require("modules/category/controllers/categoryController");
+const categoryValidation = require("modules/category/validations/categoryValidation"); // Nếu bạn có validations
+
+router.get("/categories", categoryController.getAll);
+router.get("/categories/:id", categoryController.getById);
+router.post("/categories", validate(categoryValidation.create), categoryController.create);
+router.put("/categories/:id", validate(categoryValidation.update), categoryController.update);
+router.delete("/categories/:id", categoryController.delete);
+
+module.exports = router;
+
+
 router.group("/example", validate([]), (router) => {
   router.get('/', exampleController.exampleRequest)
 })

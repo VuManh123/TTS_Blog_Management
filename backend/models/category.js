@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Category',
+    underscored: true, // Sử dụng tên cột với dấu gạch dưới
   });
   return Category;
 };
