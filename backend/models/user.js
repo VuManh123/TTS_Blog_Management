@@ -22,12 +22,19 @@ module.exports = (sequelize, DataTypes) => {
     avatar_url: DataTypes.STRING,
     bio: DataTypes.TEXT,
     role_id: DataTypes.INTEGER,
-    created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE,
+    created_at: {
+      type: DataTypes.DATE,
+      field: 'created_at', // Tên cột trong DB
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      field: 'updated_at', // Tên cột trong DB
+    },
     active: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'User',
+    timestamps: false,  // Tắt timestamps nếu không sử dụng createdAt/updatedAt mặc định
   });
   return User;
 };
