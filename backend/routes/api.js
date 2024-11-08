@@ -39,9 +39,7 @@ router.put("/blogs/:id", validate(blogValidation.update), blogController.update)
 router.delete("/blogs/:id", blogController.delete);
 
 
-
 module.exports = router;
-
 
 router.group("/example", validate([]), (router) => {
   router.get('/', exampleController.exampleRequest)
