@@ -129,11 +129,12 @@
 
         <ul class="feature-list">
 
+          
+          
           <li *ngFor="let article of articles">
             <div class="card feature-card">
               <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
-                <img [src]="article.image" [alt]="article.title" width="1602" height="903" loading="lazy"
-                  class="img-cover">
+                <img [src]="article.image" [alt]="article.title" width="1602" height="903" loading="lazy" class="img-cover">
               </figure>
           
               <div class="card-content">
@@ -149,26 +150,28 @@
                 </div>
           
                 <h3 class="headline headline-3">
-                  <a [href]="'/blog-detail/' + article.url" class="card-title hover-2">
+                  <a [href]="'/blog-detail/' + article.slug" class="card-title hover-2">
                     {{ article.title }}
                   </a>
                 </h3>
           
                 <div class="card-wrapper">
                   <div class="profile-card">
-                    <img [src]="article.author.profileImage" width="48" height="48" loading="lazy"
-                      [alt]="article.author.name" class="profile-banner">
+                    <img [src]="article.author.profileImage" width="48" height="48" loading="lazy" [alt]="article.author.name"
+                      class="profile-banner">
                     <div>
                       <p class="card-title">{{ article.author.name }}</p>
                       <p class="card-subtitle">{{ article.author.date }}</p>
                     </div>
                   </div>
           
-                  <a [href]="'/blog-detail/' + article.url" class="card-btn">Read more</a>
+                  <a [href]="'/blog-detail/' + article.slug" class="card-btn">Read more</a>
                 </div>
               </div>
             </div>
           </li>
+          
+          
           
 
           <!-- Add -->

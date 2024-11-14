@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -11,24 +10,25 @@ interface Category {
   altText: string;
 }
 
-interface Author {
-  name: string;
-  date: string;
-  profileImage: string;
-}
-
 interface Article {
   title: string;
+  slug: string; 
   readTime: string;
   tags: string[];
-  author: Author;
+  author: {
+    name: string;
+    date: string;
+    profileImage: string;
+  };
   image: string;
 }
+
+
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [IonicModule, CommonModule],  // Thêm CommonModule để sử dụng *ngFor
+  imports: [CommonModule],  
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -55,11 +55,11 @@ export class MainComponent implements OnInit {
     this.http.get<Article[]>('assets/articles.json')
       .subscribe(
         data => {
-          // Thêm trường 'url' vào mỗi bài viết với dấu cách thay bằng dấu gạch ngang
-          this.articles = data.map(article => ({
-            ...article,
-            url: article.title.toLowerCase().replace(/ /g, '-')
-          }));
+          this.articles = data;
+          // Xử lý slug cho mỗi bài viết
+          this.articles.forEach(article => {
+            article.slug = article.title.toLowerCase().replace(/ /g, '-');
+          });
         },
         error => {
           console.error('Error fetching articles', error);
