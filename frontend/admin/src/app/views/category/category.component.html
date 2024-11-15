@@ -1,0 +1,66 @@
+<div class="category-container">
+    <div class="toolbar">
+        <button mat-raised-button color="primary" (click)="addCategory()">
+            <mat-icon>add</mat-icon> Thêm Category
+        </button>
+        <button mat-raised-button color="accent" (click)="exportCategories()">
+            <mat-icon>file_download</mat-icon> Xuất danh sách
+        </button>
+    </div>
+
+    <!-- Search Input -->
+    <div class="custom-search-container">
+        <label for="search">Search:</label>
+        <input id="search" type="text" (keyup)="applyFilter($event)" placeholder="Enter category for searching"
+            class="custom-search-input" />
+    </div>
+
+    <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 category-table">
+            <!-- ID Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let category"> {{ category.name }} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let category"> {{ category.description }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="createdDate">
+                <th mat-header-cell *matHeaderCellDef> Created Date </th>
+                <td mat-cell *matCellDef="let category">
+                    {{ category.createdDate | date: 'dd/MM/yyyy HH:mm:ss' }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="updatedDate">
+                <th mat-header-cell *matHeaderCellDef> Updated Date </th>
+                <td mat-cell *matCellDef="let category">
+                    {{ category.updatedDate | date: 'dd/MM/yyyy HH:mm:ss' }}
+                </td>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let category">
+                    <button mat-icon-button color="primary" (click)="viewCategory(category)">
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" (click)="editCategory(category)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="deleteCategory(category.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
