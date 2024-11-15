@@ -1,8 +1,9 @@
-.category-container {
+.user-container {
     background-color: #fff;
     border-radius: 20px;
     padding: 16px;
     margin-bottom: 30px;
+    height: calc(100vh - 20px); //Xoa khi can
   
     .toolbar {
       display: flex;
