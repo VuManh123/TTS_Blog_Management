@@ -30,6 +30,6 @@ export const appConfig: ApplicationConfig = {
     ),
     importProvidersFrom(SidebarModule, DropdownModule),
     IconSetService,
-    provideAnimations(), provideAnimationsAsync()
+    provideAnimations(), provideAnimationsAsync(), provideAnimationsAsync()
   ]
 };

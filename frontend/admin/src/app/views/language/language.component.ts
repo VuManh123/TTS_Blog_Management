@@ -1,11 +1,27 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { DatePipe } from '@angular/common';
+import { DatePipe, CommonModule } from '@angular/common';
+import { NgFor } from '@angular/common'; // Import NgFor cho *ngFor
+import { FormsModule } from '@angular/forms'; // Import FormsModule cho [(ngModel)]
+import {
+  ButtonDirective,
+  CardBodyComponent,
+  CardComponent,
+  CardHeaderComponent,
+  ColComponent,
+  RowComponent,
+  TableDirective,
+  TextColorDirective,
+} from '@coreui/angular';
+import { IconDirective } from '@coreui/icons-angular';
+import {
+  cilList,
+  cilShieldAlt,
+  cilPlus,
+  cilVerticalAlignBottom,
+  cilZoom,
+  cilPencil,
+  cilTrash
+} from '@coreui/icons';
 
 export interface Language {
   id: number;
@@ -23,61 +39,87 @@ export interface Language {
   standalone: true,
   providers: [DatePipe],
   imports: [
-    DatePipe,
-    MatTableModule,
-    MatButtonModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-  ]
+    IconDirective,
+    TextColorDirective,
+    CardComponent,
+    CardBodyComponent,
+    RowComponent,
+    ColComponent,
+    ButtonDirective,
+    CardHeaderComponent,
+    TableDirective,
+    NgFor,
+    FormsModule,
+    CommonModule
+  ],
 })
 export class LanguageComponent {
-  constructor(private datePipe: DatePipe) {}
-  displayedColumns: string[] = ['id', 'name', 'code', 'region', 'status', 'createdDate', 'actions'];
+  icons = {
+    cilList,
+    cilShieldAlt,
+    cilPlus,
+    cilVerticalAlignBottom,
+    cilZoom,
+    cilPencil,
+    cilTrash,
+  };
+
+  searchQuery: string = '';
+
   languages: Language[] = [
     {
       id: 1,
-      name: 'English',
-      code: 'EN',
-      region: 'Worldwide',
-      status: true,
-      createdDate: new Date('2024-01-15T08:30:00Z')
+  name: 'English',
+  code: 'ENG',
+  region: 'Around World',
+  status: true,
+  createdDate: new Date('2024-02-01')
     },
     {
       id: 2,
-      name: 'Spanish',
-      code: 'ES',
-      region: 'Spain, Latin America',
-      status: true,
-      createdDate: new Date('2024-01-15T08:30:00Z')
-    }
-  ]
-  dataSource = new MatTableDataSource(this.languages);
+  name: 'Spain',
+  code: 'SPA',
+  region: 'Spanish',
+  status: false,
+  createdDate: new Date('2024-02-01')
+    },
+    {
+      id: 3,
+  name: 'Vietnamese',
+  code: 'VN',
+  region: 'Aisa',
+  status: true,
+  createdDate: new Date('2024-02-01')
+    },
+  ];
 
-  addLanguage() {
-    
+  get filteredLanguages(): Language[] {
+    if (!this.searchQuery) return this.languages;
+    const query = this.searchQuery.toLowerCase();
+    return this.languages.filter(
+      (language) =>
+        language.name.toLowerCase().includes(query) ||
+        language.region.toLowerCase().includes(query)
+    );
   }
 
-  editLanguage(language: Language) {
-    
+  onAddLanguage() {
+    console.log('Add language clicked');
   }
 
-  deleteLanguage(id: number) {
-    this.languages = this.languages.filter(cat => cat.id !== id);
-    this.dataSource.data = this.languages;
+  onExportList() {
+    console.log('Export list clicked');
   }
 
-  exportLanguages() {
-    
+  onView(language: Language) {
+    console.log('View language:', language);
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  onEdit(language: Language) {
+    console.log('Edit language:', language);
   }
-  
-  viewLanguage(language: Language) {
-    
-    console.log('Viewing language:', language);
+
+  onDelete(language: Language) {
+    console.log('Delete language:', language);
   }
 }

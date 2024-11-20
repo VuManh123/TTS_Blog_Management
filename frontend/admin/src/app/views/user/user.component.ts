@@ -1,11 +1,27 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { DatePipe } from '@angular/common';
+import { DatePipe, CommonModule } from '@angular/common';
+import { NgFor } from '@angular/common'; // Import NgFor cho *ngFor
+import { FormsModule } from '@angular/forms'; // Import FormsModule cho [(ngModel)]
+import {
+  ButtonDirective,
+  CardBodyComponent,
+  CardComponent,
+  CardHeaderComponent,
+  ColComponent,
+  RowComponent,
+  TableDirective,
+  TextColorDirective,
+} from '@coreui/angular';
+import { IconDirective } from '@coreui/icons-angular';
+import {
+  cilList,
+  cilShieldAlt,
+  cilPlus,
+  cilVerticalAlignBottom,
+  cilZoom,
+  cilPencil,
+  cilTrash
+} from '@coreui/icons';
 
 export interface User {
   id: number;
@@ -13,7 +29,7 @@ export interface User {
   email: String;
   role: String;
   createdDate: Date;
-  status: Boolean
+  status: String
 }
 
 @Component({
@@ -23,51 +39,87 @@ export interface User {
   standalone: true,
   providers: [DatePipe],
   imports: [
-    DatePipe,
-    MatTableModule,
-    MatButtonModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-  ]
+    IconDirective,
+    TextColorDirective,
+    CardComponent,
+    CardBodyComponent,
+    RowComponent,
+    ColComponent,
+    ButtonDirective,
+    CardHeaderComponent,
+    TableDirective,
+    NgFor,
+    FormsModule,
+    CommonModule
+  ],
 })
 export class UserComponent {
-  constructor(private datePipe: DatePipe) {}
-  displayedColumns: string[] = ['id', 'name', 'email', 'role', 'createdDate', 'status', 'actions'];
+  icons = {
+    cilList,
+    cilShieldAlt,
+    cilPlus,
+    cilVerticalAlignBottom,
+    cilZoom,
+    cilPencil,
+    cilTrash,
+  };
+
+  searchQuery: string = '';
+
   users: User[] = [
     {
       id: 1,
-      name: 'Dev Nguyen',
-      email: 'devnguyen@gmail.com',
-      role: 'user',
-      createdDate: new Date('2024-01-15T08:30:00Z'),
-      status: true
+      name: 'Roman Civic',
+      email: 'roman@gmail.com',
+      role: 'Admin',
+      createdDate: new Date('2024-02-01'),
+      status: 'Active',
     },
     {
       id: 2,
-      name: 'Roman Ciel',
-      email: 'romanciel@gmail.com',
-      role: 'admin',
-      createdDate: new Date('2024-01-15T08:30:00Z'),
-      status: true
+      name: 'Hi Local',
+      email: 'local@gmail.com',
+      role: 'User',
+      createdDate: new Date('2024-02-01'),
+      status: 'Inactive',
+    },
+    {
+      id: 3,
+      name: 'Dev Gang',
+      email: 'devgang@gmail.com',
+      role: 'User',
+      createdDate: new Date('2024-02-01'),
+      status: 'Banned',
     }
-  ]
-  dataSource = new MatTableDataSource(this.users);
+  ];
 
-  editUser(user: User) {
+  get filteredUsers(): User[] {
+    if (!this.searchQuery) return this.users;
+    const query = this.searchQuery.toLowerCase();
+    return this.users.filter(
+      (user) =>
+        user.name.toLowerCase().includes(query) ||
+        user.email.toLowerCase().includes(query)
+    );
   }
 
-
-  exportUsers() {
-    // Logic để xuất dữ liệu
+  onAddUser() {
+    console.log('Add user clicked');
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  onExportList() {
+    console.log('Export list clicked');
   }
-  
-  viewUser(user: User) {
-    console.log('Viewing user:', user);
+
+  onView(user: User) {
+    console.log('View user:', user);
+  }
+
+  onEdit(user: User) {
+    console.log('Edit user:', user);
+  }
+
+  onDelete(user: User) {
+    console.log('Delete user:', user);
   }
 }

@@ -1,18 +1,44 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { DatePipe } from '@angular/common';
+import { DatePipe, CommonModule } from '@angular/common';
+import { NgFor } from '@angular/common'; // Import NgFor cho *ngFor
+import { FormsModule } from '@angular/forms'; // Import FormsModule cho [(ngModel)]
+import {
+  ButtonDirective,
+  CardBodyComponent,
+  CardComponent,
+  CardHeaderComponent,
+  ColComponent,
+  RowComponent,
+  TableDirective,
+  TextColorDirective,
+  ModalBodyComponent,
+  ModalComponent,
+  ModalFooterComponent,
+  ModalHeaderComponent,
+  ModalTitleDirective,
+  ModalToggleDirective,
+  ButtonCloseDirective,
+  PopoverDirective,
+  ThemeDirective,
+  TooltipDirective
+} from '@coreui/angular';
+import { IconDirective } from '@coreui/icons-angular';
+import {
+  cilList,
+  cilShieldAlt,
+  cilPlus,
+  cilVerticalAlignBottom,
+  cilZoom,
+  cilPencil,
+  cilTrash,
+} from '@coreui/icons';
 
 export interface Category {
   id: number;
   name: string;
-  description: String;
+  description: string;
   createdDate: Date;
-  updatedDate: Date
+  updatedDate: Date;
 }
 
 @Component({
@@ -22,80 +48,114 @@ export interface Category {
   standalone: true,
   providers: [DatePipe],
   imports: [
-    DatePipe,
-    MatTableModule,
-    MatButtonModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-  ]
+    IconDirective,
+    TextColorDirective,
+    CardComponent,
+    CardBodyComponent,
+    RowComponent,
+    ColComponent,
+    ButtonDirective,
+    CardHeaderComponent,
+    TableDirective,
+    NgFor,
+    FormsModule,
+    CommonModule,
+    ModalBodyComponent,
+    ModalComponent,
+    ModalFooterComponent,
+    ModalHeaderComponent,
+    ModalTitleDirective,
+    ModalToggleDirective,
+    ButtonCloseDirective,
+    PopoverDirective,
+    ThemeDirective,
+    TooltipDirective
+  ],
 })
 export class CategoryComponent {
-  constructor(private datePipe: DatePipe) {}
-  displayedColumns: string[] = ['name', 'description', 'createdDate', 'updatedDate', 'actions'];
+  icons = {
+    cilList,
+    cilShieldAlt,
+    cilPlus,
+    cilVerticalAlignBottom,
+    cilZoom,
+    cilPencil,
+    cilTrash,
+  };
+
+  searchQuery: string = '';
+
   categories: Category[] = [
     {
       id: 1,
-      name: 'Web Development',
-      description: 'Courses related to web development, including front-end and back-end technologies.',
-      createdDate: new Date('2024-01-15T08:30:00Z'),
-      updatedDate: new Date('2024-10-30T10:00:00Z')
+      name: 'Category 1',
+      description: 'This is the first category',
+      createdDate: new Date('2022-01-01'),
+      updatedDate: new Date('2022-01-15'),
     },
     {
       id: 2,
-      name: 'Data Science',
-      description: 'Courses focused on data analysis, machine learning, and artificial intelligence.',
-      createdDate: new Date('2024-02-20T09:00:00Z'),
-      updatedDate: new Date('2024-10-25T09:30:00Z')
+      name: 'Category 2',
+      description: 'This is the second category',
+      createdDate: new Date('2022-02-01'),
+      updatedDate: new Date('2022-02-10'),
     },
     {
       id: 3,
-      name: 'Mobile Development',
-      description: 'Courses for developing mobile applications for Android and iOS platforms.',
-      createdDate: new Date('2024-03-10T11:00:00Z'),
-      updatedDate: new Date('2024-11-01T08:00:00Z')
+      name: 'Category 3',
+      description: 'This is the third category',
+      createdDate: new Date('2022-03-01'),
+      updatedDate: new Date('2022-03-10'),
     },
-    {
-      id: 4,
-      name: 'Cloud Computing',
-      description: 'Courses on cloud infrastructure, services, and deployment practices.',
-      createdDate: new Date('2024-04-05T14:00:00Z'),
-      updatedDate: new Date('2024-10-28T12:00:00Z')
-    },
-    {
-      id: 5,
-      name: 'Cybersecurity',
-      description: 'Courses on security practices, ethical hacking, and network defense techniques.',
-      createdDate: new Date('2024-05-25T16:00:00Z'),
-      updatedDate: new Date('2024-10-20T15:30:00Z')
-    }
-  ]
-  dataSource = new MatTableDataSource(this.categories);
+  ];
 
-  addCategory() {
-    // Logic để thêm category mới
+  get filteredCategories(): Category[] {
+    if (!this.searchQuery) return this.categories;
+    const query = this.searchQuery.toLowerCase();
+    return this.categories.filter(
+      (category) =>
+        category.name.toLowerCase().includes(query) ||
+        category.description.toLowerCase().includes(query)
+    );
   }
 
-  editCategory(category: Category) {
-    // Logic để chỉnh sửa category
+  onAddCategory() {
+    console.log('Add category clicked');
   }
 
-  deleteCategory(id: number) {
-    this.categories = this.categories.filter(cat => cat.id !== id);
-    this.dataSource.data = this.categories;
+  onExportList() {
+    console.log('Export list clicked');
   }
 
-  exportCategories() {
-    // Logic để xuất dữ liệu
+  onView(category: Category) {
+    console.log('View category:', category);
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  onEdit(category: Category) {
+    console.log('Edit category:', category);
   }
-  
-  viewCategory(category: Category) {
-    // Logic để xem chi tiết category
-    console.log('Viewing category:', category);
+
+  onDelete(category: Category) {
+    console.log('Delete category:', category);
+  }
+  // Handle View and Edit
+  public liveInfoVisible = false;
+
+  toggleLiveInfo() {
+    this.liveInfoVisible = !this.liveInfoVisible;
+  }
+
+  handleLiveInfoChange(event: boolean) {
+    this.liveInfoVisible = event;
+  }
+  //Handle delete
+  public liveDeleteVisible = false;
+
+  toggleLiveDelete() {
+    this.liveDeleteVisible = !this.liveDeleteVisible;
+  }
+
+  handleLiveDeleteChange(event: boolean) {
+    this.liveDeleteVisible = event;
   }
 }
