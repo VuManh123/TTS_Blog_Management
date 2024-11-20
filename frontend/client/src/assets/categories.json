@@ -1,21 +1,57 @@
 [
-    {
-      "name": "Sport",
-      "articleCount": 38,
-      "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
-      "altText": "Sport Image"
-    },
-    {
-      "name": "Travel",
-      "articleCount": 63,
-      "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
-      "altText": "Travel Image"
-    },
-    {
-      "name": "Design",
-      "articleCount": 78,
-      "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
-      "altText": "Design Image"
-    }
-  ]
-  
+  {
+    "name": "Sport",
+    "id": 1,
+    "articleCount": 38,
+    "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
+    "slug": "Sport",
+    "created_at": "2024-01-01T00:00:00Z",
+    "updated_at": "2024-01-20T00:00:00Z"
+  },
+  {
+    "name": "Design",
+    "id": 2,
+    "articleCount": 48,
+    "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
+    "slug": "Design",
+    "created_at": "2024-01-01T00:00:00Z",
+    "updated_at": "2024-01-20T00:00:00Z"
+  },
+  {
+    "name": "hehe",
+    "id": 3,
+    "articleCount": 48,
+    "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
+    "slug": "Design",
+    "created_at": "2024-01-01T00:00:00Z",
+    "updated_at": "2024-01-20T00:00:00Z"
+  },
+  {
+    "name": "haha",
+    "id": 4,
+    "articleCount": 48,
+    "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
+    "slug": "Design",
+    "created_at": "2024-01-01T00:00:00Z",
+    "updated_at": "2024-01-20T00:00:00Z"
+  },
+  {
+    "name": "hihi",
+    "id": 5,
+    "articleCount": 48,
+    "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
+    "slug": "Design",
+    "created_at": "2024-01-01T00:00:00Z",
+    "updated_at": "2024-01-20T00:00:00Z"
+  },
+  {
+    "name": "Travel",
+    "id": 6,
+    "articleCount": 68,
+    "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
+    "slug": "Sport",
+    "created_at": "2024-01-01T00:00:00Z",
+    "updated_at": "2024-01-20T00:00:00Z"
+  }
+]
+

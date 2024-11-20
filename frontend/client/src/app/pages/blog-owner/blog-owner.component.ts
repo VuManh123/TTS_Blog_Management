@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-blog-owner',
   standalone: true,
-  imports: [ HeaderOwnerComponent ,FooterComponent, MainComponent, RouterLink],
+  imports: [ HeaderOwnerComponent ,FooterComponent, MainComponent,RouterLink],
   templateUrl: './blog-owner.component.html',
   styleUrl: './blog-owner.component.css'
 })

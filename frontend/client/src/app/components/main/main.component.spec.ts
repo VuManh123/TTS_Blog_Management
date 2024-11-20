@@ -5,6 +5,10 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 interface Category {
   name: string;
+<<<<<<< HEAD
+=======
+  id:number;
+>>>>>>> client
   articleCount: number;
   imageUrl: string;
   altText: string;
@@ -12,6 +16,10 @@ interface Category {
 
 interface Article {
   title: string;
+<<<<<<< HEAD
+=======
+  id :number;
+>>>>>>> client
   slug: string; 
   readTime: string;
   tags: string[];
