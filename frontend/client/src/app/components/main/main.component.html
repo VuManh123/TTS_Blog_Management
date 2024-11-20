@@ -25,8 +25,7 @@
 
             <button class="btn btn-primary">
               <span class="span">Search</span>
-
-              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            
             </button>
 
           </div>
@@ -75,11 +74,11 @@
 
             <div class="btn-group">
               <button class="btn-icon" aria-label="previous" data-slider-prev>
-                <ion-icon name="arrow-back" aria-hidden="true"></ion-icon>
+                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
               </button>
 
               <button class="btn-icon" aria-label="next" data-slider-next>
-                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </button>
             </div>
 
@@ -88,20 +87,18 @@
           <div class="slider" data-slider>
             <ul class="slider-list" data-slider-container>
               <li *ngFor="let category of categories" class="slider-item">
-                <a href="./categories.html" class="slider-card">
+                <a [href]="'./categories/' + category.id" class="slider-card">
                   <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
-                    <img [src]="category.imageUrl" [alt]="category.altText" width="507" height="618" loading="lazy"
-                      class="img-cover">
+                    <img [src]="category.imageUrl" width="507" height="618" loading="lazy" class="img-cover">
                   </figure>
                   <div class="slider-content">
                     <span class="slider-title">{{ category.name }}</span>
-                    <p class="slider-subtitle">{{ category.articleCount }} Articles</p>
                   </div>
                 </a>
               </li>
             </ul>
-
           </div>
+
 
         </div>
 
@@ -129,61 +126,48 @@
 
         <ul class="feature-list">
 
-          
-          
           <li *ngFor="let article of articles">
             <div class="card feature-card">
               <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
-                <img [src]="article.image" [alt]="article.title" width="1602" height="903" loading="lazy" class="img-cover">
+                <img [src]="article.image" [alt]="article.title" width="1602" height="903" loading="lazy"
+                  class="img-cover">
               </figure>
-          
+
               <div class="card-content">
                 <div class="card-wrapper">
-                  <div class="card-tag">
-                    <a href="#" class="span hover-2" *ngFor="let tag of article.tags">{{ '#' + tag }}</a>
-                  </div>
-          
+
                   <div class="wrapper">
-                    <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-                    <span class="span">{{ article.readTime }}</span>
+                    
                   </div>
                 </div>
-          
+
                 <h3 class="headline headline-3">
-                  <a [href]="'/blog-detail/' + article.slug" class="card-title hover-2">
+                  <a [href]="'/blog-detail/' + article.id" class="card-title hover-2">
                     {{ article.title }}
                   </a>
                 </h3>
-          
+
                 <div class="card-wrapper">
                   <div class="profile-card">
-                    <img [src]="article.author.profileImage" width="48" height="48" loading="lazy" [alt]="article.author.name"
-                      class="profile-banner">
+                    <img [src]="article.author.profileImage" width="48" height="48" loading="lazy"
+                      [alt]="article.author.name" class="profile-banner">
                     <div>
                       <p class="card-title">{{ article.author.name }}</p>
                       <p class="card-subtitle">{{ article.author.date }}</p>
                     </div>
                   </div>
-          
-                  <a [href]="'/blog-detail/' + article.slug" class="card-btn">Read more</a>
+
+                  <a [href]="'/blog-detail/' + article.id" class="card-btn">Read more</a>
                 </div>
               </div>
             </div>
           </li>
-          
-          
-          
-
-          <!-- Add -->
 
         </ul>
 
         <a href="#" class="btn btn-secondary">
           <span class="span">Show More Posts</span>
-
-          <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
         </a>
-
       </div>
 
       <img src="./assets/images/shadow-3.svg" width="500" height="1500" loading="lazy" alt="" class="feature-bg">

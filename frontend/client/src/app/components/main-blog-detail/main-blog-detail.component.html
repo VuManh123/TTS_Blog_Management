@@ -1,0 +1,20 @@
+<div class="card aside-card" style="margin-top: 100px;">
+    <h3 class="headline headline-2 aside-title">
+      <span class="span">{{ blog.title }}</span>
+    </h3>
+    <div class="blog-meta">
+      <span class="blog-author">By {{ blog.author.name }}</span> |
+      <span class="blog-date">Posted on {{ blog.created_at | date: 'd MMMM y' }}</span>
+    </div>
+  
+    <!-- Blog Image with Caption -->
+    <div class="image-container">
+      <img [src]="blog.image" alt="{{ blog.title }}" class="blog-image">
+      <p class="image-caption">{{ blog.title }} Illustration</p>
+    </div>
+  
+    <p class="blog-content">
+      {{ blog.content }}
+    </p>
+  </div>
+  

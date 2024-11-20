@@ -32,7 +32,7 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": [
-              "src/assets/scripts/app-main-script.ts"
+             
             ]
           },
           "configurations": {

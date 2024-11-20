@@ -1,175 +1,169 @@
 [
   {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
+    "title": "The Best Travel ",
+    "id": 1,
+    "slug": "best-travel-destinations-2024",
+    "excerpt": "đây là bài viết 1",
     "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
+      "name": "Duy Nguyen",
+      "date": "2024-02-15",
+      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
     },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  },
-  {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
+    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
+    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
+    "created_at": "2024-10-15T10:00:00Z",
+    "updated_at": "2024-10-16T12:00:00Z",
+    "categoryId": 1
+  },{
+    "title": "The Best Travel ",
+    "id": 2,
+    "slug": "best-travel-destinations-2024",
+    "excerpt": "đây là bài viết 2",
     "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
+      "name": "Duy Nguyen",
+      "date": "2024-02-15",
+      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
     },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
+    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
+    "content": " bài 2 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
+    "created_at": "2024-10-15T10:00:00Z",
+    "updated_at": "2024-10-16T12:00:00Z",
+    "categoryId": 1
+  },{
+    "title": "The Best Travel ",
+    "id": 3,
+    "slug": "best-travel-destinations-2024",
+    "excerpt": "đây là bài viết 3",
     "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
+      "name": "Duy Nguyen",
+      "date": "2024-02-15",
+      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
     },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
+    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
+    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
+    "created_at": "2024-10-15T10:00:00Z",
+    "updated_at": "2024-10-16T12:00:00Z",
+    "categoryId": 1
+  },{
+    "title": "The Best Travel ",
+    "id": 4,
+    "slug": "best-travel-destinations-2024",
+    "excerpt": "đây là bài viết 4",
     "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
+      "name": "Duy Nguyen",
+      "date": "2024-02-15",
+      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
     },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
+    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
+    "content": " bài 4 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
+    "created_at": "2024-10-15T10:00:00Z",
+    "updated_at": "2024-10-16T12:00:00Z",
+    "categoryId": 2
+  },{
+    "title": "The Best Travel ",
+    "id": 5,
+    "slug": "best-travel-destinations-2024",
+    "excerpt": "đây là bài viết 1",
     "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
+      "name": "Duy Nguyen",
+      "date": "2024-02-15",
+      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
     },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
+    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
+    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
+    "created_at": "2024-10-15T10:00:00Z",
+    "updated_at": "2024-10-16T12:00:00Z",
+    "categoryId": 2
+  },{
+    "title": "The Best Travel ",
+    "id": 6,
+    "slug": "best-travel-destinations-2024",
+    "excerpt": "đây là bài viết 1",
     "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
+      "name": "Duy Nguyen",
+      "date": "2024-02-15",
+      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
     },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
+    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
+    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
+    "created_at": "2024-10-15T10:00:00Z",
+    "updated_at": "2024-10-16T12:00:00Z",
+    "categoryId": 3
+  },{
+    "title": "The Best Travel ",
+    "id": 7,
+    "slug": "best-travel-destinations-2024",
+    "excerpt": "đây là bài viết 1",
     "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
+      "name": "Duy Nguyen",
+      "date": "2024-02-15",
+      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
     },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
+    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
+    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
+    "created_at": "2024-10-15T10:00:00Z",
+    "updated_at": "2024-10-16T12:00:00Z",
+    "categoryId": 4
+  },{
+    "title": "The Best Travel ",
+    "id": 8,
+    "slug": "best-travel-destinations-2024",
+    "excerpt": "đây là bài viết 1",
     "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
+      "name": "Duy Nguyen",
+      "date": "2024-02-15",
+      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
     },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
+    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
+    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
+    "created_at": "2024-10-15T10:00:00Z",
+    "updated_at": "2024-10-16T12:00:00Z",
+    "categoryId": 1
+  },{
+    "title": "The Best Travel ",
+    "id": 9,
+    "slug": "best-travel-destinations-2024",
+    "excerpt": "đây là bài viết 1",
     "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
+      "name": "Duy Nguyen",
+      "date": "2024-02-15",
+      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
     },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
+    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
+    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
+    "created_at": "2024-10-15T10:00:00Z",
+    "updated_at": "2024-10-16T12:00:00Z",
+    "categoryId": 2
+  },{
+    "title": "The Best Travel ",
+    "id": 10,
+    "slug": "best-travel-destinations-2024",
+    "excerpt": "đây là bài viết 1",
     "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
+      "name": "Duy Nguyen",
+      "date": "2024-02-15",
+      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
     },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
+    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
+    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
+    "created_at": "2024-10-15T10:00:00Z",
+    "updated_at": "2024-10-16T12:00:00Z",
+    "categoryId": 1
+  },{
+    "title": "The Best Travel ",
+    "id": 11,
+    "slug": "best-travel-destinations-2024",
+    "excerpt": "đây là bài viết 1",
     "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
+      "name": "Duy Nguyen",
+      "date": "2024-02-15",
+      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
     },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
-    "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-    },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
-    "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-    },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
-    "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-    },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
-    "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-    },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
-    "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-    },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-  }, {
-    "title": "The Future of AI",
-    "slug": "the-future-of-ai",  
-    "tags": ["AI", "Technology"],
-    "author": {
-      "name": "John Doe",
-      "date": "2024-11-01",
-      "profileImage": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
-    },
-    "image": "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/464741739_3548152168810162_3366458321487520652_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeErSSME1xDF6bi-l6Tw4hG_fmSrKf3dHiF-ZKsp_d0eIbJca2SxYp-dLVqELX8DVhgOe53j2ur4YFZLTQD2vbqf&_nc_ohc=EKI7IDU9j6EQ7kNvgFZCYcJ&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=Am1z7EC3uDMYAyIX4020TdJ&oh=00_AYDIs1Myma4Sm-Cy382xeenk-kew6U6-snxb_bPO7vto9g&oe=673C2AA8"
+    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
+    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
+    "created_at": "2024-10-15T10:00:00Z",
+    "updated_at": "2024-10-16T12:00:00Z",
+    "categoryId": 1
   }
   
 ]
