@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild  } from '@angular/core';
 import { DatePipe, CommonModule } from '@angular/common';
 import { NgFor } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -7,6 +7,7 @@ import { FormDirective, FormLabelDirective, FormControlDirective } from '@coreui
 import { IconDirective } from '@coreui/icons-angular';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
+import {ToastersComponent} from 'src/app/views/notifications/toasters/toasters.component'
 import {
   cilList,
   cilShieldAlt,
@@ -33,11 +34,12 @@ export interface Category {
   standalone: true,
   providers: [DatePipe],
   imports: [
-    FormDirective, FormLabelDirective, FormControlDirective,IconDirective, ReactiveFormsModule,TextColorDirective,CardComponent,CardBodyComponent,RowComponent,ColComponent,ButtonDirective,CardHeaderComponent,
+    ToastersComponent, FormDirective, FormLabelDirective, FormControlDirective,IconDirective, ReactiveFormsModule,TextColorDirective,CardComponent,CardBodyComponent,RowComponent,ColComponent,ButtonDirective,CardHeaderComponent,
     TableDirective,NgFor,FormsModule,CommonModule,ModalBodyComponent,ModalComponent,ModalFooterComponent,ModalHeaderComponent,ModalTitleDirective,ModalToggleDirective,ButtonCloseDirective,PopoverDirective,ThemeDirective,TooltipDirective
   ],
 })
 export class CategoryComponent {
+  @ViewChild(ToastersComponent) toastComponent!: ToastersComponent;
   icons = {
     cilList,
     cilShieldAlt,
@@ -110,8 +112,7 @@ export class CategoryComponent {
   onFileSelected(event: any): void {
     const file = event.target.files[0];
     if (file) {
-      this.selectedFile = file;
-      
+      this.selectedFile = file; 
       // Lưu tên file và tạo đường dẫn tương đối
       this.newCategory.image = `assets/images/${file.name}`;
     }
@@ -120,7 +121,7 @@ export class CategoryComponent {
   // Hàm thêm danh mục mới
   addNewCategory(): void {
     if (!this.newCategory.name || !this.newCategory.description || !this.newCategory.image) {
-      alert('Please fill out all fields and select an image.');
+      this.toastComponent.addToastWithParams('Error', 'You must fill all of infomations', 'danger', 'top-end', true);
       return;
     }
 
@@ -141,14 +142,38 @@ export class CategoryComponent {
   }
 
   onEdit(category: Category) {
-    console.log('Edit category:', category);
+    if (!this.newCategory.image) {
+      this.newCategory.image = this.selectedCategory?.image || '';
+    }
+    if (!this.newCategory.name) {
+      this.newCategory.name = this.selectedCategory?.name || '';
+    }
+    if (!this.newCategory.description) {
+      this.newCategory.description = this.selectedCategory?.description || '';
+    }
+
+    // Tạo dữ liệu danh mục mới
+    const editedCategoryData = {
+      ...this.originalCategory, // Giữ lại giá trị ban đầu
+      ...this.newCategory, // Ghi đè các giá trị đã thay đổi
+      updatedDate: new Date(),
+    };
+
+    console.log('Edit Category:', editedCategoryData);
+    // Thực hiện logic thêm vào danh sách hoặc gọi API
+
+    // Reset form sau khi thêm
+    this.newCategory = { name: '', description: '', image: '' };
+    this.selectedFile = null;
+    this.closeEditModal();
   }
 
   onDelete(category: Category) {
     console.log('Delete category:', category);
   }
 
-  selectedCategory: any = null;
+  selectedCategory: Category | null = null;
+  originalCategory: Category | null = null;  // Lưu dữ liệu ban đầu
   viewModalVisible = false;
   editModalVisible = false;
   liveDeleteVisible = false;
@@ -173,6 +198,7 @@ export class CategoryComponent {
   // Modal edit
   editCategory(category: any): void {
     this.selectedCategory = category;
+    this.originalCategory = category;
     this.editModalVisible = true;
   }
   closeEditModal(): void {

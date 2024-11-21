@@ -18,42 +18,26 @@
               <c-modal-body>
                 <div class="mb-3">
                   <label cLabel for="formFile">Image</label>
-                  <input 
-                    cFormControl 
-                    id="formFile" 
-                    type="file" 
-                    accept="image/*" 
-                    (change)="onFileSelected($event)" />
+                  <input cFormControl id="formFile" type="file" accept="image/*" (change)="onFileSelected($event)" />
                 </div>
                 <div class="mb-3">
                   <label cLabel for="name">Category Name</label>
-                  <input 
-                    cFormControl 
-                    id="name" 
-                    type="text" 
-                    [(ngModel)]="newCategory.name" />
+                  <input cFormControl id="name" type="text" [(ngModel)]="newCategory.name" />
                 </div>
                 <div class="mb-3">
                   <label cLabel for="description">Description</label>
-                  <textarea 
-                    cFormControl 
-                    id="description" 
-                    rows="3" 
-                    [(ngModel)]="newCategory.description">
+                  <textarea cFormControl id="description" rows="3" [(ngModel)]="newCategory.description">
                   </textarea>
                 </div>
               </c-modal-body>
               <c-modal-footer>
                 <button (click)="closeAddModal()" cButton color="primary">Close</button>
-                <button 
-                  cButton 
-                  color="secondary" 
-                  (click)="addNewCategory()">
+                <button cButton color="secondary" (click)="addNewCategory()">
                   Add Category
                 </button>
               </c-modal-footer>
             </c-modal>
-            
+
 
             <button cButton color="primary" variant="outline" (click)="toggleLiveExport()">
               <svg [cIcon]="icons.cilVerticalAlignBottom" class="me-2"></svg>Export List
@@ -153,16 +137,16 @@
                     <c-modal-body>
                       <div class="mb-3">
                         <label cLabel for="formFile">Image</label>
-                        <input cFormControl id="formFile" type="file" />
+                        <input cFormControl id="formFile" type="file" value="selectedCategory?.image" accept="image/*" (change)="onFileSelected($event)"/>
                       </div>
                       <div class="mb-3">
                         <label cLabel for="name">Category Name</label>
-                        <input cFormControl id="name" type="text" [value]="selectedCategory?.name" />
+                        <input cFormControl id="name" type="text" [value]="selectedCategory?.name" [(ngModel)]="newCategory.name"/>
                       </div>
                       <div class="mb-3">
                         <label cLabel for="description">Description</label>
                         <textarea cFormControl id="description" rows="3"
-                          [value]="selectedCategory?.description"></textarea>
+                          [value]="selectedCategory?.description" [(ngModel)]="newCategory.description"></textarea>
                       </div>
                     </c-modal-body>
                     <c-modal-footer>
@@ -199,3 +183,5 @@
     </c-card>
   </c-col>
 </c-row>
+
+<app-toasters #toastComponent></app-toasters>
