@@ -27,7 +27,7 @@ exports.login = async (req, res) => {
 };
 
 exports.register = async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, email, first_name, last_name, avatar_url } = req.body;
   const hashedPassword = bcrypt.hashSync(password, 10);
 
   try {
@@ -36,12 +36,23 @@ exports.register = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ message: "Username đã tồn tại" });
     }
+    if (!email) {
+      return res.status(400).json({ message: "Email là bắt buộc" });
+    }
+
+    // Kiểm tra nếu thiếu firstname, lastname
+    if (!first_name || !last_name) {
+      return res.status(400).json({ message: "Firstname và Lastname là bắt buộc" });
+    }
 
     // Tạo user mới trong database
     const newUser = await User.create({
       username,
       password: hashedPassword,
-      // Thêm các trường khác nếu cần
+      email,
+      first_name,
+      last_name,
+      avatar_url, // Thêm avatar vào cơ sở dữ liệu
     });
 
     res.status(201).json({ message: "Đăng ký thành công" });

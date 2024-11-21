@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="register-box">
+      <h2>Đăng ký</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="input-group">
+          <label for="username">Tên người dùng</label>
+          <input type="text" id="username" placeholder="Nhập tên người dùng" [(ngModel)]="username" name="username" required />
+        </div>
+        <div class="input-group">
+          <label for="firstname">Họ</label>
+          <input type="text" id="firstname" placeholder="Nhập họ của bạn" [(ngModel)]="first_name" name="firstname" required />
+        </div>
+        <div class="input-group">
+          <label for="lastname">Tên</label>
+          <input type="text" id="lastname" placeholder="Nhập tên của bạn" [(ngModel)]="last_name" name="lastname" required />
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Nhập email của bạn" [(ngModel)]="email" name="email" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Mật khẩu</label>
+          <input type="password" id="password" placeholder="Nhập mật khẩu" [(ngModel)]="password" name="password" required />
+        </div>
+        <div class="input-group">
+          <label for="avatar">Link Avatar</label>
+          <input type="text" id="avatar" placeholder="Nhập link avatar của bạn" [(ngModel)]="avatar_url" name="avatar" />
+        </div>
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+        <button type="submit">Đăng ký</button>
+      </form>
+    </div>
+  </div>
+  

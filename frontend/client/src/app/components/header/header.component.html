@@ -1,53 +1,51 @@
-
 <header class="header" data-header>
-    <div class="container">
+  <div class="container">
 
-      <a href="#" class="logo">
-        <img src="./assets/images/logo.svg" width="119" height="37" alt="Wren logo">
-      </a>
+    <a href="#" class="logo">
+      <img src="./assets/images/logo.svg" width="119" height="37" alt="Wren logo">
+    </a>
 
-      <nav class="navbar" data-navbar>
+    <nav class="navbar" data-navbar>
 
-        <div class="navbar-top">
-          <a href="#" class="logo">
-            <img src="./assets/images/logo.svg" width="119" height="37" alt="Wren logo">
-          </a>
+      <div class="navbar-top">
+        <a href="#" class="logo">
+          <img src="./assets/images/logo.svg" width="119" height="37" alt="Wren logo">
+        </a>
 
-          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
-            <i class="fa-solid fa-x" aria-hidden="true"></i>
-          </button>
-        </div>
+        <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+          <i class="fa-solid fa-x" aria-hidden="true"></i>
+        </button>
+      </div>
 
-        <ul class="navbar-list">
+      <ul class="navbar-list">
+        <li>
+          <a href="/user" class="navbar-link hover-1" data-nav-toggler>Home</a>
+        </li>
+        <li>
+          <a href="/user" class="navbar-link hover-1" data-nav-toggler>Categories</a>
+        </li>
+        <li>
+          <a href="/user" class="navbar-link hover-1" data-nav-toggler>Blogs</a>
+        </li>
+        <li>
+          <a href="/user" class="navbar-link hover-1" data-nav-toggler>Contact</a>
+        </li>
+        <li>
+          <button class="navbar-link hover-1 logout-btn" (click)="logout()">Logout</button>
+        </li>
+      </ul>
 
-          <li>
-            <a href="/user" class="navbar-link hover-1" data-nav-toggler>Home</a>
-          </li>
 
-          <li>
-            <a href="/user" class="navbar-link hover-1" data-nav-toggler>Categories</a>
-          </li>
+      <!-- Khi chua dang nhap nen de la login -->
 
-          <li>
-            <a href="/user" class="navbar-link hover-1" data-nav-toggler>Blogs</a>
-          </li>
+    </nav>
 
-          <li>
-            <a href="/user" class="navbar-link hover-1" data-nav-toggler>Contact</a>
-          </li>
+    <button routerLink="/my-blog" class="btn btn-primary">MyBlog</button>
 
-        </ul>
+    <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
 
-        <!-- Khi chua dang nhap nen de la login -->
-        
-      </nav>
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
 
-      <button routerLink="/MyBlog" class="btn btn-primary">MyBlog</button>
-
-      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-      
-        <i class="fa-solid fa-bars" aria-hidden="true"></i>
-      </button>
-
-    </div>
-  </header>
+  </div>
+</header>

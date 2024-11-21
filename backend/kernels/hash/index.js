@@ -7,7 +7,6 @@ const hash = {
 
 module.exports = hash
   make: () => {},
-};
 
 module.exports = hash;
 
