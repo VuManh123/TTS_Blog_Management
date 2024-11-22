@@ -22,10 +22,10 @@ module.exports = {
           key: 'id'
         }
       },
-      post_id: {
+      blog_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'BlogContents',
+          model: 'Blogs',
           key: 'id'
         }
       },
