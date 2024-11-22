@@ -12,6 +12,28 @@ const blogService = {
     });
   },
 
+   // Lấy tất cả các bài viết và thông tin tác giả
+   getAllBlogsRequired: async () => {
+    return await Blog.findAll({
+      include: {
+        model: db.User,
+        as: 'author',
+        attributes: ['id', 'name', 'profileImage', 'created_at'], // Lấy các trường cần thiết của tác giả
+      },
+      attributes: [
+        'id',
+        'title',
+        'slug',
+        'excerpt',
+        'image',
+        'content',
+        'created_at',
+        'updated_at',
+        'category_id'
+      ],
+    });
+  },
+
   getBlogById: async (id) => {
     return await Blog.findByPk(id, {
       include: { model: db.User, as: 'author', attributes: ['username'] },

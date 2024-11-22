@@ -15,6 +15,35 @@ const blogController = {
     }
   },
 
+  // Lấy tất cả bài viết
+  getAllRequire: async (req, res) => {
+    try {
+      const blogs = await blogService.getAllBlogsRequired();
+      // Định dạng lại dữ liệu để trả về
+      const formattedBlogs = blogs.map(blog => ({
+        id: blog.id,
+        title: blog.title,
+        slug: blog.slug,
+        excerpt: blog.excerpt,
+        image: blog.image,
+        content: blog.content,
+        created_at: blog.created_at,
+        updated_at: blog.updated_at,
+        categoryId: blog.category_id,
+        author: {
+          id: blog.author.id,
+          name: blog.author.name,  // Hiển thị username của tác giả
+          date: blog.author.created_at, // Ngày tạo tài khoản của tác giả
+          profileImage: blog.author.profileImage, // Hình ảnh đại diện của tác giả
+        },
+      }));
+
+      return responseUtils.ok(res, formattedBlogs);
+    } catch (error) {
+      return responseUtils.error(res, error.message);
+    }
+  },
+
   getAll: async (req, res) => {
     try {
       const blogs = await blogService.getAllBlogs();
@@ -62,5 +91,4 @@ const blogController = {
 
   
 };
-
 module.exports = blogController;

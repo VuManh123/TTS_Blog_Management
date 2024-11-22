@@ -38,6 +38,8 @@ router.get("/blogs/:id", blogController.getById);
 router.put("/blogs/:id", validate(blogValidation.update), blogController.update);
 router.delete("/blogs/:id", blogController.delete);
 
+// New api
+router.get('/blogRequire', blogController.getAllRequire);
 
 module.exports = router;
 
