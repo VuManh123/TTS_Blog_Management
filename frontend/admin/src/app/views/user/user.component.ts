@@ -1,4 +1,4 @@
-import { Component, ViewChild  } from '@angular/core';
+import { Component, OnInit, ViewChild  } from '@angular/core';
 import { DatePipe, CommonModule } from '@angular/common';
 import { NgFor } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -42,7 +42,7 @@ export interface User {
     FormSelectDirective, TableDirective,NgFor,FormsModule,CommonModule,ModalBodyComponent,ModalComponent,ModalFooterComponent,ModalHeaderComponent,ModalTitleDirective,ModalToggleDirective,ButtonCloseDirective,PopoverDirective,ThemeDirective,TooltipDirective
   ],
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
   @ViewChild(ToastersComponent) toastComponent!: ToastersComponent;
   icons = {
     cilList,
@@ -112,10 +112,28 @@ export class UserComponent {
       ...this.originalUser, // Giữ lại giá trị ban đầu
       ...this.editUser, // Ghi đè các giá trị đã thay đổi
       updatedDate: new Date(),
+      id: this.originalUser?.id || 0,
     };
 
     console.log('Edit User:', editedUserData);
     // Thực hiện logic thêm vào danh sách hoặc gọi API
+    this.userService.updateUserStatus(editedUserData.id, editedUserData.active).subscribe(
+      (response) => {
+        console.log('User active updated successfully:', response);
+        this.toastComponent.addToastWithParams('Success',`User active updated to ${editedUserData.active} successfully!`,'success','top-end',true);
+  
+        // Cập nhật active trong danh sách hiện tại
+        const index = this.users.findIndex((lang) => lang.id === editedUserData.id);
+        if (index !== -1) {
+          this.users[index].active = editedUserData.active;
+        }
+      },
+      (error) => {
+        this.toastComponent.addToastWithParams('Error',`Update user active to ${editedUserData.active} failed!`,'error','top-end',true);
+        console.error('Error updating user active:', error);
+      }
+    );
+
     // Reset form sau khi thêm
     this.editUser = { active: ''};
     this.closeEditModal();

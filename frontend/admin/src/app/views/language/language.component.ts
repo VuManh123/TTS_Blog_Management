@@ -9,6 +9,7 @@ import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import { ToastersComponent } from 'src/app/views/notifications/toasters/toasters.component'
 import { LanguageService } from 'src/app/services/language.service';
+import {Language} from 'src/app/services/language.model'
 import { HttpClientModule } from '@angular/common/http';
 import {
   cilList,
@@ -20,14 +21,7 @@ import {
   cilTrash,
 } from '@coreui/icons';
 
-export interface Language {
-  id: number;
-  name: string;
-  code: string;
-  region: string;
-  status: string;
-  createdAt: Date
-}
+
 
 @Component({
   selector: 'app-language',
@@ -116,11 +110,22 @@ export class LanguageComponent implements OnInit {
     // Tạo dữ liệu danh mục mới
     const newLanguageData = {
       ...this.newLanguage,
-      createdDate: new Date(),
     };
 
     console.log('New Language:', newLanguageData);
     // Thực hiện logic thêm vào danh sách hoặc gọi API
+    this.languageService.addLanguage(newLanguageData).subscribe(
+      (response) => {
+        console.log('Language added successfully:', response);
+        this.toastComponent.addToastWithParams('Success','You added a new language successfully!','success','top-end',true);
+        // Thêm language vào danh sách hiện tại
+        this.languages.push(response.data);
+      },
+      (error) => {
+        this.toastComponent.addToastWithParams('Error','Error while adding a new language!','error','top-end',true);
+        console.error('Error adding language:', error);
+      }
+    );
 
     // Reset form sau khi thêm
     this.newLanguage = { name: '', code: '', region: '', status: '', };
@@ -140,15 +145,34 @@ export class LanguageComponent implements OnInit {
     if (!this.newLanguage.status) {
       this.newLanguage.status = this.selectedLanguage?.status || '';
     }
+    
 
     // Tạo dữ liệu danh mục mới
     const editedLanguageData = {
       ...this.originalLanguage, // Giữ lại giá trị ban đầu
       ...this.newLanguage, // Ghi đè các giá trị đã thay đổi
+      id: this.originalLanguage?.id || 0,
     };
 
     console.log('Edit Language:', editedLanguageData);
     // Thực hiện logic thêm vào danh sách hoặc gọi API
+    this.languageService.updateLanguageStatus(editedLanguageData.id, editedLanguageData.status).subscribe(
+      (response) => {
+        console.log('Language status updated successfully:', response);
+        this.toastComponent.addToastWithParams('Success',`Language status updated to ${editedLanguageData.status} successfully!`,'success','top-end',true);
+  
+        // Cập nhật status trong danh sách hiện tại
+        const index = this.languages.findIndex((lang) => lang.id === editedLanguageData.id);
+        if (index !== -1) {
+          this.languages[index].status = editedLanguageData.status;
+        }
+      },
+      (error) => {
+        this.toastComponent.addToastWithParams('Error',`Update language status to ${editedLanguageData.status} failed!`,'error','top-end',true);
+        console.error('Error updating language status:', error);
+      }
+    );
+
 
     // Reset form sau khi thêm
     this.newLanguage = { name: '', code: '', region: '', status: '', };
