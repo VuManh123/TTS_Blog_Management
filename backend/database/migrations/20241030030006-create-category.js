@@ -15,9 +15,6 @@ module.exports = {
       slug: {
         type: Sequelize.STRING
       },
-      image_url: {
-        type: Sequelize.STRING
-      },
       description: {
         type: Sequelize.TEXT
       },
