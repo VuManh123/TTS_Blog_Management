@@ -7,6 +7,7 @@ module.exports = {
       {
         name: 'Technology',
         slug: 'technology',
+        image_url:"",
         description: 'All about the latest in tech',
         created_at: new Date(),
         updated_at: new Date(),
@@ -14,6 +15,7 @@ module.exports = {
       {
         name: 'Health',
         slug: 'health',
+        image_url:"",
         description: 'Health and wellness tips and news',
         created_at: new Date(),
         updated_at: new Date(),
@@ -21,6 +23,7 @@ module.exports = {
       {
         name: 'Lifestyle',
         slug: 'lifestyle',
+        image_url:"",
         description: 'Articles on lifestyle and culture',
         created_at: new Date(),
         updated_at: new Date(),
@@ -28,6 +31,7 @@ module.exports = {
       {
         name: 'Education',
         slug: 'education',
+        image_url:"",
         description: 'Insights and updates in the field of education',
         created_at: new Date(),
         updated_at: new Date(),
@@ -35,6 +39,7 @@ module.exports = {
       {
         name: 'Finance',
         slug: 'finance',
+        image_url:"",
         description: 'Finance news and financial planning advice',
         created_at: new Date(),
         updated_at: new Date(),
