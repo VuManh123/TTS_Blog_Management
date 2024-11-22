@@ -5,6 +5,7 @@
     "slug": "best-travel-destinations-2024",
     "excerpt": "đây là bài viết 1",
     "author": {
+      "id" :1,
       "name": "Duy Nguyen",
       "date": "2024-02-15",
       "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
@@ -20,6 +21,7 @@
     "slug": "best-travel-destinations-2024",
     "excerpt": "đây là bài viết 2",
     "author": {
+      "id" :1,
       "name": "Duy Nguyen",
       "date": "2024-02-15",
       "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
@@ -35,6 +37,7 @@
     "slug": "best-travel-destinations-2024",
     "excerpt": "đây là bài viết 3",
     "author": {
+      "id" :1,
       "name": "Duy Nguyen",
       "date": "2024-02-15",
       "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
@@ -50,6 +53,7 @@
     "slug": "best-travel-destinations-2024",
     "excerpt": "đây là bài viết 4",
     "author": {
+      "id" :2,
       "name": "Duy Nguyen",
       "date": "2024-02-15",
       "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
@@ -65,6 +69,7 @@
     "slug": "best-travel-destinations-2024",
     "excerpt": "đây là bài viết 1",
     "author": {
+      "id" :2,
       "name": "Duy Nguyen",
       "date": "2024-02-15",
       "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
@@ -80,6 +85,7 @@
     "slug": "best-travel-destinations-2024",
     "excerpt": "đây là bài viết 1",
     "author": {
+      "id" :2,
       "name": "Duy Nguyen",
       "date": "2024-02-15",
       "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
@@ -95,6 +101,7 @@
     "slug": "best-travel-destinations-2024",
     "excerpt": "đây là bài viết 1",
     "author": {
+      "id" :2,
       "name": "Duy Nguyen",
       "date": "2024-02-15",
       "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
@@ -110,6 +117,7 @@
     "slug": "best-travel-destinations-2024",
     "excerpt": "đây là bài viết 1",
     "author": {
+      "id" :2,
       "name": "Duy Nguyen",
       "date": "2024-02-15",
       "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
@@ -125,6 +133,7 @@
     "slug": "best-travel-destinations-2024",
     "excerpt": "đây là bài viết 1",
     "author": {
+      "id" :2,
       "name": "Duy Nguyen",
       "date": "2024-02-15",
       "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
@@ -140,6 +149,7 @@
     "slug": "best-travel-destinations-2024",
     "excerpt": "đây là bài viết 1",
     "author": {
+      "id" :2,
       "name": "Duy Nguyen",
       "date": "2024-02-15",
       "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
@@ -155,6 +165,7 @@
     "slug": "best-travel-destinations-2024",
     "excerpt": "đây là bài viết 1",
     "author": {
+      "id" :2,
       "name": "Duy Nguyen",
       "date": "2024-02-15",
       "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"

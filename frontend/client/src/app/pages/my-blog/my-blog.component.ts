@@ -1,37 +1,64 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { CommonModule } from '@angular/common';  // Đảm bảo sử dụng CommonModule cho các chỉ thị như ngIf
 
 @Component({
   selector: 'app-my-blog',
   standalone: true,
-  imports: [CommonModule],  // Dùng CommonModule cho các chỉ thị
-  template: `
-    <div *ngIf="username">
-      <p>Chào mừng, {{ username }}!</p>
-      <p>{{ message }}</p>
-    </div>
-    <div *ngIf="!username">
-      <p>Chưa đăng nhập, vui lòng đăng nhập để xem thông tin.</p>
-    </div>
-  `,
+  imports: [CommonModule, RouterModule],
+  templateUrl: './my-blog.component.html',
   styleUrls: ['./my-blog.component.css']
 })
 export class MyBlogComponent implements OnInit {
-  username: string = '';
-  message: string = '';
+  blogs: any[] = []; // Danh sách bài viết
+  userId: string | null = null; // ID của người dùng
+  categories: any = {}; // Lưu thông tin danh mục theo ID
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private http: HttpClient) {}
 
-  ngOnInit(): void {
-    this.authService.getUserProfile().subscribe({
-      next: (response) => {
-        this.username = response.user.username; // Lấy username từ response
-        this.message = response.message; // Lấy message từ response
+  ngOnInit() {
+    // Lấy thông tin user từ AuthService
+    this.authService.getUserProfile().subscribe(
+      (profile) => {
+        this.userId = profile.id; // Lấy userId từ thông tin profile
+        this.loadCategories();
       },
-      error: (err) => {
-        console.error('Lỗi lấy thông tin profile:', err);
+      (error) => {
+        console.error('Lỗi khi lấy thông tin người dùng:', error);
+      }
+    );
+  }
+
+  loadCategories() {
+    // Lấy tất cả danh mục
+    this.http.get<any[]>('assets/categories.json').subscribe(
+      (categories) => {
+        categories.forEach((category) => {
+          this.categories[category.id] = category; // Lưu danh mục theo ID
+        });
+        this.getBlogsByUserId();
       },
-    });
+      (error) => {
+        console.error('Lỗi khi lấy danh sách danh mục:', error);
+      }
+    );
+  }
+
+  getBlogsByUserId() {
+    if (this.userId) {
+      this.http
+      .get<any[]>(`assets/articles.json`)
+       // .get<any[]>(`http://localhost:3000/api/blogs?userId=${this.userId}`)
+        .subscribe(
+          (data) => {
+            this.blogs = data;
+          },
+          (error) => {
+            console.error('Lỗi khi lấy danh sách bài viết:', error);
+          }
+        );
+    }
   }
 }
