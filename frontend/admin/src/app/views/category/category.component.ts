@@ -10,6 +10,7 @@ import { saveAs } from 'file-saver';
 import { ToastersComponent } from 'src/app/views/notifications/toasters/toasters.component'
 import { CategoryService } from 'src/app/services/category.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Category } from 'src/app/services/category.model'
 import {
   cilList,
   cilShieldAlt,
@@ -19,15 +20,6 @@ import {
   cilPencil,
   cilTrash,
 } from '@coreui/icons';
-
-export interface Category {
-  id: number;
-  image: string;
-  name: string;
-  description: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
 
 @Component({
   selector: 'app-category',
@@ -126,12 +118,22 @@ export class CategoryComponent implements OnInit {
     // Tạo dữ liệu danh mục mới
     const newCategoryData = {
       ...this.newCategory,
-      createdDate: new Date(),
-      updatedDate: new Date(),
     };
 
     console.log('New Category:', newCategoryData);
     // Thực hiện logic thêm vào danh sách hoặc gọi API
+    this.categoryService.addCategory(newCategoryData).subscribe(
+      (response) => {
+        console.log('Category added successfully:', response);
+        this.toastComponent.addToastWithParams('Success', 'You added a new category successfully!', 'success', 'top-end', true);
+        // Thêm category vào danh sách hiện tại
+        this.categories.push(response.data);
+      },
+      (error) => {
+        this.toastComponent.addToastWithParams('Error', 'Error while adding a new category!', 'error', 'top-end', true);
+        console.error('Error adding category:', error);
+      }
+    );
 
     // Reset form sau khi thêm
     this.newCategory = { name: '', description: '', image: '' };
@@ -152,13 +154,33 @@ export class CategoryComponent implements OnInit {
 
     // Tạo dữ liệu danh mục mới
     const editedCategoryData = {
-      ...this.originalCategory, // Giữ lại giá trị ban đầu
+      //...this.originalCategory, // Giữ lại giá trị ban đầu
       ...this.newCategory, // Ghi đè các giá trị đã thay đổi
       updatedDate: new Date(),
+      id: this.originalCategory?.id || 0,
     };
 
     console.log('Edit Category:', editedCategoryData);
     // Thực hiện logic thêm vào danh sách hoặc gọi API
+    this.categoryService.updateCategory(editedCategoryData.id, editedCategoryData).subscribe(
+      (response) => {
+        console.log('Category status updated successfully:', response);
+        this.toastComponent.addToastWithParams('Success', `Category status updated successfully!`, 'success', 'top-end', true);
+
+        // Cập nhật category trong danh sách hiện tại
+        const index = this.categories.findIndex((cat) => cat.id === editedCategoryData.id);
+        if (index !== -1) {
+          this.categories[index] = {
+            ...this.categories[index], // Giữ lại các thuộc tính không bị thay đổi
+            ...editedCategoryData, // Ghi đè các thuộc tính vừa cập nhật
+          };
+        }
+      },
+      (error) => {
+        this.toastComponent.addToastWithParams('Error', `Update category failed!`, 'error', 'top-end', true);
+        console.error('Error updating category status:', error);
+      }
+    );
 
     // Reset form sau khi thêm
     this.newCategory = { name: '', description: '', image: '' };
@@ -238,7 +260,7 @@ export class CategoryComponent implements OnInit {
         this.categories = this.categories.filter(cat => cat.id !== category.id);
       },
       (error) => {
-        this.toastComponent.addToastWithParams('Error','Error deleting category!','error','top-end',true);
+        this.toastComponent.addToastWithParams('Error', 'Error deleting category!', 'error', 'top-end', true);
         console.error('Error deleting category:', error);
       }
     );
