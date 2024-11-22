@@ -32,7 +32,8 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Log out',
-    url: '/login',
+    url: 'javascript:void(0)',  // Giữ URL là 'javascript:void(0)' để không điều hướng
     iconComponent: { name: 'cil-account-logout' }
   }
 ];
+

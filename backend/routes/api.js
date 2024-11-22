@@ -18,7 +18,6 @@ const categoryValidation = require("modules/category/validations/categoryValidat
 const languageController = require("modules/language/controllers/languageController");
 const userController = require("modules/user/controllers/userController");
 const blogValidation = require("modules/blog/validations/blogValidation");
-
 const blogController = require("modules/blog/controllers/blogController");
 
 router.get("/categories", categoryController.getAll);
