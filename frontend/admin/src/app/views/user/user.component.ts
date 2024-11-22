@@ -10,6 +10,7 @@ import { saveAs } from 'file-saver';
 import {ToastersComponent} from 'src/app/views/notifications/toasters/toasters.component'
 import { UserService } from 'src/app/services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import {User} from 'src/app/services/user.model'
 import {
   cilList,
   cilShieldAlt,
@@ -20,16 +21,6 @@ import {
   cilTrash,
 } from '@coreui/icons';
 
-export interface User {
-  id: number;
-  username: string;
-  image: string;
-  email: string;
-  role: string;
-  created_at: Date;
-  updated_at: Date;
-  active: string
-}
 
 @Component({
   selector: 'app-user',

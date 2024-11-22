@@ -39,11 +39,12 @@ router.get("/blogs/:id", blogController.getById);
 router.put("/blogs/:id", validate(blogValidation.update), blogController.update);
 router.delete("/blogs/:id", blogController.delete);
 
-router.post("/users", validate([]), userController.create);
+router.post("/users", userController.create);
 router.get("/users", userController.getAll);
 router.get("/users/:id", userController.getById);
 router.put("/users/:id", validate([]), userController.update);
 router.delete("/users/:id", userController.delete);
+
 
 
 module.exports = router;

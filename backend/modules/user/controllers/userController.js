@@ -6,6 +6,18 @@ const userController = {
   create: async (req, res) => {
     try {
       const userData = req.body;
+
+      // Kiểm tra email đã tồn tại chưa
+      const emailExists = await User.findOne({ where: { email: userData.email } });
+      const nameExists = await User.findOne({ where: { username: userData.username } });
+      if (emailExists) {
+        return res.status(400).json({ message: 'Email already exists' });
+      }
+      if (nameExists) {
+        return res.status(400).json({ message: 'Username already exists' });
+      }
+
+      // Nếu không tồn tại, tiếp tục tạo tài khoản
       const user = await User.create(userData);
       return responseUtils.ok(res, user);
     } catch (error) {

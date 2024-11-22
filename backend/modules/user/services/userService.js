@@ -5,6 +5,7 @@ const userService = {
   createUser: async (data) => {
     return await User.create(data);
   },
+  
 
   getAllUsers: async () => {
     return await User.findAll();
