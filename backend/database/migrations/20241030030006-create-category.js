@@ -12,7 +12,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      slug: {
+      image: {
         type: Sequelize.STRING
       },
       description: {

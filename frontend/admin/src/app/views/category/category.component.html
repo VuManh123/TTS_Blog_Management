@@ -82,97 +82,24 @@
               <td>{{ i + 1 }}</td>
               <td>{{ category.name }}</td>
               <td>{{ category.description }}</td>
-              <td>{{ category.createdDate | date: 'dd/MM/yyyy HH:mm' }}</td>
-              <td>{{ category.updatedDate | date: 'dd/MM/yyyy HH:mm' }}</td>
+              <td>{{ category.createdAt | date: 'dd/MM/yyyy HH:mm' }}</td>
+              <td>{{ category.updatedAt | date: 'dd/MM/yyyy HH:mm' }}</td>
               <td>
                 <div class="action-buttons" style="display: flex; gap: 8px;">
                   <button cButton color="info" (click)="viewCategory(category)">
                     <svg [cIcon]="icons.cilZoom"></svg>
                   </button>
-                  <!-- Modal for view -->
-                  <c-modal id="viewCategoryModal" [visible]="viewModalVisible"
-                    (visibleChange)="handleModalClose($event)">
-                    <c-modal-header>
-                      <p style="font-size: 20px; margin-bottom: 0;">{{ selectedCategory?.name }}</p>
-                      <button (click)="closeModal()" cButtonClose></button>
-                    </c-modal-header>
-                    <c-modal-body>
-                      <div class="row g-3">
-                        <!-- Phần hiển thị hình ảnh -->
-                        <div class="col-md-4">
-                          <img [src]="selectedCategory?.image" alt="Category Image"
-                            class="img-fluid rounded shadow-sm" />
-                        </div>
-                        <!-- Phần hiển thị thông tin -->
-                        <div class="col-md-8">
-                          <p class="text-muted mb-1">
-                            <strong>Description:</strong> {{ selectedCategory?.description }}
-                          </p>
-                          <p class="text-muted mb-1">
-                            <strong>Created Date:</strong> {{ selectedCategory?.createdDate | date: 'dd/MM/yyyy HH:mm'
-                            }}
-                          </p>
-                          <p class="text-muted mb-0">
-                            <strong>Updated Date:</strong> {{ selectedCategory?.updatedDate | date: 'dd/MM/yyyy HH:mm'
-                            }}
-                          </p>
-                        </div>
-                      </div>
-                    </c-modal-body>
-                    <c-modal-footer>
-                      <button (click)="closeModal()" cButton color="primary">Close</button>
-                    </c-modal-footer>
-                  </c-modal>
+                  
 
                   <button cButton color="warning" (click)="editCategory(category)">
                     <svg [cIcon]="icons.cilPencil"></svg>
                   </button>
-                  <!-- Modal Edit -->
-                  <c-modal id="editCategoryModal" [visible]="editModalVisible"
-                    (visibleChange)="handleEditModalClose($event)">
-                    <c-modal-header>
-                      <p style="font-size: 20px; margin-bottom: 0;">Edit Category</p>
-                      <button (click)="closeEditModal()" cButtonClose></button>
-                    </c-modal-header>
-                    <c-modal-body>
-                      <div class="mb-3">
-                        <label cLabel for="formFile">Image</label>
-                        <input cFormControl id="formFile" type="file" value="selectedCategory?.image" accept="image/*" (change)="onFileSelected($event)"/>
-                      </div>
-                      <div class="mb-3">
-                        <label cLabel for="name">Category Name</label>
-                        <input cFormControl id="name" type="text" [value]="selectedCategory?.name" [(ngModel)]="newCategory.name"/>
-                      </div>
-                      <div class="mb-3">
-                        <label cLabel for="description">Description</label>
-                        <textarea cFormControl id="description" rows="3"
-                          [value]="selectedCategory?.description" [(ngModel)]="newCategory.description"></textarea>
-                      </div>
-                    </c-modal-body>
-                    <c-modal-footer>
-                      <button (click)="closeEditModal()" cButton color="primary">Close</button>
-                      <button cButton color="warning" (click)="onEdit(category)">Save Changes</button>
-                    </c-modal-footer>
-                  </c-modal>
+                  
 
                   <button cButton color="danger" (click)="toggleLiveDelete()">
                     <svg [cIcon]="icons.cilTrash"></svg>
                   </button>
-                  <!-- Modal for delete -->
-                  <c-modal id="liveDeleteModal" [visible]="liveDeleteVisible"
-                    (visibleChange)="handleLiveDeleteChange($event)">
-                    <c-modal-header>
-                      <p style="font-size: 20px; margin-bottom: 0;">Delete Category</p>
-                      <button (click)="toggleLiveDelete()" cButtonClose></button>
-                    </c-modal-header>
-                    <c-modal-body>Are you sure you want to delete this category?</c-modal-body>
-                    <c-modal-footer>
-                      <button (click)="toggleLiveDelete()" cButton color="primary">
-                        Close
-                      </button>
-                      <button cButton color="danger" (click)="onDelete(category)">Delete</button>
-                    </c-modal-footer>
-                  </c-modal>
+                  
                 </div>
               </td>
             </tr>
@@ -185,3 +112,81 @@
 </c-row>
 
 <app-toasters #toastComponent></app-toasters>
+<!-- Modal Edit -->
+<c-modal id="editCategoryModal" [visible]="editModalVisible"
+(visibleChange)="handleEditModalClose($event)">
+<c-modal-header>
+  <p style="font-size: 20px; margin-bottom: 0;">Edit Category</p>
+  <button (click)="closeEditModal()" cButtonClose></button>
+</c-modal-header>
+<c-modal-body>
+  <div class="mb-3">
+    <label cLabel for="formFile">Image</label>
+    <input cFormControl id="formFile" type="file" value="selectedCategory?.image" accept="image/*" (change)="onFileSelected($event)"/>
+  </div>
+  <div class="mb-3">
+    <label cLabel for="name">Category Name</label>
+    <input cFormControl id="name" type="text" [value]="selectedCategory?.name" [(ngModel)]="newCategory.name"/>
+  </div>
+  <div class="mb-3">
+    <label cLabel for="description">Description</label>
+    <textarea cFormControl id="description" rows="3"
+      [value]="selectedCategory?.description" [(ngModel)]="newCategory.description"></textarea>
+  </div>
+</c-modal-body>
+<c-modal-footer>
+  <button (click)="closeEditModal()" cButton color="primary">Close</button>
+  <button cButton color="warning" (click)="onEdit()">Save Changes</button>
+</c-modal-footer>
+</c-modal>
+
+<!-- Modal for delete -->
+<c-modal id="liveDeleteModal" [visible]="liveDeleteVisible"
+(visibleChange)="handleLiveDeleteChange($event)">
+<c-modal-header>
+  <p style="font-size: 20px; margin-bottom: 0;">Delete Category</p>
+  <button (click)="toggleLiveDelete()" cButtonClose></button>
+</c-modal-header>
+<c-modal-body>Are you sure you want to delete this category?</c-modal-body>
+<c-modal-footer>
+  <button (click)="toggleLiveDelete()" cButton color="primary">
+    Close
+  </button>
+  <button cButton color="danger" (click)="onDelete(selectedCategory)">Delete</button>
+</c-modal-footer>
+</c-modal>
+
+<!-- Modal for view -->
+<c-modal id="viewCategoryModal" [visible]="viewModalVisible"
+(visibleChange)="handleModalClose($event)">
+<c-modal-header>
+  <p style="font-size: 20px; margin-bottom: 0;">{{ selectedCategory?.name }}</p>
+  <button (click)="closeModal()" cButtonClose></button>
+</c-modal-header>
+<c-modal-body>
+  <div class="row g-3">
+    <!-- Phần hiển thị hình ảnh -->
+    <div class="col-md-4">
+      <img [src]="selectedCategory?.image" alt="Category Image"
+        class="img-fluid rounded shadow-sm" />
+    </div>
+    <!-- Phần hiển thị thông tin -->
+    <div class="col-md-8">
+      <p class="text-muted mb-1">
+        <strong>Description:</strong> {{ selectedCategory?.description }}
+      </p>
+      <p class="text-muted mb-1">
+        <strong>Created Date:</strong> {{ selectedCategory?.createdAt | date: 'dd/MM/yyyy HH:mm'
+        }}
+      </p>
+      <p class="text-muted mb-0">
+        <strong>Updated Date:</strong> {{ selectedCategory?.updatedAt | date: 'dd/MM/yyyy HH:mm'
+        }}
+      </p>
+    </div>
+  </div>
+</c-modal-body>
+<c-modal-footer>
+  <button (click)="closeModal()" cButton color="primary">Close</button>
+</c-modal-footer>
+</c-modal>

@@ -8,6 +8,7 @@ import {
   withRouterConfig,
   withViewTransitions
 } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { DropdownModule, SidebarModule } from '@coreui/angular';
 import { IconSetService } from '@coreui/icons-angular';
@@ -16,6 +17,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    importProvidersFrom(HttpClientModule),
     provideRouter(routes,
       withRouterConfig({
         onSameUrlNavigation: 'reload'

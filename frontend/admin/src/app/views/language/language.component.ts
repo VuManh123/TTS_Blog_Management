@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DatePipe, CommonModule } from '@angular/common';
 import { NgFor } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -8,6 +8,8 @@ import { IconDirective } from '@coreui/icons-angular';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import { ToastersComponent } from 'src/app/views/notifications/toasters/toasters.component'
+import { LanguageService } from 'src/app/services/language.service';
+import { HttpClientModule } from '@angular/common/http';
 import {
   cilList,
   cilShieldAlt,
@@ -24,7 +26,7 @@ export interface Language {
   code: string;
   region: string;
   status: string;
-  createdDate: Date
+  createdAt: Date
 }
 
 @Component({
@@ -33,12 +35,12 @@ export interface Language {
   styleUrls: ['./language.component.scss'],
   standalone: true,
   providers: [DatePipe],
-  imports: [
+  imports: [HttpClientModule,
     FormSelectDirective, ToastersComponent, FormDirective, FormLabelDirective, FormControlDirective, IconDirective, ReactiveFormsModule, TextColorDirective, CardComponent, CardBodyComponent, RowComponent, ColComponent, ButtonDirective, CardHeaderComponent,
     TableDirective, NgFor, FormsModule, CommonModule, ModalBodyComponent, ModalComponent, ModalFooterComponent, ModalHeaderComponent, ModalTitleDirective, ModalToggleDirective, ButtonCloseDirective, PopoverDirective, ThemeDirective, TooltipDirective
   ],
 })
-export class LanguageComponent {
+export class LanguageComponent implements OnInit {
   @ViewChild(ToastersComponent) toastComponent!: ToastersComponent;
   icons = {
     cilList,
@@ -52,32 +54,28 @@ export class LanguageComponent {
 
   searchQuery: string = '';
 
-  languages: Language[] = [
-    {
-      id: 1,
-      name: 'English',
-      code: 'ENG',
-      region: 'Around World',
-      status: 'Active',
-      createdDate: new Date('2024-02-01')
-    },
-    {
-      id: 2,
-      name: 'Spain',
-      code: 'SPA',
-      region: 'Spanish',
-      status: 'Inactive',
-      createdDate: new Date('2024-02-01')
-    },
-    {
-      id: 3,
-      name: 'Vietnamese',
-      code: 'VN',
-      region: 'Aisa',
-      status: 'Active',
-      createdDate: new Date('2024-02-01')
-    },
-  ];
+  languages: Language[] = [];
+
+  constructor(private languageService: LanguageService) { }
+
+  ngOnInit(): void {
+    // Gọi API khi component khởi tạo
+    this.languageService.getLanguages().subscribe(
+      (response) => {
+        // Kiểm tra nếu 'data' trong response là mảng
+        if (Array.isArray(response.data)) {
+          this.languages = response.data; // Gán mảng data vào biến languages
+        } else {
+          console.error('Data is not an array', response);
+          this.languages = []; // Gán mảng rỗng nếu không phải mảng
+        }
+      },
+      (error) => {
+        console.error('Error fetching languages:', error); // Xử lý lỗi nếu có
+        this.languages = []; // Gán mảng rỗng trong trường hợp có lỗi
+      }
+    );
+  }
 
   get filteredLanguages(): Language[] {
     if (!this.searchQuery) return this.languages;
@@ -129,7 +127,7 @@ export class LanguageComponent {
     this.closeAddModal();
   }
 
-  onEdit(language: Language) {
+  onEdit() {
     if (!this.newLanguage.name) {
       this.newLanguage.name = this.selectedLanguage?.name || '';
     }
@@ -157,7 +155,7 @@ export class LanguageComponent {
     this.closeEditModal();
   }
 
-  
+
 
   selectedLanguage: Language | null = null;
   originalLanguage: Language | null = null;  // Lưu dữ liệu ban đầu
@@ -183,7 +181,7 @@ export class LanguageComponent {
   }
 
   //Modal delete
-  toggleLiveDelete(language: any) : void {
+  toggleLiveDelete(language: any): void {
     this.selectedLanguage = language;
     this.liveDeleteVisible = !this.liveDeleteVisible;
   }

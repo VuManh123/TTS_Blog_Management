@@ -17,20 +17,12 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    avatar_url: DataTypes.STRING,
+    image: DataTypes.STRING,
     bio: DataTypes.TEXT,
-    role_id: DataTypes.INTEGER,
-    created_at: {
-      type: DataTypes.DATE,
-      field: 'created_at', // Tên cột trong DB
-    },
-    updated_at: {
-      type: DataTypes.DATE,
-      field: 'updated_at', // Tên cột trong DB
-    },
-    active: DataTypes.INTEGER
+    role: DataTypes.STRING,
+    created_at: DataTypes.DATE,
+    updated_at: DataTypes.DATE,
+    active: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',

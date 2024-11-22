@@ -23,26 +23,16 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      first_name: {
-        type: Sequelize.STRING
-      },
-      last_name: {
-        type: Sequelize.STRING
-      },
-      avatar_url: {
+      image: {
         type: Sequelize.STRING
       },
       bio: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        allowNull: true
       },
-      role_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Roles',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL'
+      role: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
       created_at: {
         type: Sequelize.DATE,
@@ -53,8 +43,8 @@ module.exports = {
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       active: {
-        type: Sequelize.INTEGER,
-        defaultValue: 1
+        type: Sequelize.STRING,
+        defaultValue: 'active'
       }
     });
   },

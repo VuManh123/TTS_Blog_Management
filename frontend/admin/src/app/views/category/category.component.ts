@@ -1,4 +1,4 @@
-import { Component, ViewChild  } from '@angular/core';
+import { Component, ViewChild, OnInit  } from '@angular/core';
 import { DatePipe, CommonModule } from '@angular/common';
 import { NgFor } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -8,6 +8,8 @@ import { IconDirective } from '@coreui/icons-angular';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import {ToastersComponent} from 'src/app/views/notifications/toasters/toasters.component'
+import { CategoryService } from 'src/app/services/category.service';
+import { HttpClientModule } from '@angular/common/http';
 import {
   cilList,
   cilShieldAlt,
@@ -23,8 +25,8 @@ export interface Category {
   image: string;
   name: string;
   description: string;
-  createdDate: Date;
-  updatedDate: Date;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 @Component({
@@ -33,12 +35,12 @@ export interface Category {
   styleUrls: ['./category.component.scss'],
   standalone: true,
   providers: [DatePipe],
-  imports: [
+  imports: [ HttpClientModule,
     ToastersComponent, FormDirective, FormLabelDirective, FormControlDirective,IconDirective, ReactiveFormsModule,TextColorDirective,CardComponent,CardBodyComponent,RowComponent,ColComponent,ButtonDirective,CardHeaderComponent,
     TableDirective,NgFor,FormsModule,CommonModule,ModalBodyComponent,ModalComponent,ModalFooterComponent,ModalHeaderComponent,ModalTitleDirective,ModalToggleDirective,ButtonCloseDirective,PopoverDirective,ThemeDirective,TooltipDirective
   ],
 })
-export class CategoryComponent {
+export class CategoryComponent implements OnInit{
   @ViewChild(ToastersComponent) toastComponent!: ToastersComponent;
   icons = {
     cilList,
@@ -52,32 +54,28 @@ export class CategoryComponent {
 
   searchQuery: string = '';
 
-  categories: Category[] = [
-    {
-      id: 1,
-      name: 'Category 1',
-      image: 'assets/images/angular.jpg',
-      description: 'This is the first category',
-      createdDate: new Date('2022-01-01'),
-      updatedDate: new Date('2022-01-15'),
-    },
-    {
-      id: 2,
-      name: 'Category 2',
-      image: 'assets/images/react.jpg',
-      description: 'This is the second category',
-      createdDate: new Date('2022-02-01'),
-      updatedDate: new Date('2022-02-10'),
-    },
-    {
-      id: 3,
-      name: 'Category 3',
-      image: 'assets/images/vue.jpg',
-      description: 'This is the third category',
-      createdDate: new Date('2022-03-01'),
-      updatedDate: new Date('2022-03-10'),
-    },
-  ];
+  categories: Category[] = [];
+
+  constructor(private categoryService: CategoryService) { }
+
+  ngOnInit(): void {
+    // Gọi API khi component khởi tạo
+    this.categoryService.getCategories().subscribe(
+      (response) => {
+        // Kiểm tra nếu 'data' trong response là mảng
+        if (Array.isArray(response.data)) {
+          this.categories = response.data; // Gán mảng data vào biến languages
+        } else {
+          console.error('Data is not an array', response);
+          this.categories = []; // Gán mảng rỗng nếu không phải mảng
+        }
+      },
+      (error) => {
+        console.error('Error fetching languages:', error); // Xử lý lỗi nếu có
+        this.categories = []; // Gán mảng rỗng trong trường hợp có lỗi
+      }
+    );
+  }
 
   exportToExcel(): void {
     console.log('Exporting to Excel...');
@@ -141,7 +139,7 @@ export class CategoryComponent {
     this.closeAddModal();
   }
 
-  onEdit(category: Category) {
+  onEdit() {
     if (!this.newCategory.image) {
       this.newCategory.image = this.selectedCategory?.image || '';
     }
@@ -168,9 +166,6 @@ export class CategoryComponent {
     this.closeEditModal();
   }
 
-  onDelete(category: Category) {
-    console.log('Delete category:', category);
-  }
 
   selectedCategory: Category | null = null;
   originalCategory: Category | null = null;  // Lưu dữ liệu ban đầu
@@ -179,6 +174,16 @@ export class CategoryComponent {
   liveDeleteVisible = false;
   liveExportVisible = false;
   addModalVisible = false;
+
+  onDelete(category: Category | null) {
+    if (!category) {
+      console.error('No language selected for deletion');
+      return;
+    }
+    console.log('Delete Language:', category);
+    // Thêm logic xóa ở đây
+    this.toggleLiveDelete(); // Đóng modal sau khi xóa
+  }
 
   // Modal view
   viewCategory(category: any): void {

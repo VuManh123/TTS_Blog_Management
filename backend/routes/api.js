@@ -16,6 +16,7 @@ const router = express.Router({ mergeParams: true });
 const categoryController = require("modules/category/controllers/categoryController");
 const categoryValidation = require("modules/category/validations/categoryValidation"); 
 const languageController = require("modules/language/controllers/languageController");
+const userController = require("modules/user/controllers/userController");
 const blogValidation = require("modules/blog/validations/blogValidation");
 
 const blogController = require("modules/blog/controllers/blogController");
@@ -37,6 +38,12 @@ router.get("/blogs", blogController.getAll);
 router.get("/blogs/:id", blogController.getById);
 router.put("/blogs/:id", validate(blogValidation.update), blogController.update);
 router.delete("/blogs/:id", blogController.delete);
+
+router.post("/users", validate([]), userController.create);
+router.get("/users", userController.getAll);
+router.get("/users/:id", userController.getById);
+router.put("/users/:id", validate([]), userController.update);
+router.delete("/users/:id", userController.delete);
 
 
 module.exports = router;

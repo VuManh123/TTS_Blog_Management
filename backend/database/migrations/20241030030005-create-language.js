@@ -15,7 +15,10 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      flag: {
+      region: {
+        type: Sequelize.STRING
+      },
+      status: {
         type: Sequelize.STRING
       },
       createdAt: {

@@ -48,86 +48,26 @@
           <tbody>
             <tr *ngFor="let user of filteredUsers; let i = index">
               <td>{{ i + 1 }}</td>
-              <td>{{ user.name }}</td>
+              <td>{{ user.username }}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.role }}</td>
-              <td>{{ user.createdDate | date: 'dd/MM/yyyy HH:mm' }}</td>
-              <td>{{ user.status }}</td>
+              <td>{{ user.created_at | date: 'dd/MM/yyyy HH:mm' }}</td>
+              <td>{{ user.active }}</td>
               <td>
                 <div class="action-buttons" style="display: flex; gap: 8px;">
                   <button cButton color="info" (click)="viewUser(user)">
                     <svg [cIcon]="icons.cilZoom"></svg>
                   </button>
 
-                  <!-- Modal for view -->
-                  <c-modal id="viewUserModal" [visible]="viewModalVisible" (visibleChange)="handleModalClose($event)">
-                    <c-modal-header>
-                      <p style="font-size: 20px; margin-bottom: 0;">User Infomation</p>
-                      <button (click)="closeModal()" cButtonClose></button>
-                    </c-modal-header>
-                    <c-modal-body>
-                      <div class="row g-3">
-                        <!-- Phần hiển thị hình ảnh -->
-                        <div class="col-md-4">
-                          <img [src]="selectedUser?.image" alt="User Image" class="img-fluid rounded shadow-sm" />
-                        </div>
-                        <!-- Phần hiển thị thông tin -->
-                        <div class="col-md-8">
-                          <p class="text-muted mb-1">
-                            <strong>User Name:</strong> {{ selectedUser?.name }}
-                          </p>
-                          <p class="text-muted mb-1">
-                            <strong>Email:</strong> {{ selectedUser?.email }}
-                          </p>
-                          <p class="text-muted mb-1">
-                            <strong>Role:</strong> {{ selectedUser?.role }}
-                          </p>
-                          <p class="text-muted mb-1">
-                            <strong>Status:</strong> {{ selectedUser?.status }}
-                          </p>
-                          <p class="text-muted mb-1">
-                            <strong>Created Date:</strong> {{ selectedUser?.createdDate | date: 'dd/MM/yyyy HH:mm'
-                            }}
-                          </p>
-                          <p class="text-muted mb-0">
-                            <strong>Updated Date:</strong> {{ selectedUser?.updatedDate | date: 'dd/MM/yyyy HH:mm'
-                            }}
-                          </p>
-                        </div>
-                      </div>
-                    </c-modal-body>
-                    <c-modal-footer>
-                      <button (click)="closeModal()" cButton color="primary">Close</button>
-                    </c-modal-footer>
-                  </c-modal>
+                  
 
                   <button cButton color="warning" (click)="editUserModal(user)">
                     <svg [cIcon]="icons.cilPencil"></svg>
                   </button>
-                  <!-- Modal Edit -->
-                  <c-modal id="editUserModal" [visible]="editModalVisible"
-                    (visibleChange)="handleEditModalClose($event)">
-                    <c-modal-header>
-                      <p style="font-size: 20px; margin-bottom: 0;">Edit User</p>
-                      <button (click)="closeEditModal()" cButtonClose></button>
-                    </c-modal-header>
-                    <c-modal-body>
-                      <div class="mb-3">
-                        <label cLabel for="name">Change status</label>
-                        <select cSelect id="inputStatus" [value]="selectedUser?.status" [(ngModel)]="editUser.status">
-                          <option>Active</option>
-                          <option>Banned</option>
-                          <option>Inactive</option>
-                        </select>
-                      </div>
-                    </c-modal-body>
-                    <c-modal-footer>
-                      <button (click)="closeEditModal()" cButton color="primary">Close</button>
-                      <button cButton color="warning" (click)="onEdit(user)">Save Changes</button>
-                    </c-modal-footer>
-                  </c-modal>
+                  
                 </div>
               </td>
+              
             </tr>
           </tbody>
         </table>
@@ -136,3 +76,68 @@
     </c-card>
   </c-col>
 </c-row>
+
+<!-- Modal for view -->
+<c-modal id="viewUserModal" [visible]="viewModalVisible" (visibleChange)="handleModalClose($event)">
+  <c-modal-header>
+    <p style="font-size: 20px; margin-bottom: 0;">User Infomation</p>
+    <button (click)="closeModal()" cButtonClose></button>
+  </c-modal-header>
+  <c-modal-body>
+    <div class="row g-3">
+      <!-- Phần hiển thị hình ảnh -->
+      <div class="col-md-4">
+        <img [src]="selectedUser?.image" alt="User Image" class="img-fluid rounded shadow-sm" />
+      </div>
+      <!-- Phần hiển thị thông tin -->
+      <div class="col-md-8">
+        <p class="text-muted mb-1">
+          <strong>User Name:</strong> {{ selectedUser?.username }}
+        </p>
+        <p class="text-muted mb-1">
+          <strong>Email:</strong> {{ selectedUser?.email }}
+        </p>
+        <p class="text-muted mb-1">
+          <strong>Role:</strong> {{ selectedUser?.role }}
+        </p>
+        <p class="text-muted mb-1">
+          <strong>Status:</strong> {{ selectedUser?.active }}
+        </p>
+        <p class="text-muted mb-1">
+          <strong>Created Date:</strong> {{ selectedUser?.created_at | date: 'dd/MM/yyyy HH:mm'
+          }}
+        </p>
+        <p class="text-muted mb-0">
+          <strong>Updated Date:</strong> {{ selectedUser?.updated_at | date: 'dd/MM/yyyy HH:mm'
+          }}
+        </p>
+      </div>
+    </div>
+  </c-modal-body>
+  <c-modal-footer>
+    <button (click)="closeModal()" cButton color="primary">Close</button>
+  </c-modal-footer>
+</c-modal>
+
+<!-- Modal Edit -->
+<c-modal id="editUserModal" [visible]="editModalVisible"
+(visibleChange)="handleEditModalClose($event)" >
+<c-modal-header>
+  <p style="font-size: 20px; margin-bottom: 0;">Edit User</p>
+  <button (click)="closeEditModal()" cButtonClose></button>
+</c-modal-header>
+<c-modal-body>
+  <div class="mb-3">
+    <label cLabel for="name">Change status</label>
+    <select cSelect id="inputStatus" [value]="selectedUser?.active" [(ngModel)]="editUser.active">
+      <option>active</option>
+      <option>banned</option>
+      <option>inactive</option>
+    </select>
+  </div>
+</c-modal-body>
+<c-modal-footer>
+  <button (click)="closeEditModal()" cButton color="primary">Close</button>
+  <button cButton color="warning" (click)="onEdit()">Save Changes</button>
+</c-modal-footer>
+</c-modal>
