@@ -193,15 +193,33 @@ export class LanguageComponent implements OnInit {
   handleLiveDeleteChange(event: boolean) {
     this.liveDeleteVisible = event;
   }
-  onDelete(language: Language | null) {
+  onDelete(language: Language | null): void {
     if (!language) {
       console.error('No language selected for deletion');
       return;
     }
     console.log('Delete Language:', language);
-    // Thêm logic xóa ở đây
+    this.languageService.deleteLanguage(language.id).subscribe(
+      (response) => {
+        console.log('Language deleted successfully:', response);
+        this.toastComponent.addToastWithParams(
+          'Success',
+          'You deleted this language successfully!',
+          'success',
+          'top-end',
+          true
+        );
+        // Cập nhật danh sách languages sau khi xóa
+        this.languages = this.languages.filter(lang => lang.id !== language.id);
+      },
+      (error) => {
+        this.toastComponent.addToastWithParams('Error','Error deleting language!','error','top-end',true);
+        console.error('Error deleting language:', error);
+      }
+    );
     this.closeDeleteModal(); // Đóng modal sau khi xóa
   }
+  
 
   //Modal export
   toggleLiveExport() {

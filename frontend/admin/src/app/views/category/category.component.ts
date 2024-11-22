@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit  } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { DatePipe, CommonModule } from '@angular/common';
 import { NgFor } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -7,7 +7,7 @@ import { FormDirective, FormLabelDirective, FormControlDirective } from '@coreui
 import { IconDirective } from '@coreui/icons-angular';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
-import {ToastersComponent} from 'src/app/views/notifications/toasters/toasters.component'
+import { ToastersComponent } from 'src/app/views/notifications/toasters/toasters.component'
 import { CategoryService } from 'src/app/services/category.service';
 import { HttpClientModule } from '@angular/common/http';
 import {
@@ -35,12 +35,12 @@ export interface Category {
   styleUrls: ['./category.component.scss'],
   standalone: true,
   providers: [DatePipe],
-  imports: [ HttpClientModule,
-    ToastersComponent, FormDirective, FormLabelDirective, FormControlDirective,IconDirective, ReactiveFormsModule,TextColorDirective,CardComponent,CardBodyComponent,RowComponent,ColComponent,ButtonDirective,CardHeaderComponent,
-    TableDirective,NgFor,FormsModule,CommonModule,ModalBodyComponent,ModalComponent,ModalFooterComponent,ModalHeaderComponent,ModalTitleDirective,ModalToggleDirective,ButtonCloseDirective,PopoverDirective,ThemeDirective,TooltipDirective
+  imports: [HttpClientModule,
+    ToastersComponent, FormDirective, FormLabelDirective, FormControlDirective, IconDirective, ReactiveFormsModule, TextColorDirective, CardComponent, CardBodyComponent, RowComponent, ColComponent, ButtonDirective, CardHeaderComponent,
+    TableDirective, NgFor, FormsModule, CommonModule, ModalBodyComponent, ModalComponent, ModalFooterComponent, ModalHeaderComponent, ModalTitleDirective, ModalToggleDirective, ButtonCloseDirective, PopoverDirective, ThemeDirective, TooltipDirective
   ],
 })
-export class CategoryComponent implements OnInit{
+export class CategoryComponent implements OnInit {
   @ViewChild(ToastersComponent) toastComponent!: ToastersComponent;
   icons = {
     cilList,
@@ -64,14 +64,14 @@ export class CategoryComponent implements OnInit{
       (response) => {
         // Kiểm tra nếu 'data' trong response là mảng
         if (Array.isArray(response.data)) {
-          this.categories = response.data; // Gán mảng data vào biến languages
+          this.categories = response.data; // Gán mảng data vào biến categorys
         } else {
           console.error('Data is not an array', response);
           this.categories = []; // Gán mảng rỗng nếu không phải mảng
         }
       },
       (error) => {
-        console.error('Error fetching languages:', error); // Xử lý lỗi nếu có
+        console.error('Error fetching categorys:', error); // Xử lý lỗi nếu có
         this.categories = []; // Gán mảng rỗng trong trường hợp có lỗi
       }
     );
@@ -110,7 +110,7 @@ export class CategoryComponent implements OnInit{
   onFileSelected(event: any): void {
     const file = event.target.files[0];
     if (file) {
-      this.selectedFile = file; 
+      this.selectedFile = file;
       // Lưu tên file và tạo đường dẫn tương đối
       this.newCategory.image = `assets/images/${file.name}`;
     }
@@ -175,16 +175,6 @@ export class CategoryComponent implements OnInit{
   liveExportVisible = false;
   addModalVisible = false;
 
-  onDelete(category: Category | null) {
-    if (!category) {
-      console.error('No language selected for deletion');
-      return;
-    }
-    console.log('Delete Language:', category);
-    // Thêm logic xóa ở đây
-    this.toggleLiveDelete(); // Đóng modal sau khi xóa
-  }
-
   // Modal view
   viewCategory(category: any): void {
     this.selectedCategory = category;
@@ -216,12 +206,43 @@ export class CategoryComponent implements OnInit{
   }
 
   //Modal delete
-  toggleLiveDelete() {
+  toggleLiveDelete(category: any): void {
+    this.selectedCategory = category;
     this.liveDeleteVisible = !this.liveDeleteVisible;
+  }
+  closeDeleteModal(): void {
+    this.liveDeleteVisible = false;
+    this.selectedCategory = null;
   }
 
   handleLiveDeleteChange(event: boolean) {
     this.liveDeleteVisible = event;
+  }
+  onDelete(category: Category | null): void {
+    if (!category) {
+      console.error('No category selected for deletion');
+      return;
+    }
+    console.log('Delete Category:', category);
+    this.categoryService.deleteCategory(category.id).subscribe(
+      (response) => {
+        console.log('Category deleted successfully:', response);
+        this.toastComponent.addToastWithParams(
+          'Success',
+          'You deleted this category successfully!',
+          'success',
+          'top-end',
+          true
+        );
+        // Cập nhật danh sách categorys sau khi xóa
+        this.categories = this.categories.filter(cat => cat.id !== category.id);
+      },
+      (error) => {
+        this.toastComponent.addToastWithParams('Error','Error deleting category!','error','top-end',true);
+        console.error('Error deleting category:', error);
+      }
+    );
+    this.closeDeleteModal(); // Đóng modal sau khi xóa
   }
 
   //Modal export

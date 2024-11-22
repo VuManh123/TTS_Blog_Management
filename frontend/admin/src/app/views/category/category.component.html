@@ -96,7 +96,7 @@
                   </button>
                   
 
-                  <button cButton color="danger" (click)="toggleLiveDelete()">
+                  <button cButton color="danger" (click)="toggleLiveDelete(category)">
                     <svg [cIcon]="icons.cilTrash"></svg>
                   </button>
                   
@@ -145,11 +145,11 @@
 (visibleChange)="handleLiveDeleteChange($event)">
 <c-modal-header>
   <p style="font-size: 20px; margin-bottom: 0;">Delete Category</p>
-  <button (click)="toggleLiveDelete()" cButtonClose></button>
+  <button (click)="closeDeleteModal()" cButtonClose></button>
 </c-modal-header>
 <c-modal-body>Are you sure you want to delete this category?</c-modal-body>
 <c-modal-footer>
-  <button (click)="toggleLiveDelete()" cButton color="primary">
+  <button (click)="closeDeleteModal()" cButton color="primary">
     Close
   </button>
   <button cButton color="danger" (click)="onDelete(selectedCategory)">Delete</button>
