@@ -9,6 +9,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      image: {
+        type: Sequelize.STRING
+      },
+      title: {
+        type: Sequelize.STRING
+      },
       slug: {
         type: Sequelize.STRING
       },
@@ -27,13 +33,28 @@ module.exports = {
           id: 'id'
         }
       },
+      content: {
+        type: Sequelize.TEXT
+      },
+      language: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       category_id: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Categories',
           id: 'id'
         }
-      }
+      },
+      created_at: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      },
+      updated_at: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      },
     });
   },
   async down(queryInterface, Sequelize) {
