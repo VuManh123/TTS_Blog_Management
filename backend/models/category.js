@@ -19,11 +19,13 @@ module.exports = (sequelize, DataTypes) => {
     imageUrl: DataTypes.STRING,
     description: DataTypes.TEXT,
     created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
+    updated_at: DataTypes.DATE,
+    articleCount: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Category',
-    underscored: true, // Sử dụng tên cột với dấu gạch dưới
+    underscored: false, // Sử dụng tên cột với dấu gạch dưới
+    timestamps: false,
   });
   return Category;
 };
