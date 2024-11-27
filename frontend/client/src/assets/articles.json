@@ -1,180 +1,359 @@
 [
   {
-    "title": "The Best Travel ",
+    "title": "Sport Enthusiasts: The Ultimate Guide to Fitness and Recreation",
     "id": 1,
-    "slug": "best-travel-destinations-2024",
-    "excerpt": "đây là bài viết 1",
+    "slug": "best-sport-tips-2024",
+    "excerpt": "Khám phá các môn thể thao phổ biến và những lời khuyên giúp cải thiện kỹ năng và sức khỏe của bạn.",
     "author": {
-      "id" :1,
-      "name": "Duy Nguyen",
-      "date": "2024-02-15",
-      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
+      "id": 2,
+      "name": "Nguyễn Văn A",
+      "date": "2024-11-20",
+      "profileImage": "https://d1hjkbq40fs2x4.cloudfront.net/2017-08-21/files/landscape-photography_1645-t.jpg"
     },
-    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
-    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
-    "created_at": "2024-10-15T10:00:00Z",
-    "updated_at": "2024-10-16T12:00:00Z",
+    "image": "https://hoinhabaobacgiang.vn/Includes/NewsImg/1_2024/29736_7-1-1626444923.jpg",
+    "content": "Để cải thiện sức khỏe, thể thao không chỉ giúp tăng cường thể lực mà còn làm giảm căng thẳng. Hãy tìm hiểu những môn thể thao phổ biến và cách chúng có thể giúp bạn đạt được mục tiêu thể chất của mình.",
+    "created_at": "2024-11-20T10:00:00Z",
+    "updated_at": "2024-11-20T10:00:00Z",
     "categoryId": 1
-  },{
-    "title": "The Best Travel ",
+  },
+  {
+    "title": "The Best Travel Destinations for 2024",
     "id": 2,
     "slug": "best-travel-destinations-2024",
-    "excerpt": "đây là bài viết 2",
+    "excerpt": "Khám phá những địa điểm du lịch hàng đầu năm 2024, từ bãi biển đến các thành phố văn hóa.",
     "author": {
-      "id" :1,
-      "name": "Duy Nguyen",
-      "date": "2024-02-15",
-      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
+      "id": 3,
+      "name": "Trần Thị B",
+      "date": "2024-11-20",
+      "profileImage": "https://d1hjkbq40fs2x4.cloudfront.net/2017-08-21/files/landscape-photography_1645-t.jpg"
     },
-    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
-    "content": " bài 2 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
-    "created_at": "2024-10-15T10:00:00Z",
-    "updated_at": "2024-10-16T12:00:00Z",
-    "categoryId": 1
-  },{
-    "title": "The Best Travel ",
+    "image": "https://hoinhabaobacgiang.vn/Includes/NewsImg/1_2024/29736_7-1-1626444923.jpg",
+    "content": "2024 hứa hẹn sẽ là năm của những chuyến du lịch thú vị. Dưới đây là một số địa điểm du lịch hấp dẫn mà bạn không thể bỏ qua, từ những bãi biển xinh đẹp đến các thành phố văn hóa nổi tiếng.",
+    "created_at": "2024-11-20T10:30:00Z",
+    "updated_at": "2024-11-20T10:30:00Z",
+    "categoryId": 2
+  },
+  {
+    "title": "Design Trends to Watch Out for in 2024",
     "id": 3,
-    "slug": "best-travel-destinations-2024",
-    "excerpt": "đây là bài viết 3",
+    "slug": "design-trends-2024",
+    "excerpt": "Cập nhật xu hướng thiết kế nổi bật trong năm 2024, từ màu sắc đến kiểu dáng hiện đại.",
     "author": {
-      "id" :1,
-      "name": "Duy Nguyen",
-      "date": "2024-02-15",
-      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
+      "id": 4,
+      "name": "Lê Minh C",
+      "date": "2024-11-21",
+      "profileImage": "https://photo2.tinhte.vn/data/attachment-files/2021/07/5557920_CV.jpg"
     },
-    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
-    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
-    "created_at": "2024-10-15T10:00:00Z",
-    "updated_at": "2024-10-16T12:00:00Z",
-    "categoryId": 1
-  },{
-    "title": "The Best Travel ",
-    "id": 4,
-    "slug": "best-travel-destinations-2024",
-    "excerpt": "đây là bài viết 4",
-    "author": {
-      "id" :2,
-      "name": "Duy Nguyen",
-      "date": "2024-02-15",
-      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
-    },
-    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
-    "content": " bài 4 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
-    "created_at": "2024-10-15T10:00:00Z",
-    "updated_at": "2024-10-16T12:00:00Z",
-    "categoryId": 2
-  },{
-    "title": "The Best Travel ",
-    "id": 5,
-    "slug": "best-travel-destinations-2024",
-    "excerpt": "đây là bài viết 1",
-    "author": {
-      "id" :2,
-      "name": "Duy Nguyen",
-      "date": "2024-02-15",
-      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
-    },
-    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
-    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
-    "created_at": "2024-10-15T10:00:00Z",
-    "updated_at": "2024-10-16T12:00:00Z",
-    "categoryId": 2
-  },{
-    "title": "The Best Travel ",
-    "id": 6,
-    "slug": "best-travel-destinations-2024",
-    "excerpt": "đây là bài viết 1",
-    "author": {
-      "id" :2,
-      "name": "Duy Nguyen",
-      "date": "2024-02-15",
-      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
-    },
-    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
-    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
-    "created_at": "2024-10-15T10:00:00Z",
-    "updated_at": "2024-10-16T12:00:00Z",
+    "image": "https://photo2.tinhte.vn/data/attachment-files/2021/07/5557920_CV.jpg",
+    "content": "Năm 2024, xu hướng thiết kế sẽ tập trung vào những màu sắc tươi sáng và kiểu dáng hiện đại. Cùng tìm hiểu các xu hướng thiết kế nội thất và ngoại thất hot nhất trong năm nay.",
+    "created_at": "2024-11-21T09:45:00Z",
+    "updated_at": "2024-11-21T09:45:00Z",
     "categoryId": 3
-  },{
-    "title": "The Best Travel ",
-    "id": 7,
-    "slug": "best-travel-destinations-2024",
-    "excerpt": "đây là bài viết 1",
+  },
+  {
+    "title": "Healthy Living: Tips for a Better Life",
+    "id": 4,
+    "slug": "healthy-living-tips-2024",
+    "excerpt": "Những mẹo đơn giản giúp cải thiện sức khỏe thể chất và tinh thần trong cuộc sống hàng ngày.",
     "author": {
-      "id" :2,
-      "name": "Duy Nguyen",
-      "date": "2024-02-15",
-      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
+      "id": 5,
+      "name": "Phạm Quang D",
+      "date": "2024-11-21",
+      "profileImage": "https://media-cdn-v2.laodong.vn/storage/newsportal/2023/8/26/1233821/Giai-Nhi-1--Nang-Tre.jpg"
     },
-    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
-    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
-    "created_at": "2024-10-15T10:00:00Z",
-    "updated_at": "2024-10-16T12:00:00Z",
+    "image": "https://media-cdn-v2.laodong.vn/storage/newsportal/2023/8/26/1233821/Giai-Nhi-1--Nang-Tre.jpg",
+    "content": "Sống khỏe không chỉ là chăm sóc thể chất mà còn cần chú trọng đến sức khỏe tinh thần. Bài viết này sẽ giúp bạn tìm ra cách cân bằng giữa công việc và cuộc sống để luôn cảm thấy hạnh phúc và khỏe mạnh.",
+    "created_at": "2024-11-21T11:00:00Z",
+    "updated_at": "2024-11-21T11:00:00Z",
     "categoryId": 4
-  },{
-    "title": "The Best Travel ",
+  },
+  {
+    "title": "Tech Innovations to Look for in 2024",
+    "id": 5,
+    "slug": "tech-innovations-2024",
+    "excerpt": "Khám phá các công nghệ đột phá sẽ thay đổi cách chúng ta sống và làm việc trong năm 2024.",
+    "author": {
+      "id": 6,
+      "name": "Nguyễn Thiện E",
+      "date": "2024-11-22",
+      "profileImage": "https://media-cdn-v2.laodong.vn/storage/newsportal/2023/8/26/1233821/Giai-Nhi-1--Nang-Tre.jpg"
+    },
+    "image": "https://img.pikbest.com/origin/09/19/03/61zpIkbEsTGjk.jpg!w700wp",
+    "content": "Những công nghệ đột phá trong năm 2024 sẽ thay đổi thế giới như chúng ta đã biết. Cùng khám phá những sáng tạo mới trong các lĩnh vực AI, blockchain và công nghệ tự động hóa.",
+    "created_at": "2024-11-22T12:10:00Z",
+    "updated_at": "2024-11-22T12:10:00Z",
+    "categoryId": 5
+  },
+  {
+    "title": "Sustainable Fashion: The Future of Clothing",
+    "id": 6,
+    "slug": "sustainable-fashion-2024",
+    "excerpt": "Tìm hiểu về xu hướng thời trang bền vững và những thay đổi trong ngành công nghiệp thời trang.",
+    "author": {
+      "id": 7,
+      "name": "Trần Hoàng F",
+      "date": "2024-11-22",
+      "profileImage": "https://img.pikbest.com/origin/09/19/03/61zpIkbEsTGjk.jpg!w700wp"
+    },
+    "image": "https://img.pikbest.com/origin/09/19/03/61zpIkbEsTGjk.jpg!w700wp",
+    "content": "Thời trang bền vững đang trở thành xu hướng quan trọng trong ngành công nghiệp. Cùng tìm hiểu về các sáng kiến và chất liệu giúp bảo vệ môi trường trong ngành thời trang.",
+    "created_at": "2024-11-22T13:15:00Z",
+    "updated_at": "2024-11-22T13:15:00Z",
+    "categoryId": 6
+  },
+  {
+    "title": "Mental Health: Coping Strategies for 2024",
+    "id": 7,
+    "slug": "mental-health-strategies-2024",
+    "excerpt": "Các chiến lược giúp cải thiện sức khỏe tâm lý và giảm stress trong cuộc sống hiện đại.",
+    "author": {
+      "id": 8,
+      "name": "Lý Thanh G",
+      "date": "2024-11-22",
+      "profileImage": "https://img.pikbest.com/origin/09/19/03/61zpIkbEsTGjk.jpg!w700wp"
+    },
+    "image": "https://img.pikbest.com/origin/09/19/03/61zpIkbEsTGjk.jpg!w700wp",
+    "content": "Sức khỏe tâm lý là yếu tố quan trọng trong cuộc sống hiện đại. Bài viết này chia sẻ những chiến lược đơn giản để giảm căng thẳng và cải thiện sức khỏe tâm lý của bạn.",
+    "created_at": "2024-11-22T14:00:00Z",
+    "updated_at": "2024-11-22T14:00:00Z",
+    "categoryId": 7
+  },
+  {
+    "title": "The Future of Work: Trends in Remote Jobs",
     "id": 8,
-    "slug": "best-travel-destinations-2024",
-    "excerpt": "đây là bài viết 1",
+    "slug": "remote-jobs-2024",
+    "excerpt": "Tìm hiểu về xu hướng công việc từ xa và cách chúng đang thay đổi môi trường làm việc.",
     "author": {
-      "id" :2,
-      "name": "Duy Nguyen",
-      "date": "2024-02-15",
-      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
+      "id": 9,
+      "name": "Nguyễn Hồng H",
+      "date": "2024-11-23",
+      "profileImage": "https://naidecor.vn/wp-content/uploads/2023/09/landscape_photography_tips_featured_image_1024x1024.webp"
     },
-    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
-    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
-    "created_at": "2024-10-15T10:00:00Z",
-    "updated_at": "2024-10-16T12:00:00Z",
-    "categoryId": 1
-  },{
-    "title": "The Best Travel ",
+    "image": "https://naidecor.vn/wp-content/uploads/2023/09/landscape_photography_tips_featured_image_1024x1024.webp",
+    "content": "Công việc từ xa đang trở thành một xu hướng mạnh mẽ trong thời gian gần đây. Bài viết này sẽ giúp bạn hiểu về những thay đổi trong môi trường làm việc và cách bạn có thể tận dụng công việc từ xa.",
+    "created_at": "2024-11-23T15:10:00Z",
+    "updated_at": "2024-11-23T15:10:00Z",
+    "categoryId": 8
+  },
+  {
+    "title": "The Rise of Electric Vehicles in 2024",
     "id": 9,
-    "slug": "best-travel-destinations-2024",
-    "excerpt": "đây là bài viết 1",
+    "slug": "electric-vehicles-2024",
+    "excerpt": "Khám phá sự phát triển mạnh mẽ của xe điện và ảnh hưởng của chúng đến ngành công nghiệp ô tô.",
     "author": {
-      "id" :2,
-      "name": "Duy Nguyen",
-      "date": "2024-02-15",
-      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
+      "id": 10,
+      "name": "Đặng Minh I",
+      "date": "2024-11-23",
+      "profileImage": "https://naidecor.vn/wp-content/uploads/2023/09/landscape_photography_tips_featured_image_1024x1024.webp"
     },
-    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
-    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
-    "created_at": "2024-10-15T10:00:00Z",
-    "updated_at": "2024-10-16T12:00:00Z",
-    "categoryId": 2
-  },{
-    "title": "The Best Travel ",
+    "image": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg",
+    "content": "Sự phát triển của xe điện trong năm 2024 là một bước ngoặt quan trọng đối với ngành công nghiệp ô tô. Cùng tìm hiểu về các công nghệ xe điện và các tác động của chúng đối với môi trường.",
+    "created_at": "2024-11-23T16:30:00Z",
+    "updated_at": "2024-11-23T16:30:00Z",
+    "categoryId": 9
+  },
+  {
+    "title": "Artificial Intelligence: Impact on Modern Businesses",
     "id": 10,
-    "slug": "best-travel-destinations-2024",
-    "excerpt": "đây là bài viết 1",
+    "slug": "ai-business-impact-2024",
+    "excerpt": "Công nghệ AI đang thay đổi cách các doanh nghiệp vận hành và mang lại lợi ích to lớn cho nhiều ngành nghề.",
     "author": {
-      "id" :2,
-      "name": "Duy Nguyen",
-      "date": "2024-02-15",
-      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
+      "id": 11,
+      "name": "Vũ Minh J",
+      "date": "2024-11-23",
+      "profileImage": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg"
     },
-    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
-    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
-    "created_at": "2024-10-15T10:00:00Z",
-    "updated_at": "2024-10-16T12:00:00Z",
-    "categoryId": 1
-  },{
-    "title": "The Best Travel ",
+    "image": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg",
+    "content": "AI đang có ảnh hưởng mạnh mẽ đến tất cả các ngành công nghiệp. Dự đoán về việc AI sẽ thay đổi cách các doanh nghiệp hoạt động và cách chúng tạo ra giá trị mới.",
+    "created_at": "2024-11-23T17:00:00Z",
+    "updated_at": "2024-11-23T17:00:00Z",
+    "categoryId": 10
+  },
+  {
+    "title": "Artificial Intelligence: Impact on Modern Businesses",
+    "id": 10,
+    "slug": "ai-business-impact-2024",
+    "excerpt": "Công nghệ AI đang thay đổi cách các doanh nghiệp vận hành và mang lại lợi ích to lớn cho nhiều ngành nghề.",
+    "author": {
+      "id": 11,
+      "name": "Vũ Minh J",
+      "date": "2024-11-23",
+      "profileImage": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg"
+    },
+    "image": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg",
+    "content": "AI đang có ảnh hưởng mạnh mẽ đến tất cả các ngành công nghiệp. Dự đoán về việc AI sẽ thay đổi cách các doanh nghiệp hoạt động và cách chúng tạo ra giá trị mới.",
+    "created_at": "2024-11-23T17:00:00Z",
+    "updated_at": "2024-11-23T17:00:00Z",
+    "categoryId": 10
+  },
+  {
+    "title": "Artificial Intelligence: Impact on Modern Businesses",
+    "id": 10,
+    "slug": "ai-business-impact-2024",
+    "excerpt": "Công nghệ AI đang thay đổi cách các doanh nghiệp vận hành và mang lại lợi ích to lớn cho nhiều ngành nghề.",
+    "author": {
+      "id": 11,
+      "name": "Vũ Minh J",
+      "date": "2024-11-23",
+      "profileImage": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg"
+    },
+    "image": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg",
+    "content": "AI đang có ảnh hưởng mạnh mẽ đến tất cả các ngành công nghiệp. Dự đoán về việc AI sẽ thay đổi cách các doanh nghiệp hoạt động và cách chúng tạo ra giá trị mới.",
+    "created_at": "2024-11-23T17:00:00Z",
+    "updated_at": "2024-11-23T17:00:00Z",
+    "categoryId": 10
+  },
+  {
+    "title": "Artificial Intelligence: Impact on Modern Businesses",
+    "id": 10,
+    "slug": "ai-business-impact-2024",
+    "excerpt": "Công nghệ AI đang thay đổi cách các doanh nghiệp vận hành và mang lại lợi ích to lớn cho nhiều ngành nghề.",
+    "author": {
+      "id": 11,
+      "name": "Vũ Minh J",
+      "date": "2024-11-23",
+      "profileImage": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg"
+    },
+    "image": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg",
+    "content": "AI đang có ảnh hưởng mạnh mẽ đến tất cả các ngành công nghiệp. Dự đoán về việc AI sẽ thay đổi cách các doanh nghiệp hoạt động và cách chúng tạo ra giá trị mới.",
+    "created_at": "2024-11-23T17:00:00Z",
+    "updated_at": "2024-11-23T17:00:00Z",
+    "categoryId": 10
+  },
+  {
+    "title": "Artificial Intelligence: Impact on Modern Businesses",
+    "id": 10,
+    "slug": "ai-business-impact-2024",
+    "excerpt": "Công nghệ AI đang thay đổi cách các doanh nghiệp vận hành và mang lại lợi ích to lớn cho nhiều ngành nghề.",
+    "author": {
+      "id": 11,
+      "name": "Vũ Minh J",
+      "date": "2024-11-23",
+      "profileImage": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg"
+    },
+    "image": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg",
+    "content": "AI đang có ảnh hưởng mạnh mẽ đến tất cả các ngành công nghiệp. Dự đoán về việc AI sẽ thay đổi cách các doanh nghiệp hoạt động và cách chúng tạo ra giá trị mới.",
+    "created_at": "2024-11-23T17:00:00Z",
+    "updated_at": "2024-11-23T17:00:00Z",
+    "categoryId": 10
+  },
+  {
+    "title": "Artificial Intelligence: Impact on Modern Businesses",
+    "id": 10,
+    "slug": "ai-business-impact-2024",
+    "excerpt": "Công nghệ AI đang thay đổi cách các doanh nghiệp vận hành và mang lại lợi ích to lớn cho nhiều ngành nghề.",
+    "author": {
+      "id": 11,
+      "name": "Vũ Minh J",
+      "date": "2024-11-23",
+      "profileImage": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg"
+    },
+    "image": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg",
+    "content": "AI đang có ảnh hưởng mạnh mẽ đến tất cả các ngành công nghiệp. Dự đoán về việc AI sẽ thay đổi cách các doanh nghiệp hoạt động và cách chúng tạo ra giá trị mới.",
+    "created_at": "2024-11-23T17:00:00Z",
+    "updated_at": "2024-11-23T17:00:00Z",
+    "categoryId": 10
+  },
+  {
+    "title": "Artificial Intelligence: Impact on Modern Businesses",
+    "id": 10,
+    "slug": "ai-business-impact-2024",
+    "excerpt": "Công nghệ AI đang thay đổi cách các doanh nghiệp vận hành và mang lại lợi ích to lớn cho nhiều ngành nghề.",
+    "author": {
+      "id": 11,
+      "name": "Vũ Minh J",
+      "date": "2024-11-23",
+      "profileImage": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg"
+    },
+    "image": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg",
+    "content": "AI đang có ảnh hưởng mạnh mẽ đến tất cả các ngành công nghiệp. Dự đoán về việc AI sẽ thay đổi cách các doanh nghiệp hoạt động và cách chúng tạo ra giá trị mới.",
+    "created_at": "2024-11-23T17:00:00Z",
+    "updated_at": "2024-11-23T17:00:00Z",
+    "categoryId": 10
+  },
+  {
+    "title": "Artificial Intelligence: Impact on Modern Businesses",
+    "id": 10,
+    "slug": "ai-business-impact-2024",
+    "excerpt": "Công nghệ AI đang thay đổi cách các doanh nghiệp vận hành và mang lại lợi ích to lớn cho nhiều ngành nghề.",
+    "author": {
+      "id": 11,
+      "name": "Vũ Minh J",
+      "date": "2024-11-23",
+      "profileImage": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg"
+    },
+    "image": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg",
+    "content": "AI đang có ảnh hưởng mạnh mẽ đến tất cả các ngành công nghiệp. Dự đoán về việc AI sẽ thay đổi cách các doanh nghiệp hoạt động và cách chúng tạo ra giá trị mới.",
+    "created_at": "2024-11-23T17:00:00Z",
+    "updated_at": "2024-11-23T17:00:00Z",
+    "categoryId": 10
+  },
+  {
+    "title": "Artificial Intelligence: Impact on Modern Businesses",
+    "id": 10,
+    "slug": "ai-business-impact-2024",
+    "excerpt": "Công nghệ AI đang thay đổi cách các doanh nghiệp vận hành và mang lại lợi ích to lớn cho nhiều ngành nghề.",
+    "author": {
+      "id": 11,
+      "name": "Vũ Minh J",
+      "date": "2024-11-23",
+      "profileImage": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg"
+    },
+    "image": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg",
+    "content": "AI đang có ảnh hưởng mạnh mẽ đến tất cả các ngành công nghiệp. Dự đoán về việc AI sẽ thay đổi cách các doanh nghiệp hoạt động và cách chúng tạo ra giá trị mới.",
+    "created_at": "2024-11-23T17:00:00Z",
+    "updated_at": "2024-11-23T17:00:00Z",
+    "categoryId": 10
+  },
+  {
+    "title": "Artificial Intelligence: Impact on Modern Businesses",
+    "id": 10,
+    "slug": "ai-business-impact-2024",
+    "excerpt": "Công nghệ AI đang thay đổi cách các doanh nghiệp vận hành và mang lại lợi ích to lớn cho nhiều ngành nghề.",
+    "author": {
+      "id": 11,
+      "name": "Vũ Minh J",
+      "date": "2024-11-23",
+      "profileImage": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg"
+    },
+    "image": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg",
+    "content": "AI đang có ảnh hưởng mạnh mẽ đến tất cả các ngành công nghiệp. Dự đoán về việc AI sẽ thay đổi cách các doanh nghiệp hoạt động và cách chúng tạo ra giá trị mới.",
+    "created_at": "2024-11-23T17:00:00Z",
+    "updated_at": "2024-11-23T17:00:00Z",
+    "categoryId": 10
+  },
+  {
+    "title": "Artificial Intelligence: Impact on Modern Businesses",
     "id": 11,
-    "slug": "best-travel-destinations-2024",
-    "excerpt": "đây là bài viết 1",
+    "slug": "ai-business-impact-2024",
+    "excerpt": "Công nghệ AI đang thay đổi cách các doanh nghiệp vận hành và mang lại lợi ích to lớn cho nhiều ngành nghề.",
     "author": {
-      "id" :2,
-      "name": "Duy Nguyen",
-      "date": "2024-02-15",
-      "profileImage": "https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/288036829_765297354484867_8309434000439437708_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEkdH3I4PbAQqL9fOSmMAmbAyWnOmQ7VAQDJac6ZDtUBDD46iKOAWqHLHmLA3P8USWda-xnb1lF_3aU59NHlH4N&_nc_ohc=hb9wGJzsXDgQ7kNvgEzn9cS&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=Aqv5O7Iki5pG4fHu0cFNo9X&oh=00_AYBVnWmKyy37MWT2-AGWij5xHM4DxNOUvIQoic_Nf2dDbg&oe=67414FEC"
+      "id": 1,
+      "name": "Vũ Minh J",
+      "date": "2024-11-23",
+      "profileImage": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg"
     },
-    "image": "https://i.pinimg.com/originals/b2/46/8f/b2468f173babb6aacd76a75ba5d65056.png",
-    "content": " bài 1 JavaScript closures are a fundamental concept for mastering the language. A closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.",
-    "created_at": "2024-10-15T10:00:00Z",
-    "updated_at": "2024-10-16T12:00:00Z",
-    "categoryId": 1
+    "image": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg",
+    "content": "AI đang có ảnh hưởng mạnh mẽ đến tất cả các ngành công nghiệp. Dự đoán về việc AI sẽ thay đổi cách các doanh nghiệp hoạt động và cách chúng tạo ra giá trị mới.",
+    "created_at": "2024-11-23T17:00:00Z",
+    "updated_at": "2024-11-23T17:00:00Z",
+    "categoryId": 2
+  },
+  {
+    "title": "Artificial Intelligence: Impact on Modern Businesses",
+    "id": 12,
+    "slug": "ai-business-impact-2024",
+    "excerpt": "Công nghệ AI đang thay đổi cách các doanh nghiệp vận hành và mang lại lợi ích to lớn cho nhiều ngành nghề.",
+    "author": {
+      "id": 1,
+      "name": "Vũ Minh J",
+      "date": "2024-11-23",
+      "profileImage": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg"
+    },
+    "image": "https://focusasiatravel.vn/wp-content/uploads/2021/04/trantuanviet-bavi-hanoi-1617326198.jpg",
+    "content": "AI đang có ảnh hưởng mạnh mẽ đến tất cả các ngành công nghiệp. Dự đoán về việc AI sẽ thay đổi cách các doanh nghiệp hoạt động và cách chúng tạo ra giá trị mới.",
+    "created_at": "2024-11-23T17:00:00Z",
+    "updated_at": "2024-11-23T17:00:00Z",
+    "categoryId": 3
   }
-  
 ]

@@ -3,8 +3,7 @@
     "name": "Sport",
     "id": 1,
     "articleCount": 38,
-    "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
-    "slug": "Sport",
+    "imageUrl":"https://aten.edu.vn/wp-content/uploads/2023/02/topic-ielts-speaking-sports-ielts-speaking-part-1-2-3-so-2.jpg" ,
     "created_at": "2024-01-01T00:00:00Z",
     "updated_at": "2024-01-20T00:00:00Z"
   },
@@ -12,34 +11,32 @@
     "name": "Design",
     "id": 2,
     "articleCount": 48,
-    "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
-    "slug": "Design",
+    "imageUrl": "https://mozavn.com/wp-content/uploads/2023/07/design-tools.jpeg",
     "created_at": "2024-01-01T00:00:00Z",
     "updated_at": "2024-01-20T00:00:00Z"
   },
   {
-    "name": "hehe",
+    "name": "Healthy",
     "id": 3,
     "articleCount": 48,
-    "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
-    "slug": "Design",
+    "imageUrl": "https://tapdoandaiviet.com.vn/manage/responsive_filemanager/source/2022/04/Che-do-an-healthy/loi-ich-khi-ap-dung-che-do-an-healthy.jpg",
     "created_at": "2024-01-01T00:00:00Z",
     "updated_at": "2024-01-20T00:00:00Z"
   },
   {
-    "name": "haha",
+    "name": "Style",
     "id": 4,
     "articleCount": 48,
-    "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
+    "imageUrl": "https://5sfashion.vn/storage/upload/images/posts/HofT9aK3yN5PqpnaPbgJZwFgmm8MxVvU9VI7xGzG.jpg",
     "slug": "Design",
     "created_at": "2024-01-01T00:00:00Z",
     "updated_at": "2024-01-20T00:00:00Z"
   },
   {
-    "name": "hihi",
+    "name": "AI",
     "id": 5,
     "articleCount": 48,
-    "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
+    "imageUrl": "https://ant.ncc.asia/wp-content/uploads/2024/05/8212123_What-is-Artiificial-IntelligenceAI.webp",
     "slug": "Design",
     "created_at": "2024-01-01T00:00:00Z",
     "updated_at": "2024-01-20T00:00:00Z"
@@ -48,7 +45,7 @@
     "name": "Travel",
     "id": 6,
     "articleCount": 68,
-    "imageUrl": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg",
+    "imageUrl": "https://langgo.edu.vn/storage/upload/default/images/bai-viet/ielts-grammar-phan-biet-travel-trip-journey-tour-voyage-excursion-expedition-passage.jpg",
     "slug": "Sport",
     "created_at": "2024-01-01T00:00:00Z",
     "updated_at": "2024-01-20T00:00:00Z"

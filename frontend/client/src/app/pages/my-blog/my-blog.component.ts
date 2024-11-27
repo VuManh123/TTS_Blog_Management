@@ -14,7 +14,7 @@ import { AuthService } from '../../services/auth.service';
 export class MyBlogComponent implements OnInit {
   blogs: any[] = []; // Danh sách bài viết
   userId: string | null = null; // ID của người dùng
-  categories: any = {}; // Lưu thông tin danh mục theo ID
+  categories: any[] = []; // Danh sách danh mục
 
   constructor(private authService: AuthService, private http: HttpClient) {}
 
@@ -22,43 +22,54 @@ export class MyBlogComponent implements OnInit {
     // Lấy thông tin user từ AuthService
     this.authService.getUserProfile().subscribe(
       (profile) => {
-        this.userId = profile.id; // Lấy userId từ thông tin profile
-        this.loadCategories();
+        this.userId = profile.user.id; // Lấy userId từ thông tin profile
+        this.getBlogsByUserId(); // Sau khi lấy userId, lấy bài viết của người dùng này
       },
       (error) => {
         console.error('Lỗi khi lấy thông tin người dùng:', error);
       }
     );
+
+    // Lấy danh sách category
+    this.loadCategories();
   }
 
-  loadCategories() {
-    // Lấy tất cả danh mục
-    this.http.get<any[]>('assets/categories.json').subscribe(
-      (categories) => {
-        categories.forEach((category) => {
-          this.categories[category.id] = category; // Lưu danh mục theo ID
-        });
-        this.getBlogsByUserId();
-      },
-      (error) => {
-        console.error('Lỗi khi lấy danh sách danh mục:', error);
-      }
-    );
-  }
-
+  // Lấy danh sách các bài viết của người dùng theo userId
   getBlogsByUserId() {
     if (this.userId) {
       this.http
-      .get<any[]>(`assets/articles.json`)
-       // .get<any[]>(`http://localhost:3000/api/blogs?userId=${this.userId}`)
+        .get<any[]>('assets/articles.json')  // Hoặc sử dụng API endpoint phù hợp
         .subscribe(
           (data) => {
-            this.blogs = data;
+            // Lọc bài viết theo userId
+            const filteredBlogs = data.filter((blog) => blog.author.id === this.userId);
+            // Sau khi lọc, lấy tên danh mục cho mỗi bài viết
+            this.blogs = filteredBlogs.map((blog) => {
+              return { ...blog, categoryName: this.getCategoryNameById(blog.categoryId) };
+            });
           },
           (error) => {
             console.error('Lỗi khi lấy danh sách bài viết:', error);
           }
         );
     }
+  }
+
+  // Lấy tên danh mục theo categoryId
+  getCategoryNameById(categoryId: number): string {
+    const category = this.categories.find((cat) => cat.id === categoryId);
+    return category ? category.name : 'Uncategorized';
+  }
+
+  // Lấy danh sách các category từ file categories.json
+  loadCategories() {
+    this.http.get<any[]>('assets/categories.json').subscribe(
+      (categories) => {
+        this.categories = categories; // Lưu danh mục vào mảng categories
+      },
+      (error) => {
+        console.error('Lỗi khi lấy danh sách danh mục:', error);
+      }
+    );
   }
 }

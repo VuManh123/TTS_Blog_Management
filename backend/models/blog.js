@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Blog.init({
+    image: DataTypes.STRING,
     slug: DataTypes.STRING,
     excerpt: DataTypes.STRING,
     status: DataTypes.STRING,

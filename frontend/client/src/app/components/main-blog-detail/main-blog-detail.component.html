@@ -24,7 +24,10 @@
     <h3 class="headline headline-2 aside-title">
       <span class="span">Last Comment</span>
     </h3>
-
+    <div class="new-comment-section" style="margin-top: 20px; margin-bottom: 20px">
+      <input type="text" id="new-comment-input" placeholder="Enter your comment..."
+        style="width: 100%; padding: 10px; margin-top: 10px;">
+    </div>
     <ul class="comment-list">
       <li *ngFor="let comment of filteredComments">
         <div class="comment-card">
@@ -53,6 +56,11 @@
 
   <!-- Hiển thị nếu không có bình luận -->
   <div *ngIf="filteredComments.length === 0" class="no-comments">
+    <div class="new-comment-section" style="margin-top: 20px; margin-bottom: 20px">
+      <input type="text" id="new-comment-input" placeholder="Enter your comment..."
+        style="width: 100%; padding: 10px; margin-top: 10px;">
+    </div>
     <p>No comments available for this blog post.</p>
+
   </div>
 </div>
