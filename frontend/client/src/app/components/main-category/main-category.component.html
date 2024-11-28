@@ -2,7 +2,6 @@
     <div class="container">
 
         <div class="post-main">
-
             <h2 class="headline headline-2 section-title">
                 <span class="span">Articles in the category</span>
             </h2>
@@ -12,7 +11,8 @@
             </p>
 
             <ul class="grid-list">
-                <li *ngFor="let article of articles">
+                <li
+                    *ngFor="let article of articles.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)">
                     <div class="recent-post-card">
                         <figure class="card-banner img-holder" style="--width: 271; --height: 258;">
                             <img [src]="article.image" [alt]="article.title" width="271" height="258" loading="lazy"
@@ -21,10 +21,9 @@
 
                         <div class="card-content">
                             <!-- Hiển thị danh mục bài viết (nếu có) -->
-                            <a [routerLink]="['/categories', article.categoryId]" class="card-badge">
-                                {{ getCategoryName(article.categoryId) }}
+                            <a [routerLink]="['/categories', article.category.id]" class="card-badge">
+                                {{ article.category.name }}
                             </a>
-
 
                             <!-- Tiêu đề bài viết -->
                             <h3 class="headline headline-3 card-title">
@@ -41,28 +40,23 @@
                 </li>
             </ul>
 
-
-            <nav aria-label="pagination" class="pagination">
-
-                <a href="#" class="pagination-btn" aria-label="previous page">
-                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-                </a>
-
-                <a href="#" class="pagination-btn">1</a>
-                <a href="#" class="pagination-btn">2</a>
-                <a href="#" class="pagination-btn">3</a>
-                <a href="#" class="pagination-btn" aria-label="more page">...</a>
-
-                <a href="#" class="pagination-btn" aria-label="next page">
-                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                </a>
-
-            </nav>
-
+            <!-- Các nút phân trang -->
+            <div class="pagination">
+                <button class="pagination-btn" (click)="currentPage = currentPage - 1" [disabled]="currentPage <= 0"><i
+                        class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+                <a class="pagination-btn">1</a>
+                <a class="pagination-btn">2</a>
+                <a class="pagination-btn">3</a>
+                <a class="pagination-btn" aria-label="more page">...</a>
+                <button class="pagination-btn" (click)="currentPage = currentPage + 1"
+                    [disabled]="currentPage >= (articles.length / itemsPerPage) - 1"><i class="fa-solid fa-arrow-right"
+                        aria-hidden="true"></i></button>
+            </div>
         </div>
 
-        <div class="post-aside grid-list">
 
+        <!-- Sidebar with other categories -->
+        <div class="post-aside grid-list">
             <div class="card aside-card">
 
                 <h3 class="headline headline-2 aside-title">
@@ -79,8 +73,10 @@
 
                             <div class="card-content">
                                 <h4 class="headline headline-4 card-title">
-                                    <a [routerLink]="['/categories', category.id]" class="link hover-2">{{ category.name
-                                        }}</a>
+                                    <!-- Điều hướng đến trang danh mục tương ứng -->
+                                    <a [routerLink]="['/categories', category.id]" class="link hover-2">
+                                        {{ category.name }}
+                                    </a>
                                 </h4>
 
                                 <div class="warpper">
@@ -88,7 +84,6 @@
                                         Created: {{ category.created_at | date: 'd MMM yyyy' }}
                                     </time>
                                 </div>
-
                             </div>
                         </div>
                     </li>
