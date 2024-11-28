@@ -28,8 +28,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     tableName: 'Categories',  // Đảm bảo tên bảng khớp với migration
-    underscored: true,        // Sử dụng định dạng snake_case
-    timestamps: true          // Bật tự động xử lý created_at và updated_at
+    underscored: false,        // Sử dụng định dạng snake_case
+    timestamps: false          // Bật tự động xử lý created_at và updated_at
   });
 
   Category.associate = function(models) {

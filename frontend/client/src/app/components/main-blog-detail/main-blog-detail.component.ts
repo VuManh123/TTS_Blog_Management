@@ -50,5 +50,11 @@ export class MainBlogDetailComponent implements OnInit {
     }
   }
 
+  onLanguageChange(event: Event): void {
+    const selectedLanguage = (event.target as HTMLSelectElement).value;
+    console.log('Selected language:', selectedLanguage);
+    // Thực hiện hành động thay đổi ngôn ngữ tại đây
+  }
+
 
 }

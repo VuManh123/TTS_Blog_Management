@@ -1,7 +1,15 @@
 <div class="card aside-card" style="margin-top: 100px;">
-  <h3 class="headline headline-2 aside-title">
-    <span class="span">{{ blog.title }}</span>
-  </h3>
+  <div class="title-container">
+    <h3 class="headline headline-2 aside-title">
+      <span class="span">{{ blog.title }}</span>
+    </h3>
+    <select class="language-select" (change)="onLanguageChange($event)">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <!-- Thêm các tùy chọn ngôn ngữ khác nếu cần -->
+    </select>
+  </div>
   <div class="blog-meta">
     <span class="blog-author">By {{ blog.author.name }}</span> |
     <span class="blog-date">Posted on {{ blog.created_at | date: 'd MMMM y' }}</span>
