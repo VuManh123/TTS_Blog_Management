@@ -1,25 +1,27 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
-  class Language extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  Language.init({
-    code: DataTypes.STRING,
-    name: DataTypes.STRING,
+  const Language = sequelize.define('Language', {
+    code: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true // Đảm bảo mã ngôn ngữ không bị trùng lặp
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     flag: DataTypes.STRING
   }, {
-    sequelize,
-    modelName: 'Language',
+    tableName: 'Languages',  // Tên bảng khớp với migration
+    underscored: true,       // Sử dụng underscore cho tên cột
+    timestamps: true         // Bật tự động xử lý created_at và updated_at
   });
+
+  Language.associate = function(models) {
+    // Language has many BlogContents
+    Language.hasMany(models.BlogContent, { foreignKey: 'language_id', as: 'blogContents' });
+  };
+
   return Language;
 };

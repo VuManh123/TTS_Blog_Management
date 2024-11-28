@@ -12,14 +12,32 @@ const blogService = {
     });
   },
 
-   // Lấy tất cả các bài viết và thông tin tác giả
-   getAllBlogsRequired: async () => {
-    return await Blog.findAll({
-      include: {
-        model: db.User,
-        as: 'author',
-        attributes: ['id', 'name', 'profileImage', 'created_at'], // Lấy các trường cần thiết của tác giả
-      },
+  getAllBlogsRequired: async () => {
+    return await db.Blog.findAll({
+      include: [
+        {
+          model: db.BlogContent,
+          as: 'contents', // Sử dụng alias 'contents' đã định nghĩa
+          attributes: ['id', 'title', 'language_id', 'introduction', 'main_content'],
+          include: [
+            {
+              model: db.Language,
+              as: 'language', // Sử dụng alias 'language' đã định nghĩa
+              attributes: ['id', 'name']
+            }
+          ]
+        },
+        {
+          model: db.Category,
+          as: 'category', // Sử dụng alias 'category' đã định nghĩa
+          attributes: ['id', 'name']
+        },
+        {
+          model: db.User,
+          as: 'author', // Sử dụng alias 'author' đã định nghĩa
+          attributes: ['id', 'name', 'profileImage']
+        }
+      ],
       attributes: [
         'id',
         'title',
@@ -30,9 +48,11 @@ const blogService = {
         'created_at',
         'updated_at',
         'category_id'
-      ],
+      ]
     });
   },
+  
+  
 
   getBlogById: async (id) => {
     return await Blog.findByPk(id, {

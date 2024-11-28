@@ -12,7 +12,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'user', component: BlogUserComponent, canActivate: [AuthGuard] },
-    { path: 'categories/:id', component: CategoriesComponent ,canActivate: [AuthGuard]},
-    { path: 'blog-detail/:id', component: BlogDetailComponent ,canActivate: [AuthGuard]},
+    { path: 'categories/:id', component: CategoriesComponent},
+    { path: 'blog-detail/:id', component: BlogDetailComponent},
     { path: 'my-blog', component: MyBlogComponent ,canActivate: [AuthGuard]},
 ];
