@@ -1,27 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-
-interface Category {
-  id: number;
-  name: string;
-  slug: string;
-  imageUrl: string;
-  created_at: Date;
-  update_at: Date;
-}
-
-interface Article {
-  id: number;
-  title: string;
-  slug: string;
-  author: {
-    name: string;
-    date: string;
-    profileImage: string;
-  };
-  image: string;
-}
+import { CategoryService, Category } from '../../services/category.service';
+import { ArticleService, Article } from '../../services/blog.service';
 
 @Component({
   selector: 'app-main',
@@ -34,30 +15,36 @@ export class MainComponent implements OnInit, AfterViewInit {
   categories: Category[] = [];
   articles: Article[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private categoryService: CategoryService, private articleService: ArticleService) {}
 
   ngOnInit(): void {
-    // Lấy dữ liệu cho categories
-    this.http.get<Category[]>('assets/categories.json')
-      .subscribe(
-        data => {
-          this.categories = data;
-        },
-        error => {
-          console.error('Error fetching categories', error);
+    // Lấy dữ liệu cho categories từ service
+    this.categoryService.getCategories().subscribe(
+      (response: any) => {
+        if (response.success && response.data) {
+          this.categories = response.data; // Trích xuất mảng data
+        } else {
+          console.error('Invalid response format:', response);
         }
-      );
+      },
+      (error) => {
+        console.error('Error fetching categories:', error);
+      }
+    )
 
-    // Lấy dữ liệu cho articles
-    this.http.get<Article[]>('assets/articles.json')
-      .subscribe(
-        data => {
-          this.articles = data;
-        },
-        error => {
-          console.error('Error fetching articles', error);
+    // Gọi service để lấy dữ liệu articles
+    this.articleService.getArticles().subscribe(
+      (response) => {
+        if (response.success && response.data) {
+          this.articles = response.data;
+        } else {
+          console.error('Invalid response format for articles:', response);
         }
-      );
+      },
+      (error) => {
+        console.error('Error fetching articles:', error);
+      }
+    );
   }
 
   ngAfterViewInit(): void {

@@ -1,0 +1,21 @@
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .language-select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #BAE1F2;
+    font-size: 18px;
+    background-color: var(--bg-oxford-blue-2); /* Màu nền */
+    color: #BAE1F2; /* Màu chữ */
+  }
+  
+  .custom-placeholder::placeholder {
+    color: #BAE1F2; /* Màu của placeholder */
+    font-style: italic; /* Kiểu chữ nghiêng (tùy chọn) */
+    opacity: 0.7; /* Độ mờ (tùy chọn) */
+  }
+  

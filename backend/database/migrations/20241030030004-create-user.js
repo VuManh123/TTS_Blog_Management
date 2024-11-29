@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
+      name: {
         type: Sequelize.STRING,
         unique: true,
         allowNull: false
@@ -29,7 +29,7 @@ module.exports = {
       last_name: {
         type: Sequelize.STRING
       },
-      avatar_url: {
+      profileImage: {
         type: Sequelize.STRING
       },
       bio: {
@@ -43,6 +43,9 @@ module.exports = {
         },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL'
+      },
+      date: {
+        type: Sequelize.DATE,
       },
       created_at: {
         type: Sequelize.DATE,

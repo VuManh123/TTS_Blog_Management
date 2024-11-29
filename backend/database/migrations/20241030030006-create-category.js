@@ -9,7 +9,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      articleCount: {
+        type: Sequelize.INTEGER
+      },
       name: {
+        type: Sequelize.STRING
+      },
+      imageUrl: {
         type: Sequelize.STRING
       },
       slug: {

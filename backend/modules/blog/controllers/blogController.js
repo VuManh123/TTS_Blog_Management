@@ -15,6 +15,49 @@ const blogController = {
     }
   },
 
+  // Lấy tất cả bài viết
+  getAllRequire: async (req, res) => {
+    try {
+      const blogs = await blogService.getAllBlogsRequired();
+  
+      // Định dạng lại dữ liệu để trả về
+      const formattedBlogs = blogs.map(blog => ({
+        id: blog.id,
+        title: blog.title,
+        slug: blog.slug,
+        excerpt: blog.excerpt,
+        image: blog.image,
+        content: blog.content,
+        createdAt: blog.created_at,
+        updatedAt: blog.updated_at,
+        category: blog.category ? {
+          id: blog.category.id,
+          name: blog.category.name
+        } : null,
+        author: blog.author ? {
+          id: blog.author.id,
+          name: blog.author.name,
+          profileImage: blog.author.profileImage
+        } : null,
+        blogContent: blog.contents?.map(content => ({
+          id: content.id,
+          title: content.title,
+          introduction: content.introduction,
+          mainContent: content.main_content,
+          language: content.language ? {
+            id: content.language.id,
+            name: content.language.name
+          } : null
+        })) || []
+      }));
+  
+      return responseUtils.ok(res, formattedBlogs);
+    } catch (error) {
+      return responseUtils.error(res, error.message);
+    }
+  },
+  
+
   getAll: async (req, res) => {
     try {
       const blogs = await blogService.getAllBlogs();
@@ -62,5 +105,4 @@ const blogController = {
 
   
 };
-
 module.exports = blogController;

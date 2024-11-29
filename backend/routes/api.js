@@ -19,8 +19,8 @@ const languageController = require("modules/language/controllers/languageControl
 const blogValidation = require("modules/blog/validations/blogValidation");
 
 const blogController = require("modules/blog/controllers/blogController");
+const commentController = require("modules/comment/controllers/commentController");
 
-router.get("/categories", categoryController.getAll);
 router.get("/categories/:id", categoryController.getById);
 router.post("/categories", validate(categoryValidation.create), categoryController.create);
 router.put("/categories/:id", validate(categoryValidation.update), categoryController.update);
@@ -38,6 +38,10 @@ router.get("/blogs/:id", blogController.getById);
 router.put("/blogs/:id", validate(blogValidation.update), blogController.update);
 router.delete("/blogs/:id", blogController.delete);
 
+// New api
+router.get('/blogRequire', blogController.getAllRequire); //articles.json
+router.get("/categories", categoryController.getAll); //categories.json
+router.get("/comments", commentController.getAll);
 
 module.exports = router;
 

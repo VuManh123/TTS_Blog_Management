@@ -1,42 +1,66 @@
 <div class="card aside-card" style="margin-top: 100px;">
-  <h3 class="headline headline-2 aside-title">
-    <span class="span">{{ blog.title }}</span>
-  </h3>
+  <div class="title-container">
+    <h3 class="headline headline-2 aside-title">
+      <span class="span">{{ blog?.title }}</span>
+    </h3>
+
+    <!-- Dropdown chọn ngôn ngữ -->
+    <select class="language-select" (change)="onLanguageChange($event)">
+      <option *ngFor="let language of languages" [value]="language" [selected]="language === selectedLanguage">
+        {{ language }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Metadata -->
   <div class="blog-meta">
-    <span class="blog-author">By {{ blog.author.name }}</span> |
-    <span class="blog-date">Posted on {{ blog.created_at | date: 'd MMMM y' }}</span>
+    <span class="blog-author">By {{ blog?.author?.name }}</span> |
+    <span class="blog-date">Posted on {{ blog?.createdAt | date: 'd MMMM y' }}</span>
   </div>
 
-  <!-- Blog Image with Caption -->
+  <!-- Hình ảnh -->
   <div class="image-container">
-    <img [src]="blog.image" alt="{{ blog.title }}" class="blog-image">
-    <p class="image-caption">{{ blog.title }} Illustration</p>
+    <img [src]="blog?.image" alt="{{ blog?.title }}" class="blog-image">
+    <br>
   </div>
 
-  <p class="blog-content">
-    {{ blog.content }}
-  </p>
+  <!-- Nội dung blog -->
+  <div *ngIf="filteredBlogContent">
+    <h4 class="headline headline-2 aside-title">
+      <span class="span">{{ filteredBlogContent.title }}</span>
+    </h4>
+    
+    <p><strong>Introduction:</strong> {{ filteredBlogContent.introduction }}</p>
+    <div>
+      <strong>Main Content:</strong>
+      <div [innerHTML]="filteredBlogContent.mainContent"></div>
+    </div>
+  </div>
 </div>
 
 
 <div class="card aside-card" style="margin-top: 60px;">
-  <div *ngIf="filteredComments.length > 0" class="comment-section" style="margin-top: 60px;">
+  <div *ngIf="comments.length > 0" class="comment-section" style="margin-top: 0;">
     <h3 class="headline headline-2 aside-title">
-      <span class="span">Last Comment</span>
+      <span class="span" style="margin-top: 0;">Last Comment</span>
     </h3>
 
+    <div class="new-comment-section" style="margin-top: 20px; margin-bottom: 20px">
+      <input type="text" id="new-comment-input" placeholder="Enter your comment..." style="width: 100%; padding: 10px; margin-top: 10px;" class="custom-placeholder">
+    </div>
+
     <ul class="comment-list">
-      <li *ngFor="let comment of filteredComments">
+      <li *ngFor="let comment of comments">
         <div class="comment-card">
-          <!-- Nội dung bình luận -->
+          
           <blockquote class="card-text">
             {{ comment.content }}
           </blockquote>
 
-          <!-- Thông tin người dùng -->
+          
           <div class="profile-card">
             <figure class="profile-banner img-holder">
-              <img [src]="comment.user.image" width="32" height="32" loading="lazy" [alt]="comment.user.name">
+              <img [src]="comment.user.profileImage" width="32" height="32" loading="lazy" [alt]="comment.user.name">
             </figure>
 
             <div>
@@ -52,7 +76,7 @@
   </div>
 
   <!-- Hiển thị nếu không có bình luận -->
-  <div *ngIf="filteredComments.length === 0" class="no-comments">
+  <div *ngIf="comments.length === 0" class="no-comments">
     <p>No comments available for this blog post.</p>
   </div>
 </div>
