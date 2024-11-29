@@ -3,17 +3,20 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { CategoryService, Category } from '../../services/category.service';
 import { ArticleService, Article } from '../../services/blog.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule ],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit, AfterViewInit {
   categories: Category[] = [];
   articles: Article[] = [];
+  filteredArticles: any[] = [];  // Bài viết đã lọc
+  searchTerm: string = '';  // Từ khóa tìm kiếm
 
   constructor(private categoryService: CategoryService, private articleService: ArticleService) {}
 
@@ -59,7 +62,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     const moveSlider = (position: number) => {
       // Đảm bảo rằng không di chuyển quá phạm vi
       if (position < 0) {
-        position = sliderItems.length - 1;
+        position = sliderItems.length - 3;
       } else if (position >= sliderItems.length) {
         position = 0;
       }
@@ -79,5 +82,15 @@ export class MainComponent implements OnInit, AfterViewInit {
       currentSlidePos++;
       moveSlider(currentSlidePos);
     });
+  }
+  // Hàm lọc bài viết theo từ khóa tìm kiếm
+  filterArticles(): void {
+    if (!this.searchTerm) {
+      this.filteredArticles = this.articles;  // Nếu không có từ khóa, hiển thị tất cả bài viết
+    } else {
+      this.filteredArticles = this.articles.filter(article =>
+        article.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    }
   }
 }

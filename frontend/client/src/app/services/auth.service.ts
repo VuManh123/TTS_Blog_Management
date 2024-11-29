@@ -11,12 +11,12 @@ export class AuthService {
 
     constructor(private http: HttpClient) { }
 
-    login(username: string, password: string): Observable<any> {
-        return this.http.post(`${this.apiUrl}/auth/login`, { username, password }).pipe(
+    login(name: string, password: string): Observable<any> {
+        return this.http.post(`${this.apiUrl}/auth/login`, { name, password }).pipe(
             tap((response: any) => {
                 console.log('Token nhận được:', response.token); // Debug token
                 localStorage.setItem('token', response.token); // Lưu token
-                localStorage.setItem('username', response.username);
+                localStorage.setItem('name', response.name);
             }),
             catchError(error => {
                 console.error('Login error', error);
@@ -52,14 +52,14 @@ export class AuthService {
     }
 
     register(
-        username: string,
+        name: string,
         first_name: string,
         last_name: string,
         email: string,
         password: string,
         avatar_url: string
     ): Observable<any> {
-        const userData = { username, first_name, last_name, email, password, avatar_url };
+        const userData = { name, first_name, last_name, email, password, avatar_url };
         return this.http.post(`${this.apiUrl}/auth/register`, userData).pipe(
             tap((response: any) => {
                 console.log('Đăng ký thành công:', response);

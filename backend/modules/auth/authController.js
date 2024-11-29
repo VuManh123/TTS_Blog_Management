@@ -3,18 +3,22 @@ const bcrypt = require("bcryptjs");
 const { User } = require("models");  // Import model User
 
 const generateToken = (user) => {
-  return jwt.sign({ id: user.id, username: user.username }, "secretKey", { expiresIn: "1h" });
+  return jwt.sign({ id: user.id, name: user.name }, "secretKey", { expiresIn: "1h" });
 };
 
 exports.login = async (req, res) => {
-  const { username, password } = req.body;
+  const { name, password } = req.body;
+  // Kiểm tra xem name và password có tồn tại hay không
+  if (!name || !password) {
+    return res.status(400).json({ message: "Tên đăng nhập và mật khẩu là bắt buộc." });
+  }
 
   try {
     // Tìm user trong database
-    const user = await User.findOne({ where: { username } });
+    const user = await User.findOne({ where: { name } });
 
     // Kiểm tra nếu user không tồn tại hoặc mật khẩu không đúng
-    if (!user || !bcrypt.compareSync(password, user.password)) {
+    if (!user || password == user.password) {
       return res.status(401).json({ message: "Sai tài khoản hoặc mật khẩu" });
     }
 
@@ -27,14 +31,14 @@ exports.login = async (req, res) => {
 };
 
 exports.register = async (req, res) => {
-  const { username, password, email, first_name, last_name, avatar_url } = req.body;
+  const { name, password, email, first_name, last_name, avatar_url } = req.body;
   const hashedPassword = bcrypt.hashSync(password, 10);
 
   try {
     // Kiểm tra nếu user đã tồn tại
-    const existingUser = await User.findOne({ where: { username } });
+    const existingUser = await User.findOne({ where: { name } });
     if (existingUser) {
-      return res.status(400).json({ message: "Username đã tồn tại" });
+      return res.status(400).json({ message: "name đã tồn tại" });
     }
     if (!email) {
       return res.status(400).json({ message: "Email là bắt buộc" });
@@ -47,7 +51,7 @@ exports.register = async (req, res) => {
 
     // Tạo user mới trong database
     const newUser = await User.create({
-      username,
+      name,
       password: hashedPassword,
       email,
       first_name,

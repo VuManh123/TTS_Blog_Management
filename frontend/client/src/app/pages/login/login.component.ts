@@ -12,14 +12,14 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  username: string = '';
+  name: string = '';
   password: string = '';
   errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
   onSubmit(): void {
-    this.authService.login(this.username, this.password).subscribe({
+    this.authService.login(this.name, this.password).subscribe({
       next: () => {
         this.router.navigate(['/user']);
       },
