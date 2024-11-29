@@ -44,9 +44,7 @@
             <div class="pagination">
                 <button class="pagination-btn" (click)="currentPage = currentPage - 1" [disabled]="currentPage <= 0"><i
                         class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
-                <a class="pagination-btn">1</a>
-                <a class="pagination-btn">2</a>
-                <a class="pagination-btn">3</a>
+                <!-- <a class="pagination-btn">1</a> -->
                 <a class="pagination-btn" aria-label="more page">...</a>
                 <button class="pagination-btn" (click)="currentPage = currentPage + 1"
                     [disabled]="currentPage >= (articles.length / itemsPerPage) - 1"><i class="fa-solid fa-arrow-right"

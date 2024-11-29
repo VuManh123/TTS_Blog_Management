@@ -1,60 +1,91 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';  // Import CommonModule
+import { CommonModule } from '@angular/common';  
+import { ArticleService, Article } from '../../services/blog.service';
+import { Comment, CommentService } from '../../services/comment.service';
 
 @Component({
   selector: 'app-main-blog-detail',
   standalone: true,
   templateUrl: './main-blog-detail.component.html',
   styleUrls: ['./main-blog-detail.component.css'],
-  imports: [CommonModule]  // Thêm CommonModule vào imports
+  imports: [CommonModule],
 })
 export class MainBlogDetailComponent implements OnInit {
-  blog: any;
-  articles: any[] = [];
-  comments: any[] = []; // Dữ liệu tất cả bình luận
-  filteredComments: any[] = []; // Bình luận thuộc bài viết hiện tại
+  blog: any; // Blog chi tiết
+  languages: string[] = []; // Danh sách ngôn ngữ có trong blog
+  selectedLanguage: string = ''; // Ngôn ngữ hiện tại được chọn
+  filteredBlogContent: any = null; // Nội dung blog lọc theo ngôn ngữ
+  articleId!: number;
+  comments: Comment[] = []; // Tất cả bình luận
 
-
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(
+    private route: ActivatedRoute,
+    private articleService: ArticleService,
+    private commentService: CommentService
+  ) {}
 
   ngOnInit(): void {
-    // Lấy danh sách bài viết
-    this.http.get<any[]>('assets/articles.json').subscribe(data => {
-      this.articles = data;
-      const articleId = this.route.snapshot.paramMap.get('id');
-      this.blog = this.articles.find(article => article.id === Number(articleId));
+    // Lấy ID bài viết từ route
+    this.articleId = Number(this.route.snapshot.paramMap.get('id'));
+    if (!this.articleId) {
+      console.error('Invalid article ID');
+      return;
+    }
 
-      // Sau khi lấy được bài viết, lọc bình luận
-      this.filterComments();
-    });
+    // Gọi API để lấy dữ liệu blog
+    this.articleService.getArticles().subscribe(
+      (response) => {
+        if (response.success && response.data) {
+          // Lấy bài viết cụ thể
+          this.blog = response.data.find((article: Article) => article.id === this.articleId);
+          if (this.blog) {
+            // Lấy danh sách ngôn ngữ từ blogContent
+            this.languages = this.blog.blogContent.map((content: any) => content.language.name);
 
-    // Gọi API lấy danh sách bình luận
-    this.http.get<any[]>('assets/comments.json').subscribe(data => {
-      // Chuyển đổi blog_id thành articles_id
-      this.comments = data.map(comment => ({
-        ...comment,
-        articles_id: comment.blog_id // Đổi tên trường từ blog_id sang articles_id
-      }));
-      this.filterComments(); // Lọc lại bình luận sau khi có dữ liệu
-    });
+            // Đặt ngôn ngữ mặc định là ngôn ngữ đầu tiên
+            if (this.languages.length > 0) {
+              this.selectedLanguage = this.languages[0];
+              this.updateFilteredContent();
+            }
+          }
+        } else {
+          console.error('Invalid response format for articles:', response);
+        }
+      },
+      (error) => {
+        console.error('Error fetching articles:', error);
+      }
+    );
+
+    // Lấy dữ liệu cho categories
+    this.commentService.getComments().subscribe(
+      (response: any) => {
+        if (response.success && response.data) {
+          // Loại bỏ category trùng với categoryId hiện tại
+          this.comments = response.data.filter((comment: Comment) => comment.blog_id == this.articleId);
+        } else {
+          console.error('Invalid response format:', response);
+        }
+      },
+      (error) => {
+        console.error('Error fetching categories:', error);
+      }
+    );
   }
 
+  // Xử lý khi thay đổi ngôn ngữ
+  onLanguageChange(event: Event): void {
+    this.selectedLanguage = (event.target as HTMLSelectElement).value;
+    this.updateFilteredContent();
+  }
 
-  // Lọc bình luận dựa trên bài viết hiện tại
-  private filterComments(): void {
-    if (this.blog && this.comments.length > 0) {
-      // Lọc các bình luận theo articles_id
-      this.filteredComments = this.comments.filter(comment => comment.articles_id === this.blog.id);
+  // Cập nhật nội dung blog theo ngôn ngữ
+  private updateFilteredContent(): void {
+    if (this.blog && this.blog.blogContent) {
+      this.filteredBlogContent = this.blog.blogContent.find(
+        (content: any) => content.language.name === this.selectedLanguage
+      );
     }
   }
-
-  onLanguageChange(event: Event): void {
-    const selectedLanguage = (event.target as HTMLSelectElement).value;
-    console.log('Selected language:', selectedLanguage);
-    // Thực hiện hành động thay đổi ngôn ngữ tại đây
-  }
-
-
 }

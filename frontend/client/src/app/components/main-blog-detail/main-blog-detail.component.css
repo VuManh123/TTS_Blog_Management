@@ -13,3 +13,9 @@
     color: #BAE1F2; /* Màu chữ */
   }
   
+  .custom-placeholder::placeholder {
+    color: #BAE1F2; /* Màu của placeholder */
+    font-style: italic; /* Kiểu chữ nghiêng (tùy chọn) */
+    opacity: 0.7; /* Độ mờ (tùy chọn) */
+  }
+  
