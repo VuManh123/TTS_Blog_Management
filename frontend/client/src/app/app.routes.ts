@@ -9,7 +9,7 @@ import { MyBlogComponent } from './pages/my-blog/my-blog.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { NewBlogComponent } from './pages/new-blog/new-blog.component';
 import { EditBlogComponent } from './pages/edit-blog/edit-blog.component';
-import { SearchBlogComponent } from './pages/search-blog/search-blog.component';
+import { SearchComponent } from './pages/search-blog/search.component';
 export const routes: Routes = [
     { path: '', component: BlogOwnerComponent },
     { path: 'login', component: LoginComponent },
@@ -20,5 +20,6 @@ export const routes: Routes = [
     { path: 'my-blog', component: MyBlogComponent ,canActivate: [AuthGuard]},
     { path: 'new-blog', component: NewBlogComponent ,canActivate: [AuthGuard]},
     { path: 'edit-blog/:id', component: EditBlogComponent ,canActivate: [AuthGuard]},
-    { path: 'search/:content', component: SearchBlogComponent}
+    { path: 'search/:content', component: SearchComponent},
+    { path: 'search', component: SearchComponent }
 ];

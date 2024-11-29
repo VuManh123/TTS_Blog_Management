@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CategoryService, Category } from '../../services/category.service';
 import { ArticleService, Article } from '../../services/blog.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -16,9 +17,9 @@ export class MainComponent implements OnInit, AfterViewInit {
   categories: Category[] = [];
   articles: Article[] = [];
   filteredArticles: any[] = [];  // Bài viết đã lọc
-  searchTerm: string = '';  // Từ khóa tìm kiếm
+  searchInput: string = ''; 
 
-  constructor(private categoryService: CategoryService, private articleService: ArticleService) {}
+  constructor(private categoryService: CategoryService, private articleService: ArticleService, private router: Router) {}
 
   ngOnInit(): void {
     // Lấy dữ liệu cho categories từ service
@@ -83,14 +84,13 @@ export class MainComponent implements OnInit, AfterViewInit {
       moveSlider(currentSlidePos);
     });
   }
-  // Hàm lọc bài viết theo từ khóa tìm kiếm
-  filterArticles(): void {
-    if (!this.searchTerm) {
-      this.filteredArticles = this.articles;  // Nếu không có từ khóa, hiển thị tất cả bài viết
+  onSearch(): void {
+    // Chuyển hướng đến URL với content từ `searchInput`
+    if (this.searchInput.trim()) {
+      this.router.navigate(['/search', this.searchInput]);
     } else {
-      this.filteredArticles = this.articles.filter(article =>
-        article.title.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
+      // Nếu input rỗng, chuyển hướng đến trang tìm kiếm mặc định
+      this.router.navigate(['/search']);
     }
   }
 }
