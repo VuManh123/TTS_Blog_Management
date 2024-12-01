@@ -26,3 +26,9 @@ Chi tiết về response được viết trong `services/responseUtil.js`. Xem m
 * Đối với thư mục `modules/controllers/XXX`, cần đặt tên file theo quy tắc `xXXController.js`, ví dụ: `categoryController.js`
 * Đối với thư mục `models`, các file bên trong đặt tên cần đặt số ít. Ví dụ: `user.js`, `category.js`
 * Đối với thư mục `middlewares`, các file bên trong cần đặt tên file theo quy tắc `xXXMiddleware.js`, ví dụ: `demoMiddleware.js`
+
+# chạy db : npx sequelize-cli db:migrate
+
+*seeder: npx sequelize-cli db:seed:all
+
+

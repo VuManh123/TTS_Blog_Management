@@ -1,13 +1,11 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import Quill from 'quill';
-import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import Quill from 'quill';
+import { AddPostService } from '../../services/addpost.service';
+import { AuthService } from '../../services/auth.service';
 
-
-// test post json : json-server --watch db.json --port 3001
 @Component({
   selector: 'app-main-new-blog',
   standalone: true,
@@ -22,44 +20,69 @@ export class MainNewBlogComponent implements OnInit {
   post = {
     title: '',
     category: '',
-    languageId: null,  // Sử dụng languageId thay vì language
+    languageId: null,
     content: '',
     excerpt: '',
     userId: 0,
-    image: '',  // Trường image để lưu URL ảnh
+    image: '',
   };
 
   categories: { id: number, name: string }[] = [];
   languages: { id: number, code: string, name: string, flag: string }[] = [];
-
-  constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }
+  
+  constructor(
+    private addPostService: AddPostService,
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    // Lấy danh sách categories từ file JSON
-    this.http.get<{ id: number, name: string }[]>('assets/categories.json')
-      .subscribe((data) => {
-        this.categories = data;
-      });
-
-    // Lấy danh sách ngôn ngữ từ API (hoặc file JSON)
-    this.http.get<{ id: number, code: string, name: string, flag: string }[]>('assets/language.json')
-      .subscribe((data) => {
-        this.languages = data;
-      });
-
-    // Lấy thông tin user từ AuthService để cập nhật userId
-    this.authService.getUserProfile().subscribe({
-      next: (response) => {
-        this.post.userId = response.user.id;
-        console.log('User ID từ profile:', this.post.userId);
-      },
-      error: (err) => {
-        console.error('Không thể lấy thông tin người dùng:', err);
-      }
-    });
+    this.loadInitialData();
   }
 
   ngAfterViewInit(): void {
+    this.initEditor();
+  }
+
+  private loadInitialData(): void {
+    this.addPostService.getCategories().subscribe({
+      next: (response) => {
+        if (response?.success && Array.isArray(response?.data)) {
+          this.categories = response.data.map((item: any) => ({
+            id: item.id,
+            name:item.name
+          }));
+        } else {
+          console.error('Dữ liệu không hợp lệ');
+        }
+      },
+      error: (err) => console.error('Không thể tải danh mục:', err)
+    });
+    
+
+    this.addPostService.getLanguages().subscribe({
+      next: (response) => {
+        if (response?.success && Array.isArray(response?.data)) {
+          this.languages = response.data.map((item: any) => ({
+            id: item.id,
+            code: item.code,
+            name:item.name,
+            flag:item.flag
+          }));
+        } else {
+          console.error('Dữ liệu không hợp lệ');
+        }
+      },
+      error: (err) => console.error('Không thể tải danh mục:', err)
+    });
+
+    this.authService.getUserProfile().subscribe({
+      next: (response) => this.post.userId = response.user.id,
+      error: (err) => console.error('Không thể lấy thông tin người dùng:', err)
+    });
+  }
+
+  private initEditor(): void {
     this.editorInstance = new Quill(this.editor.nativeElement, {
       theme: 'snow',
       modules: {
@@ -67,97 +90,70 @@ export class MainNewBlogComponent implements OnInit {
           [{ header: '1' }, { header: '2' }, { font: [] }],
           [{ list: 'ordered' }, { list: 'bullet' }],
           ['bold', 'italic', 'underline'],
-          ['link'],
-          [{ align: [] }],
-          ['image'], // Thêm nút chèn ảnh
-          ['blockquote', 'code-block'],
+          ['link', { align: [] }],
+          ['image', 'blockquote', 'code-block'],
         ],
       },
     });
 
-    // Xử lý toolbar, cần khai báo rõ kiểu của toolbar là any
     const toolbar: any = this.editorInstance.getModule('toolbar');
-    toolbar.addHandler('image', () => {
-      this.selectImage();
-    });
+    toolbar.addHandler('image', () => this.selectImage());
 
-    // Lấy nội dung khi editor thay đổi
     this.editorInstance.on('text-change', () => {
       this.post.content = this.editorInstance.root.innerHTML;
-      this.post.excerpt = this.editorInstance.root.innerText.substring(0, 150); // Tạo excerpt tự động
+      this.post.excerpt = this.editorInstance.root.innerText.substring(0, 150);
     });
   }
 
-  // Xử lý chọn ảnh
   selectImage(): void {
     const input = document.createElement('input');
-    input.setAttribute('type', 'file');
-    input.setAttribute('accept', 'image/*');
+    input.type = 'file';
+    input.accept = 'image/*';
     input.click();
 
     input.onchange = (event: any) => {
       const file = event.target.files[0];
-      if (file) {
-        this.uploadImage(file);
-      }
+      if (file) this.uploadImage(file);
     };
   }
 
-  // Upload ảnh lên server
   uploadImage(file: File): void {
-    const formData = new FormData();
-    formData.append('image', file, file.name);
-
-    // Gửi ảnh lên server và nhận URL ảnh trả về
-    this.http.post<any>('http://localhost:3001/upload', formData).subscribe({
+    this.addPostService.uploadImage(file).subscribe({
       next: (response) => {
-        if (response && response.url) {
+        if (response.url) {
           const imageUrl = response.url;
           const range = this.editorInstance.getSelection();
-          
+
           if (range !== null) {
             this.editorInstance.insertEmbed(range.index, 'image', imageUrl);
-            this.post.image = imageUrl; 
-          } else {
-            console.error('Không có vị trí lựa chọn trong editor');
+            this.post.image = imageUrl;
           }
         }
       },
-      error: (err) => {
-        console.error('Upload image failed', err);
-      },
+      error: (err) => console.error('Upload ảnh thất bại:', err)
     });
   }
 
-  // Hàm submit bài viết
   onSubmit(event: Event): void {
     event.preventDefault();
-
-    // Kiểm tra dữ liệu trước khi gửi
     if (!this.validatePost(this.post)) {
       alert('Vui lòng điền đầy đủ thông tin bài viết.');
       return;
     }
-    console.log('Post object before submitting:', this.post);
 
-    // Gửi bài viết lên API với languageId thay vì language
-    this.http.post('http://localhost:3001/posts', this.post).subscribe({
-      next: (response) => {
+    this.addPostService.submitPost(this.post).subscribe({
+      next: () => {
         alert('Đăng bài viết thành công!');
-        console.log(response);
-
-        // Chuyển hướng đến trang myblog
         this.router.navigate(['/my-blog']);
       },
-      error: (error) => {
+      error: (err) => {
         alert('Đăng bài viết thất bại.');
-        console.error(error);
-      },
+        console.error(err);
+      }
     });
   }
 
-  // Hàm kiểm tra tính hợp lệ của bài viết
-  validatePost(post: any): boolean {
-    return post.title && post.category && post.content && post.languageId;  // Kiểm tra languageId
+  private validatePost(post: any): boolean {
+    return !!(post.title && post.category && post.content && post.languageId);
   }
 }

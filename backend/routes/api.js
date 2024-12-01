@@ -17,9 +17,9 @@ const categoryController = require("modules/category/controllers/categoryControl
 const categoryValidation = require("modules/category/validations/categoryValidation"); 
 const languageController = require("modules/language/controllers/languageController");
 const blogValidation = require("modules/blog/validations/blogValidation");
-
 const blogController = require("modules/blog/controllers/blogController");
 const commentController = require("modules/comment/controllers/commentController");
+const PostController = require("modules/post/controllers/PostController")
 
 router.get("/categories/:id", categoryController.getById);
 router.post("/categories", validate(categoryValidation.create), categoryController.create);
@@ -42,7 +42,9 @@ router.delete("/blogs/:id", blogController.delete);
 router.get('/blogRequire', blogController.getAllRequire); //articles.json
 router.get("/categories", categoryController.getAll); //categories.json
 router.get("/comments", commentController.getAll);
-router.post("/comments", commentController.create)
+router.post("/comments", commentController.create);
+router.post("/posts",PostController.createPost);
+router.delete('/posts/:id', PostController.deletePost);
 
 module.exports = router;
 

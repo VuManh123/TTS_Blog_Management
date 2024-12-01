@@ -46,6 +46,7 @@
 
     </div>
 
+
     <!-- Posts Section -->
     <section class="posts">
       <ul class="grid-list">
@@ -58,8 +59,8 @@
 
             <!-- Nội dung bài viết -->
             <div class="card-content">
-              <a [routerLink]="['/categories', blog.categoryId]" class="card-badge">
-                {{ blog.categoryName || 'Uncategorized' }}
+              <a [routerLink]="['/categories', blog.category.id]" class="card-badge">
+                {{ blog.category.name || 'Uncategorized' }}
               </a>
 
               <div class="action-buttons">
@@ -69,38 +70,35 @@
                 <button (click)="onDelete(blog.id)" class="btn-delete">
                   <i class="fa-solid fa-trash"></i>
                 </button>
-                <button (click)="addlanguage(blog.id)" class="btn-addlanguage">
+                <button (click)="addLanguage(blog.id)" class="btn-addlanguage">
                   <i class="fa-solid fa-language"></i>
                 </button>
               </div>
+
               <!-- Tiêu đề bài viết -->
               <h3 class="headline headline-3 card-title">
                 <a [routerLink]="['/blog-detail', blog.id]" class="link hover-2">{{ blog.title }}</a>
               </h3>
+
               <!-- Trích đoạn bài viết -->
               <p class="card-text">{{ blog.excerpt }}</p>
 
               <!-- Thông tin tác giả -->
               <div class="card-wrapper">
                 <div class="wrapper">
-                  <span>{{ blog.author.name }} </span>
-
+                  <span>{{ blog.author.name }}</span>
                 </div>
               </div>
               <div class="card-wrapper">
                 <div class="wrapper">
-                  <span>{{ blog.created_at | date: 'mediumDate' }}</span>
+                  <span>{{ blog.createdAt | date: 'mediumDate' }}</span>
                 </div>
               </div>
-
-
             </div>
           </div>
         </li>
       </ul>
-
-
-
     </section>
+
   </div>
 </main>

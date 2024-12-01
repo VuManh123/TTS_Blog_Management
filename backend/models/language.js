@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     flag: DataTypes.STRING
   }, {
     tableName: 'Languages',  // Tên bảng khớp với migration
-    underscored: true,       // Sử dụng underscore cho tên cột
-    timestamps: true         // Bật tự động xử lý created_at và updated_at
+    underscored: false,       // Sử dụng underscore cho tên cột
+    timestamps: false         // Bật tự động xử lý created_at và updated_at
   });
 
   Language.associate = function(models) {

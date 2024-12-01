@@ -1,3 +1,5 @@
+const language = require("./language");
+
 module.exports = (sequelize, DataTypes) => {
   const Blog = sequelize.define('Blog', {
     id: {
@@ -11,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     content: DataTypes.TEXT,
     image: DataTypes.STRING,
     status: DataTypes.STRING,
+    language: DataTypes.STRING,
     user_id: DataTypes.INTEGER,
     created_at: {  // Dùng 'created_at' thay vì 'createdAt'
       type: DataTypes.DATE,
