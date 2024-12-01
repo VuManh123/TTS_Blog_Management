@@ -18,4 +18,5 @@ export class CategoriesComponent implements OnInit {
     // Kiểm tra xem token có trong localStorage hay không
     this.hasToken = !!localStorage.getItem('token');
   }
+  
 }
