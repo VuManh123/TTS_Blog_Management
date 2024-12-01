@@ -4,6 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     content: DataTypes.TEXT,
     created_at: DataTypes.DATE,
     blog_id: DataTypes.INTEGER,
+    user_id: DataTypes.INTEGER
+  },
+  {
+    underscored: true,       // Sử dụng underscore cho tên cột
+    timestamps: true         // Bật tự động xử lý created_at và updated_at
   });
 
   Comment.associate = function(models) {

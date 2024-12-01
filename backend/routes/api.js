@@ -42,6 +42,7 @@ router.delete("/blogs/:id", blogController.delete);
 router.get('/blogRequire', blogController.getAllRequire); //articles.json
 router.get("/categories", categoryController.getAll); //categories.json
 router.get("/comments", commentController.getAll);
+router.post("/comments", commentController.create)
 
 module.exports = router;
 

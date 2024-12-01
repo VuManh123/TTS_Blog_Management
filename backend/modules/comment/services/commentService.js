@@ -11,6 +11,9 @@ const commentService = {
       }],
       order: [['created_at', 'ASC']]  // Có thể sắp xếp theo ngày tạo (tuỳ theo yêu cầu)
     });
+  },
+  createComment: async (data) => {
+    return await db.Comment.create(data);
   }
 };
 
