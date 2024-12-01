@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ArticleService, Article } from '../../services/blog.service';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -17,10 +17,12 @@ export class SearchBlogComponent implements OnInit {
   articles: Article[] = [];
   searchTerm: string = '';  // Từ khóa tìm kiếm
   searchInput!: string;
+  searchInputThisPage: string = ''; 
 
   constructor(
     private articleService: ArticleService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -51,4 +53,19 @@ export class SearchBlogComponent implements OnInit {
       }
     );
   }
+
+  onSearch(): void {
+    if (this.searchInputThisPage.trim()) {
+      // Cập nhật URL mà không reload
+      this.router.navigate(['/search', this.searchInputThisPage], { replaceUrl: true });
+  
+      // Lọc lại danh sách bài viết
+      this.articles = this.articlesAll.filter((article: Article) =>
+        article.title.toLowerCase().includes(this.searchInputThisPage.toLowerCase())
+      );
+    } else {
+      this.articles = this.articlesAll; // Hiển thị toàn bộ nếu input trống
+    }
+  }
+  
 }

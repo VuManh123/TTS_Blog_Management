@@ -18,17 +18,20 @@
                   Explore a wide range of topics updated weekly to enrich your daily reading experience. Join our community and discover something new with every visit!
               </p> -->
   
-            <div class="input-wrapper">
-  
-              <input type="blogs" name="blogs" placeholder="Search the articles" required class="input-field"
-                autocomplete="off">
-  
-              <button class="btn btn-primary">
-                <span class="span">Search</span>
-  
-              </button>
-  
-            </div>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  name="blogs"
+                  placeholder="Search the articles"
+                  required
+                  class="input-field"
+                  autocomplete="off"
+                  [(ngModel)]="searchInputThisPage" 
+                >
+                <button class="btn btn-primary" (click)="onSearch()">
+                  <span class="span">Search</span>
+                </button>
+              </div>  
   
           </div>
   
