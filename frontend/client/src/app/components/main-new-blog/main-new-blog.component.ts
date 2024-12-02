@@ -136,6 +136,11 @@ export class MainNewBlogComponent implements OnInit {
 
   onSubmit(event: Event): void {
     event.preventDefault();
+
+    if (!this.post.image) {
+      this.post.image = 'https://simplepage.vn/blog/wp-content/uploads/2021/06/huong-dan-tao-blog-website.png';
+    }
+
     if (!this.validatePost(this.post)) {
       alert('Vui lòng điền đầy đủ thông tin bài viết.');
       return;
