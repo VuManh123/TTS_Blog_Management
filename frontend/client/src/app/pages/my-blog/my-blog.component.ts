@@ -64,7 +64,7 @@ export class MyBlogComponent implements OnInit {
 
   // Hàm xử lý thêm ngôn ngữ
   addLanguage(blogId: number): void {
-    this.router.navigate(['/edit-blog', blogId]);
+    this.router.navigate(['/add-language', blogId]);
   }
 
   // Hàm xử lý xóa bài viết
