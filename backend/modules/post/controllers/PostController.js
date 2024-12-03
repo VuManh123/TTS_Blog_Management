@@ -74,6 +74,41 @@ class PostController {
       });
     }
   }
+
+  static async addBlogContent(req, res) {
+    try {
+      const { blog_id, language_id, main_content, title } = req.body;
+
+      // Kiểm tra đầu vào
+      if (!blog_id || !language_id || !main_content || !title) {
+        return res.status(400).json({
+          success: false,
+          message: 'All fields are required!',
+        });
+      }
+
+      // Gọi service để thêm BlogContent
+      const newContent = await postService.addBlogContent({
+        blog_id,
+        language_id,
+        main_content,
+        title,
+      });
+
+      return res.status(201).json({
+        success: true,
+        message: 'Blog content added successfully!',
+        data: newContent,
+      });
+    } catch (error) {
+      console.error('Error adding blog content:', error);
+      return res.status(500).json({
+        success: false,
+        message: 'Error adding blog content',
+        error: error.message,
+      });
+    }
+  }
 }
 
 

@@ -73,6 +73,44 @@ class PostService {
       throw error;
     }
   }
+
+  static async addBlogContent({ blog_id, language_id, main_content, title }) {
+    try {
+      // Kiểm tra blog có tồn tại không
+      const blog = await Blog.findByPk(blog_id);
+      if (!blog) {
+        throw new Error('Blog not found');
+      }
+
+      // Kiểm tra ngôn ngữ đã tồn tại cho blog này chưa
+      const existingContent = await BlogContent.findOne({
+        where: { blog_id, language_id },
+      });
+      if (existingContent) {
+        throw new Error('This language already exists for this blog');
+      }
+
+      // Kiểm tra nếu ngôn ngữ hợp lệ
+      const language = await Language.findByPk(language_id);
+      if (!language) {
+        throw new Error('Language not found');
+      }
+
+      // Thêm BlogContent mới
+      const newContent = await BlogContent.create({
+        blog_id,
+        language_id,
+        main_content,
+        title,
+        root: false, 
+      });
+
+      return newContent;
+    } catch (error) {
+      console.error('Error in addBlogContent service:', error.message);
+      throw error;
+    }
+  }
 }
 
 module.exports = PostService;
