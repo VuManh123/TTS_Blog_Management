@@ -107,6 +107,7 @@ export class MainBlogDetailComponent implements OnInit {
     if (!this.userID) {
       console.log('User is not logged in, redirecting to login...');
       this.router.navigate(['/login']); // Chuyển hướng đến trang login
+      alert('Login to comment this blog!')
       return; // Dừng việc thực hiện tiếp theo nếu không có token
     }
   
