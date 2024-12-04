@@ -18,7 +18,7 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ where: { name } });
 
     // Kiểm tra nếu user không tồn tại hoặc mật khẩu không đúng
-    if (!user || password == user.password) {
+    if (!user || password != user.password) {
       return res.status(401).json({ message: "Sai tài khoản hoặc mật khẩu" });
     }
 
@@ -31,8 +31,7 @@ exports.login = async (req, res) => {
 };
 
 exports.register = async (req, res) => {
-  const { name, password, email, first_name, last_name, avatar_url } = req.body;
-  const hashedPassword = bcrypt.hashSync(password, 10);
+  const { name, password, email} = req.body;
 
   try {
     // Kiểm tra nếu user đã tồn tại
@@ -44,19 +43,11 @@ exports.register = async (req, res) => {
       return res.status(400).json({ message: "Email là bắt buộc" });
     }
 
-    // Kiểm tra nếu thiếu firstname, lastname
-    if (!first_name || !last_name) {
-      return res.status(400).json({ message: "Firstname và Lastname là bắt buộc" });
-    }
-
     // Tạo user mới trong database
     const newUser = await User.create({
       name,
-      password: hashedPassword,
-      email,
-      first_name,
-      last_name,
-      avatar_url, // Thêm avatar vào cơ sở dữ liệu
+      password,
+      email
     });
 
     res.status(201).json({ message: "Đăng ký thành công" });

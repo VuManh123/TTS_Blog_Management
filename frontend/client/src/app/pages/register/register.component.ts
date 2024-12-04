@@ -13,19 +13,22 @@ import { FormsModule } from '@angular/forms';
 })
 export class RegisterComponent {
   username: string = '';
-  first_name: string = '';
-  last_name: string = '';
   email: string = '';
   password: string = '';
-  avatar_url: string = ''; // Link avatar image
+  passwordAgain: string = ''; // Link avatar image
   errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
   onSubmit(): void {
-    this.authService.register(this.username, this.first_name, this.last_name, this.email, this.password, this.avatar_url).subscribe({
+    if(this.password != this.passwordAgain) {
+      this.errorMessage = 'Password bạn nhập lại không đúng';
+      return;
+    }
+    this.authService.register(this.username, this.email, this.password).subscribe({
       next: (response) => {
         console.log('Đăng ký thành công:', response);
+        alert('Đăng ký thành công!')
         this.router.navigate(['/login']); // Điều hướng sang trang đăng nhập sau khi đăng ký thành công
       },
       error: (error) => {

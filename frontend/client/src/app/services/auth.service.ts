@@ -73,13 +73,10 @@ export class AuthService {
 
     register(
         name: string,
-        first_name: string,
-        last_name: string,
         email: string,
         password: string,
-        avatar_url: string
     ): Observable<any> {
-        const userData = { name, first_name, last_name, email, password, avatar_url };
+        const userData = { name, email, password};
         return this.http.post(`${this.apiUrl}/auth/register`, userData).pipe(
             tap((response: any) => {
                 console.log('Đăng ký thành công:', response);
