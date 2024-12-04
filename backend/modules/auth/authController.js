@@ -32,6 +32,7 @@ exports.login = async (req, res) => {
 
 exports.register = async (req, res) => {
   const { name, password, email} = req.body;
+  const profileImage = 'https://images.unsplash.com/photo-1627372042956-94867aa1d129?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8MXgxfGVufDB8fDB8fHww'
 
   try {
     // Kiểm tra nếu user đã tồn tại
@@ -47,7 +48,8 @@ exports.register = async (req, res) => {
     const newUser = await User.create({
       name,
       password,
-      email
+      email,
+      profileImage
     });
 
     res.status(201).json({ message: "Đăng ký thành công" });
