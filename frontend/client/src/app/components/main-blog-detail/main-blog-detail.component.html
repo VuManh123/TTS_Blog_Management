@@ -46,7 +46,9 @@
       </h3>
 
       <div class="new-comment-section" style="margin-top: 20px; margin-bottom: 20px">
-        <input type="text" id="new-comment-input" placeholder="Enter your comment..." style="width: 100%; padding: 10px; margin-top: 10px;" class="custom-placeholder">
+        <input type="text" id="new-comment-input" placeholder="Enter your comment..." style="width: 100%; padding: 10px; margin-top: 10px;" class="custom-placeholder"
+        [(ngModel)]="newCommentContent"
+        (keyup.enter)="postNewComment()">
       </div>
 
       <ul class="comment-list">
@@ -79,7 +81,9 @@
     <div *ngIf="comments.length === 0" class="no-comments">
       <p>No comments available for this blog post.</p>
       <div class="new-comment-section" style="margin-top: 20px; margin-bottom: 20px">
-        <input type="text" id="new-comment-input" placeholder="Enter your comment..." style="width: 100%; padding: 10px; margin-top: 10px;" class="custom-placeholder">
+        <input type="text" id="new-comment-input" placeholder="Enter your comment..." style="width: 100%; padding: 10px; margin-top: 10px;" class="custom-placeholder"
+          [(ngModel)]="newCommentContent"
+          (keyup.enter)="postNewComment()">
       </div>
     </div>
   </div>

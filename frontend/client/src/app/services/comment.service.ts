@@ -24,4 +24,9 @@ export class CommentService {
   getComments(): Observable<{ success: boolean; data: Comment[]; status: number; message: string }> {
     return this.http.get<{ success: boolean; data: Comment[]; status: number; message: string }>(this.apiUrl);
   }
+
+  // Hàm post comment lên API với dữ liệu gửi là userID, blogId và content của comment
+  postComment(data: {content: string, blog_id: number, user_id: number}): Observable<{ success: boolean; data: Comment[]; status: number; message: string }> {
+    return this.http.post<{ success: boolean; data: Comment[]; status: number; message: string }>(this.apiUrl, data)
+  }
 }

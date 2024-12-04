@@ -3,13 +3,15 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';  
 import { ArticleService, Article } from '../../services/blog.service';
 import { Comment, CommentService } from '../../services/comment.service';
+import { AuthService } from '../../services/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-main-blog-detail',
   standalone: true,
   templateUrl: './main-blog-detail.component.html',
   styleUrls: ['./main-blog-detail.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
 })
 export class MainBlogDetailComponent implements OnInit {
   blog: any; // Blog chi tiết
@@ -17,12 +19,15 @@ export class MainBlogDetailComponent implements OnInit {
   selectedLanguage: string = ''; // Ngôn ngữ hiện tại được chọn
   filteredBlogContent: any = null; // Nội dung blog lọc theo ngôn ngữ
   articleId!: number;
+  userID!: number;
   comments: Comment[] = []; // Tất cả bình luận
+  newCommentContent: string = '';
 
   constructor(
     private route: ActivatedRoute,
     private articleService: ArticleService,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -58,7 +63,7 @@ export class MainBlogDetailComponent implements OnInit {
       }
     );
 
-    // Lấy dữ liệu cho categories
+    // Lấy dữ liệu cho comment
     this.commentService.getComments().subscribe(
       (response: any) => {
         if (response.success && response.data) {
@@ -87,5 +92,30 @@ export class MainBlogDetailComponent implements OnInit {
         (content: any) => content.language.name === this.selectedLanguage
       );
     }
+  }
+
+  // Ham xu ly su kien post comment
+  postNewComment(): void {
+    if(!this.newCommentContent.trim()){
+      console.warn('Please fill your comment!');
+    }
+    this.userID = this.authService.decodeToken();
+    console.log('UserId from token: ', this.userID);
+
+    const newComment = {
+      content: this.newCommentContent.trim(),
+      blog_id: this.articleId,
+      user_id: this.userID
+    };
+
+    this.commentService.postComment(newComment).subscribe({
+      next: (response) => {
+        console.log('Bình luận đã được thêm:', response);
+        this.newCommentContent = ''; // Reset input
+      },
+      error: (err) => {
+        console.error('Lỗi khi gửi bình luận:', err);
+      },
+    });
   }
 }

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { jwtDecode } from 'jwt-decode';
+
 
 @Injectable({
     providedIn: 'root'
@@ -24,6 +26,24 @@ export class AuthService {
             })
         );
     }
+    // Hàm giải mã token và lấy userId
+    decodeToken(): number {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            console.error('Token không tồn tại.');
+            return 0;
+        }
+
+        try {
+            const decoded: any = jwtDecode(token);
+            console.log('Decoded token:', decoded);
+            return decoded.id; // Lấy userId từ payload của token
+        } catch (error) {
+            console.error('Lỗi khi giải mã token:', error);
+            return 0;
+        }
+    }
+
     getUserProfile(): Observable<any> {
         const token = localStorage.getItem('token');
         if (!token) {
