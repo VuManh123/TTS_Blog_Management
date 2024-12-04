@@ -1,10 +1,9 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';  // Thêm ActivatedRoute
 import Quill from 'quill';
 import { AddPostService } from '../../services/addpost.service';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-main-add-language',
@@ -24,15 +23,17 @@ export class MainAddLanguageComponent implements OnInit {
     image: '',
   };
   languages: { id: number, code: string, name: string, flag: string }[] = [];
-  
+  blogId: number | null = null; // Thêm blogId
+
   constructor(
     private addPostService: AddPostService,
-    private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute  // Thêm ActivatedRoute vào constructor
   ) { }
 
   ngOnInit(): void {
     this.loadInitialData();
+    this.getBlogIdFromRoute();  
   }
 
   ngAfterViewInit(): void {
@@ -40,15 +41,14 @@ export class MainAddLanguageComponent implements OnInit {
   }
 
   private loadInitialData(): void {
-   
     this.addPostService.getLanguages().subscribe({
       next: (response) => {
         if (response?.success && Array.isArray(response?.data)) {
           this.languages = response.data.map((item: any) => ({
             id: item.id,
             code: item.code,
-            name:item.name,
-            flag:item.flag
+            name: item.name,
+            flag: item.flag
           }));
         } else {
           console.error('Dữ liệu không hợp lệ');
@@ -112,16 +112,25 @@ export class MainAddLanguageComponent implements OnInit {
   onSubmit(event: Event): void {
     event.preventDefault();
 
-    if (!this.post.image) {
-      this.post.image = 'https://simplepage.vn/blog/wp-content/uploads/2021/06/huong-dan-tao-blog-website.png';
-    }
-
+    // Kiểm tra thông tin bài viết
     if (!this.validatePost(this.post)) {
       alert('Vui lòng điền đầy đủ thông tin bài viết.');
       return;
     }
 
-    this.addPostService.submitPost(this.post).subscribe({
+    // Kiểm tra blogId đã được lấy
+    if (!this.blogId) {
+      alert('Blog ID không hợp lệ.');
+      return;
+    }
+
+    const postData = {
+      title: this.post.title,
+      main_content: this.post.content,
+      language_id: this.post.languageId
+    };
+
+    this.addPostService.submitLanguage(postData, this.blogId).subscribe({
       next: () => {
         alert('Thêm ngôn ngữ thành công!');
         this.router.navigate(['/my-blog']);
@@ -134,6 +143,13 @@ export class MainAddLanguageComponent implements OnInit {
   }
 
   private validatePost(post: any): boolean {
-    return !!(post.title && post.category && post.content && post.languageId);
+    return !!(post.title && post.languageId && post.content);
+  }
+
+  // Lấy blogId từ URL thông qua ActivatedRoute
+  private getBlogIdFromRoute(): void {
+    this.route.params.subscribe(params => {
+      this.blogId = +params['blogId'];  // Lấy blogId từ tham số URL
+    });
   }
 }

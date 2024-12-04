@@ -1,4 +1,4 @@
-const { Blog, BlogContent, Language } = require('../../../models');  // Đảm bảo sử dụng model đúng
+const { Blog, BlogContent, Language ,Comment } = require('../../../models');  // Đảm bảo sử dụng model đúng
 
 class PostService {
   static async createPost({ title, category, languageId, content, excerpt, userId, image }) {
@@ -56,7 +56,11 @@ class PostService {
       if (!post) {
         return null;  // Nếu bài viết không tồn tại, trả về null
       }
-
+      await Comment.destroy({
+        where: {
+          blog_id: postId,
+        },
+      });
       // Xóa nội dung bài viết (BlogContent)
       await BlogContent.destroy({
         where: {
@@ -102,7 +106,7 @@ class PostService {
         language_id,
         main_content,
         title,
-        root: false, 
+        root: false,
       });
 
       return newContent;

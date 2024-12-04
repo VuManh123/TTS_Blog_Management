@@ -77,10 +77,11 @@ class PostController {
 
   static async addBlogContent(req, res) {
     try {
-      const { blog_id, language_id, main_content, title } = req.body;
+      const blog_id = req.params.blog_id;
+      const { language_id, main_content, title } = req.body;
 
       // Kiểm tra đầu vào
-      if (!blog_id || !language_id || !main_content || !title) {
+      if (!language_id || !main_content || !title) {
         return res.status(400).json({
           success: false,
           message: 'All fields are required!',

@@ -11,7 +11,7 @@ export class AddPostService {
   getCategories(): Observable<any> {
     return this.http.get<any>('http://localhost:3000/categories');
   }
-  
+
 
   getLanguages(): Observable<any> {
     return this.http.get<any>('http://localhost:3000/languages');
@@ -19,7 +19,7 @@ export class AddPostService {
 
   uploadImage(file: File): Observable<{ url: string }> {
     const formData = new FormData();
-    formData.append('image', file, file.name); 
+    formData.append('image', file, file.name);
     // Gửi POST request tới endpoint upload ảnh
     return this.http.post<{ url: string }>(`http://localhost:3000/api/upload/upload`, formData);
   }
@@ -28,5 +28,8 @@ export class AddPostService {
     return this.http.post(`http://localhost:3000/posts`, post);
   }
 
+  submitLanguage(postData: any, blogId: number): Observable<any> {
+    return this.http.post(`http://localhost:3000/posts/${blogId}/add-language`, postData);
+  }
   
 }
