@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';  
 import { ArticleService, Article } from '../../services/blog.service';
 import { Comment, CommentService } from '../../services/comment.service';
@@ -27,7 +27,8 @@ export class MainBlogDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private articleService: ArticleService,
     private commentService: CommentService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -96,26 +97,54 @@ export class MainBlogDetailComponent implements OnInit {
 
   // Ham xu ly su kien post comment
   postNewComment(): void {
-    if(!this.newCommentContent.trim()){
+    if (!this.newCommentContent.trim()) {
       console.warn('Please fill your comment!');
+      return;
     }
+  
     this.userID = this.authService.decodeToken();
     console.log('UserId from token: ', this.userID);
-
+    if (!this.userID) {
+      console.log('User is not logged in, redirecting to login...');
+      this.router.navigate(['/login']); // Chuyển hướng đến trang login
+      return; // Dừng việc thực hiện tiếp theo nếu không có token
+    }
+  
     const newComment = {
       content: this.newCommentContent.trim(),
       blog_id: this.articleId,
       user_id: this.userID
     };
-
+  
     this.commentService.postComment(newComment).subscribe({
       next: (response) => {
         console.log('Bình luận đã được thêm:', response);
         this.newCommentContent = ''; // Reset input
+  
+        // Sau khi bình luận được thêm, gọi lại API để lấy danh sách bình luận mới nhất
+        this.loadComments(); // Gọi lại phương thức loadComments để cập nhật danh sách bình luận
       },
       error: (err) => {
         console.error('Lỗi khi gửi bình luận:', err);
       },
     });
   }
+  
+  loadComments(): void {
+    // Lấy lại danh sách bình luận sau khi thêm bình luận mới
+    this.commentService.getComments().subscribe(
+      (response: any) => {
+        if (response.success && response.data) {
+          // Lọc các bình luận theo blog_id hiện tại
+          this.comments = response.data.filter((comment: Comment) => comment.blog_id == this.articleId);
+        } else {
+          console.error('Invalid response format:', response);
+        }
+      },
+      (error) => {
+        console.error('Error fetching comments:', error);
+      }
+    );
+  }
+  
 }
