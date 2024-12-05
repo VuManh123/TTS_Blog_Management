@@ -20,7 +20,7 @@ export const routes: Routes = [
     { path: 'blog-detail/:id', component: BlogDetailComponent},
     { path: 'my-blog', component: MyBlogComponent ,canActivate: [AuthGuard]},
     { path: 'new-blog', component: NewBlogComponent ,canActivate: [AuthGuard]},
-    { path: 'edit-blog/:id', component: EditBlogComponent ,canActivate: [AuthGuard]},
+    { path: 'edit-blog/:blogId', component: EditBlogComponent ,canActivate: [AuthGuard]},
     { path: 'search/:content', component: SearchComponent},
     { path: 'search', component: SearchComponent },
     { path: 'add-language/:blogId', component: AddLanguageComponent }

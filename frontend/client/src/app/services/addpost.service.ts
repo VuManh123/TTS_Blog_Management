@@ -32,4 +32,12 @@ export class AddPostService {
     return this.http.post(`http://localhost:3000/posts/${blogId}/add-language`, postData);
   }
   
+  getBlogContents(blogId: number): Observable<any> {
+    return this.http.get(`http://localhost:3000/posts/${blogId}/contents`);
+  }
+
+  updateBlogContent(postData: any): Observable<any> {
+    const { blog_id, content_id, ...payload } = postData;
+    return this.http.put(`http://localhost:3000/posts/${blog_id}/contents/${content_id}`, payload);
+  }
 }

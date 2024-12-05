@@ -1,9 +1,9 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import Quill from 'quill';
 import { ActivatedRoute, Router } from '@angular/router';
+import Quill from 'quill';
+import { AddPostService } from '../../services/addpost.service'; // Đảm bảo đường dẫn đúng
 
 @Component({
   selector: 'app-main-edit-blog',
@@ -12,49 +12,100 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './main-edit-blog.component.html',
   styleUrls: ['./main-edit-blog.component.css'],
 })
-export class MainEditBlogComponent implements OnInit, AfterViewInit {
+export class MainEditBlogComponent implements OnInit {
   @ViewChild('editor') editor!: ElementRef;
   editorInstance!: Quill;
 
-  post = {
-    id: 0,
-    title: '',
-    categoryId: null,
-    languageId: null,
-    content: '',
-    excerpt: '',
-    userId: 0,
-    image: '',
-  };
-
-  categories: { id: number; name: string }[] = [];
-  languages: { id: number; code: string; name: string; flag: string }[] = [];
+  blogId: number | null = null;
+  languages: { id: number; name: string }[] = [];
+  blogContents: { language_id: number; title: string; main_content: string; id: number, language: { id: number, name: string } }[] = [];
+  selectedLanguageId: number | null = null;
+  currentBlogContent = { title: '', main_content: '', languageId: null as number | null, contentId: null as number | null };
 
   constructor(
-    private http: HttpClient,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private addPostService: AddPostService
   ) {}
 
   ngOnInit(): void {
-    // Lấy danh sách categories từ JSON
-    this.http.get<{ id: number; name: string }[]>('assets/categories.json').subscribe((data) => {
-      this.categories = data;
-    });
-
-    // Lấy danh sách ngôn ngữ từ JSON
-    this.http.get<{ id: number; code: string; name: string; flag: string }[]>('assets/language.json').subscribe((data) => {
-      this.languages = data;
-    });
-
-    // Lấy ID bài viết từ URL và tải dữ liệu bài viết
-    const postId = this.route.snapshot.paramMap.get('id');
-    if (postId) {
-      this.loadPostData(parseInt(postId, 10));
-    }
+    this.getBlogIdFromRoute();
   }
 
   ngAfterViewInit(): void {
+    this.initEditor();
+  }
+
+  // Lấy blogId từ route params
+  private getBlogIdFromRoute(): void {
+    this.route.params.subscribe((params) => {
+      this.blogId = +params['blogId'];
+      if (this.blogId) {
+        this.loadBlogContents();
+      }
+    });
+  }
+
+  private loadBlogContents(): void {
+    if (!this.blogId) return;
+
+    this.addPostService.getBlogContents(this.blogId).subscribe({
+      next: (response) => {
+        this.blogContents = response.data;
+
+        // Tạo danh sách ngôn ngữ từ dữ liệu trả về
+        this.languages = this.blogContents.map((content) => ({
+          id: content.language.id,
+          name: content.language.name,
+          flag: '' // Có thể thêm đường dẫn ảnh cờ nếu cần
+        }));
+
+        // Chọn ngôn ngữ mặc định (ngôn ngữ của bài viết đầu tiên)
+        if (this.languages.length) {
+          this.selectedLanguageId = this.languages[0].id; // Mặc định chọn ngôn ngữ đầu tiên
+        }
+
+        this.setCurrentBlogContent();
+      },
+      error: (err) => console.error('Error loading blog contents:', err),
+    });
+  }
+
+  // Cập nhật nội dung blog theo ngôn ngữ đã chọn
+  private setCurrentBlogContent(): void {
+    if (!this.selectedLanguageId) return; // Kiểm tra nếu chưa chọn ngôn ngữ
+    
+    // Tìm nội dung blog tương ứng với ngôn ngữ đã chọn
+    const content = this.blogContents.find(
+      (bc) => bc.language.id === this.selectedLanguageId
+    );
+  
+    if (content) {
+      // Nếu tìm thấy nội dung tương ứng với ngôn ngữ đã chọn
+      this.currentBlogContent = {
+        title: content.title,
+        main_content: content.main_content,
+        languageId: content.language.id,
+        contentId: content.id,
+      };
+    } else {
+      // Nếu không tìm thấy, tạo một nội dung trống cho ngôn ngữ mới
+      this.currentBlogContent = {
+        title: '',
+        main_content: '',
+        languageId: this.selectedLanguageId,
+        contentId: null,
+      };
+    }
+  
+    // Cập nhật nội dung editor nếu đã có editor instance
+    if (this.editorInstance) {
+      this.editorInstance.root.innerHTML = this.currentBlogContent.main_content || '';
+    }
+  }
+
+  // Khởi tạo Quill editor
+  private initEditor(): void {
     this.editorInstance = new Quill(this.editor.nativeElement, {
       theme: 'snow',
       modules: {
@@ -62,72 +113,46 @@ export class MainEditBlogComponent implements OnInit, AfterViewInit {
           [{ header: '1' }, { header: '2' }, { font: [] }],
           [{ list: 'ordered' }, { list: 'bullet' }],
           ['bold', 'italic', 'underline'],
-          ['link'],
-          [{ align: [] }],
-          ['image'],
-          ['blockquote', 'code-block'],
+          ['link', { align: [] }],
+          ['image', 'blockquote', 'code-block'],
         ],
       },
     });
 
-    // Cập nhật nội dung khi editor thay đổi
     this.editorInstance.on('text-change', () => {
-      this.post.content = this.editorInstance.root.innerHTML;
-      this.post.excerpt = this.editorInstance.root.innerText.substring(0, 150); // Tạo excerpt tự động
+      this.currentBlogContent.main_content = this.editorInstance.root.innerHTML;
     });
   }
 
-  loadPostData(postId: number): void {
-    // Gọi API lấy danh sách tất cả bài viết
-    this.http.get<any[]>('assets/articles.json').subscribe({
-      next: (posts) => {
-        const foundPost = posts.find((post) => post.id === postId); // Tìm bài viết có ID tương ứng
-
-        if (foundPost) {
-          this.post = { ...foundPost };
-
-          // Cập nhật nội dung vào Quill editor
-          if (this.editorInstance) {
-            this.editorInstance.root.innerHTML = foundPost.content;
-          }
-        } else {
-          alert('Bài viết không tồn tại!');
-          this.router.navigate(['/my-blog']); // Chuyển hướng về trang My Blog nếu không tìm thấy bài viết
-        }
-      },
-      error: (err) => {
-        console.error('Không thể tải danh sách bài viết:', err);
-        alert('Lỗi khi tải danh sách bài viết!');
-      },
-    });
+  // Xử lý khi người dùng thay đổi ngôn ngữ
+  onLanguageChange(event: Event): void {
+    this.selectedLanguageId = +(event.target as HTMLSelectElement).value;
+    this.setCurrentBlogContent(); // Cập nhật nội dung bài viết theo ngôn ngữ đã chọn
   }
+  
 
+  // Xử lý khi người dùng gửi form
   onSubmit(event: Event): void {
     event.preventDefault();
-
-    // Kiểm tra dữ liệu trước khi gửi
-    if (!this.validatePost(this.post)) {
-      alert('Vui lòng điền đầy đủ thông tin bài viết.');
+    if (!this.blogId || !this.selectedLanguageId || !this.currentBlogContent.contentId) {
+      alert('Invalid blog or language selection.');
       return;
     }
 
-    // Gửi yêu cầu cập nhật bài viết
-    this.http.put(`http://localhost:3001/posts/${this.post.id}`, this.post).subscribe({
-      next: (response) => {
-        alert('Cập nhật bài viết thành công!');
-        console.log(response);
+    const postData = {
+      blog_id: this.blogId,
+      content_id: this.currentBlogContent.contentId,
+      title: this.currentBlogContent.title,
+      main_content: this.currentBlogContent.main_content,
+      language_id: this.currentBlogContent.languageId,
+    };
 
-        // Chuyển hướng đến trang "My Blog"
+    this.addPostService.updateBlogContent(postData).subscribe({
+      next: () => {
+        alert('Blog updated successfully!');
         this.router.navigate(['/my-blog']);
       },
-      error: (error) => {
-        alert('Cập nhật bài viết thất bại.');
-        console.error(error);
-      },
+      error: (err) => console.error('Error updating blog:', err),
     });
-  }
-
-  validatePost(post: any): boolean {
-    return post.title && post.category && post.content && post.languageId;
   }
 }
