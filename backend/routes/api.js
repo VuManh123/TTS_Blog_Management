@@ -46,6 +46,8 @@ router.post("/comments", commentController.create);
 router.post("/posts",PostController.createPost);
 router.delete('/posts/:id', PostController.deletePost);
 router.post('/posts/:blog_id/add-language',PostController.addBlogContent);
+router.get('/posts/:blog_id/contents', PostController.getBlogContents);
+router.put('/posts/:blog_id/contents/:content_id', PostController.updateBlogContent);
 module.exports = router;
 
 router.group("/example", validate([]), (router) => {

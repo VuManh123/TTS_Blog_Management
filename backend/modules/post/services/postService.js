@@ -115,6 +115,50 @@ class PostService {
       throw error;
     }
   }
+
+  static async getBlogContentsByBlogId(blog_id) {
+    try {
+      const contents = await BlogContent.findAll({
+        where: { blog_id },
+        include: [
+          {
+            model: Language,
+            as: 'language', // Đảm bảo sử dụng alias 'as'
+            attributes: ['id', 'name'], // Chỉ lấy các cột cần thiết
+          },
+        ],
+      });
+      return contents;
+    } catch (error) {
+      console.error('Error in getBlogContentsByBlogId service:', error.message);
+      throw error;
+    }
+  }
+  
+
+  static async updateBlogContent({ content_id, blog_id, main_content, title }) {
+    try {
+      const blogContent = await BlogContent.findOne({
+        where: { id: content_id, blog_id },
+      });
+  
+      if (!blogContent) {
+        throw new Error('Blog content not found for the specified blog and content ID');
+      }
+  
+      // Cập nhật nội dung
+      blogContent.main_content = main_content || blogContent.main_content;
+      blogContent.title = title || blogContent.title;
+  
+      await blogContent.save();
+  
+      return blogContent;
+    } catch (error) {
+      console.error('Error in updateBlogContent service:', error.message);
+      throw error;
+    }
+  }
+  
 }
 
 module.exports = PostService;
