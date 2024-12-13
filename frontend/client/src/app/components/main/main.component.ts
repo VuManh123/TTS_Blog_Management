@@ -63,7 +63,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     const moveSlider = (position: number) => {
       // Đảm bảo rằng không di chuyển quá phạm vi
       if (position < 0) {
-        position = sliderItems.length - 3;
+        position = sliderItems.length - 1;
       } else if (position >= sliderItems.length) {
         position = 0;
       }
