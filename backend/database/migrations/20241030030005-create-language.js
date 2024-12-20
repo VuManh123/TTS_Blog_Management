@@ -18,6 +18,10 @@ module.exports = {
       flag: {
         type: Sequelize.STRING
       },
+      flagImage: { 
+        type: Sequelize.STRING,
+        allowNull: true
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

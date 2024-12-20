@@ -11,7 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    flag: DataTypes.STRING
+    flag: DataTypes.STRING,
+    flagImage: { 
+      type: DataTypes.STRING,
+      allowNull: true
+    }
   }, {
     tableName: 'Languages',  // Tên bảng khớp với migration
     underscored: false,       // Sử dụng underscore cho tên cột
